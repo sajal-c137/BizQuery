@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
 from database import init_db
-from routers import chat, users
+from routers import chat
 
 init_db()
 
@@ -17,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(users.router)
 app.include_router(chat.router)
 
 
