@@ -50,6 +50,9 @@ secrets/
 *.db-shm
 *.db-wal
 
+# ChromaDB persistent store (regenerable from ingest_docs.py)
+database/chroma_db/
+
 # Alembic (keep versions/, ignore generated files)
 alembic/versions/*.pyc
 

@@ -16,7 +16,7 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 150) -> list[st
         # Walk back to the nearest natural boundary
         for sep in ["\n\n", "\n", ". ", " "]:
             pos = text.rfind(sep, start, end)
-            if pos > start:
+            if pos > start + overlap:
                 end = pos + len(sep)
                 break
         chunks.append(text[start:end])

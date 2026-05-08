@@ -12,4 +12,4 @@ async def embed_texts(texts: list[str]) -> list[list[float]]:
         return []
     # Run synchronous ONNX inference in a thread so it doesn't block the event loop
     embeddings = await asyncio.to_thread(_ef, texts)
-    return [list(e) for e in embeddings]
+    return [e.tolist() for e in embeddings]
