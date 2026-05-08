@@ -32,3 +32,13 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     conversation_id: int
     message: MessageOut
+
+
+class AnalyticsRequest(BaseModel):
+    question: str
+    source_id: str | None = None
+
+
+class AnalyticsResponse(BaseModel):
+    answer: str
+    source_id: str | None = None

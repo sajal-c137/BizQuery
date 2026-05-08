@@ -1,0 +1,50 @@
+from pathlib import Path
+
+import pandas as pd
+
+DATA_DIR = Path(__file__).parent.parent / "data_sources"
+
+
+def list_sources() -> list[dict]:
+    """Return all available CSV data sources."""
+    return [
+        {"id": f.stem, "name": f.stem.replace("_", " ").title()}
+        for f in sorted(DATA_DIR.glob("*.csv"))
+    ]
+
+
+def get_data_context(source_id: str) -> dict:
+    """Load a CSV source and return a structured context for the AI layer.
+
+    The returned dict contains schema info, per-column statistics, and sample
+    rows so the AI can answer analytical questions without seeing every row.
+    """
+    path = DATA_DIR / f"{source_id}.csv"
+    if not path.exists():
+        raise FileNotFoundError(f"Data source '{source_id}' not found")
+
+    df = pd.read_csv(path)
+
+    columns = []
+    for col in df.columns:
+        col_info: dict = {"name": col, "dtype": str(df[col].dtype)}
+        if pd.api.types.is_numeric_dtype(df[col]):
+            col_info["stats"] = {
+                "min": round(float(df[col].min()), 2),
+                "max": round(float(df[col].max()), 2),
+                "mean": round(float(df[col].mean()), 2),
+                "sum": round(float(df[col].sum()), 2),
+            }
+        else:
+            n_unique = int(df[col].nunique())
+            col_info["unique_count"] = n_unique
+            if n_unique <= 20:
+                col_info["unique_values"] = sorted(df[col].dropna().astype(str).unique().tolist())
+        columns.append(col_info)
+
+    return {
+        "source_id": source_id,
+        "row_count": len(df),
+        "columns": columns,
+        "sample_rows": df.head(5).to_dict(orient="records"),
+    }
