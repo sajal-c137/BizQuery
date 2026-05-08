@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-DATA_DIR = Path(__file__).parent.parent / "data_sources"
+DATA_DIR = Path(__file__).parent.parent.parent / "database" / "data_sources"
 
 
 def list_sources() -> list[dict]:

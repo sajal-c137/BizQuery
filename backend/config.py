@@ -13,9 +13,9 @@ class Settings(BaseSettings):
     llm_base_url: str = "https://api.groq.com/openai/v1"
     llm_model: str = "llama-3.3-70b-versatile"
 
-    database_url: str = "sqlite:///./bizquery.db"
+    database_url: str = "sqlite:///../database/bizquery.db"
     cors_origins: str = "http://localhost:5173,http://localhost:3000"
-    chroma_dir: str = "./chroma_db"
+    chroma_dir: str = "../database/chroma_db"
     upload_dir: str = "./uploads"
 
     def get_cors_origins(self) -> list[str]:
