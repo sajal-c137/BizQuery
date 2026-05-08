@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { sendMessage } from '../services/api'
+import { sendMessage, getSources } from '../services/api'
 
 function Message({ role, content }) {
   const isUser = role === 'user'
@@ -23,7 +23,15 @@ export default function ChatWindow() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [conversationId, setConversationId] = useState(null)
+  const [sources, setSources] = useState([])
+  const [sourceId, setSourceId] = useState('')
   const bottomRef = useRef(null)
+
+  useEffect(() => {
+    getSources()
+      .then(({ data }) => setSources(data))
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -38,13 +46,13 @@ export default function ChatWindow() {
     setLoading(true)
 
     try {
-      const { data } = await sendMessage(text, conversationId)
+      const { data } = await sendMessage(text, conversationId, sourceId || null)
       setConversationId(data.conversation_id)
       setMessages((prev) => [...prev, data.message])
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: '⚠️ Something went wrong. Please try again.' },
+        { role: 'assistant', content: 'Something went wrong. Please try again.' },
       ])
     } finally {
       setLoading(false)
@@ -62,9 +70,24 @@ export default function ChatWindow() {
     <div className="flex flex-col h-screen bg-white">
 
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 bg-white">
-        <h1 className="text-lg font-semibold text-gray-800">BizQuery</h1>
-        <p className="text-xs text-gray-400">AI-powered business assistant</p>
+      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between">
+        <div>
+          <h1 className="text-lg font-semibold text-gray-800">BizQuery</h1>
+          <p className="text-xs text-gray-400">AI-powered business assistant</p>
+        </div>
+        {sources.length > 0 && (
+          <select
+            value={sourceId}
+            onChange={(e) => setSourceId(e.target.value)}
+            className="text-sm border border-gray-300 rounded-lg px-3 py-1.5 text-gray-700
+                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          >
+            <option value="">No data source</option>
+            {sources.map((s) => (
+              <option key={s.id} value={s.id}>{s.name}</option>
+            ))}
+          </select>
+        )}
       </div>
 
       {/* Messages */}

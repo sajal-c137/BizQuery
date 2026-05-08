@@ -5,6 +5,8 @@ from database import get_db
 from models import Conversation, Message
 from schemas import ChatRequest, ChatResponse, ConversationDetail, ConversationOut, MessageOut
 from services.ai import get_ai_response
+from services.data_proxy import get_data_context
+from services.rag.pipeline import retrieve_context
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
@@ -49,7 +51,16 @@ async def send_message(body: ChatRequest, db: Session = Depends(get_db)):
     history = [{"role": m.role, "content": m.content} for m in conv.messages if m.id != user_msg.id]
     history.append({"role": "user", "content": body.message})
 
-    reply_text = await get_ai_response(history)
+    data_context = None
+    if body.source_id:
+        try:
+            data_context = get_data_context(body.source_id)
+        except FileNotFoundError:
+            raise HTTPException(status_code=404, detail=f"Data source '{body.source_id}' not found")
+
+    rag_context = await retrieve_context(body.message)
+
+    reply_text = await get_ai_response(history, data_context=data_context, rag_context=rag_context or None)
 
     assistant_msg = Message(conversation_id=conv.id, role="assistant", content=reply_text)
     db.add(assistant_msg)
