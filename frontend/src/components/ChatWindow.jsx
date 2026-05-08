@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { sendMessage, getSources } from '../services/api'
 
-function Message({ role, content }) {
+function Message({ role, content, sources }) {
   const isUser = role === 'user'
+  const csvs = sources?.csvs ?? []
+  const docs = sources?.documents ?? []
+  const hasSources = !isUser && (csvs.length > 0 || docs.length > 0)
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-3`}>
+    <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'} mb-3`}>
       <div
         className={`max-w-[70%] px-4 py-2 rounded-2xl text-sm leading-relaxed
           ${isUser
@@ -14,6 +17,21 @@ function Message({ role, content }) {
       >
         {content}
       </div>
+      {hasSources && (
+        <div className="mt-1 max-w-[70%] flex flex-wrap gap-1.5 text-[11px] text-gray-500">
+          <span className="font-medium text-gray-400">Sources:</span>
+          {csvs.map((id) => (
+            <span key={`csv-${id}`} className="px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-100">
+              {id}
+            </span>
+          ))}
+          {docs.map((name) => (
+            <span key={`doc-${name}`} className="px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-100">
+              {name.replace(/\.[^/.]+$/, '')}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -24,7 +42,7 @@ export default function ChatWindow() {
   const [loading, setLoading] = useState(false)
   const [conversationId, setConversationId] = useState(null)
   const [sources, setSources] = useState([])
-  const [sourceId, setSourceId] = useState('')
+  const [sourceId, setSourceId] = useState('auto')
   const bottomRef = useRef(null)
 
   useEffect(() => {
@@ -82,6 +100,7 @@ export default function ChatWindow() {
             className="text-sm border border-gray-300 rounded-lg px-3 py-1.5 text-gray-700
                        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           >
+            <option value="auto">Auto-select sources</option>
             <option value="">No data source</option>
             {sources.map((s) => (
               <option key={s.id} value={s.id}>{s.name}</option>
@@ -99,7 +118,7 @@ export default function ChatWindow() {
           </div>
         )}
         {messages.map((msg, i) => (
-          <Message key={i} role={msg.role} content={msg.content} />
+          <Message key={i} role={msg.role} content={msg.content} sources={msg.sources} />
         ))}
         {loading && (
           <div className="flex justify-start mb-3">

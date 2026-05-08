@@ -3,11 +3,17 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
+class SourceCitation(BaseModel):
+    csvs: list[str] = []
+    documents: list[str] = []
+
+
 class MessageOut(BaseModel):
     id: int
     role: str
     content: str
     created_at: datetime
+    sources: SourceCitation | None = None
 
     model_config = {"from_attributes": True}
 

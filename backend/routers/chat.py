@@ -3,10 +3,18 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from models import Conversation, Message
-from schemas import ChatRequest, ChatResponse, ConversationDetail, ConversationOut, MessageOut
+from schemas import (
+    ChatRequest,
+    ChatResponse,
+    ConversationDetail,
+    ConversationOut,
+    MessageOut,
+    SourceCitation,
+)
 from services.ai import get_ai_response
 from services.data_proxy import get_data_context
 from services.rag.pipeline import retrieve_context
+from services.source_router import route_sources
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
@@ -51,20 +59,43 @@ async def send_message(body: ChatRequest, db: Session = Depends(get_db)):
     history = [{"role": m.role, "content": m.content} for m in conv.messages if m.id != user_msg.id]
     history.append({"role": "user", "content": body.message})
 
-    data_context = None
-    if body.source_id:
+    data_contexts: list[dict] = []
+    if body.source_id == "auto":
+        for sid in await route_sources(body.message):
+            try:
+                data_contexts.append(get_data_context(sid))
+            except FileNotFoundError:
+                continue
+    elif body.source_id:
         try:
-            data_context = get_data_context(body.source_id)
+            data_contexts.append(get_data_context(body.source_id))
         except FileNotFoundError:
             raise HTTPException(status_code=404, detail=f"Data source '{body.source_id}' not found")
 
     rag_context = await retrieve_context(body.message)
 
-    reply_text = await get_ai_response(history, data_context=data_context, rag_context=rag_context or None)
+    reply_text = await get_ai_response(
+        history,
+        data_contexts=data_contexts or None,
+        rag_context=rag_context or None,
+    )
 
     assistant_msg = Message(conversation_id=conv.id, role="assistant", content=reply_text)
     db.add(assistant_msg)
     db.commit()
     db.refresh(assistant_msg)
 
-    return {"conversation_id": conv.id, "message": MessageOut.model_validate(assistant_msg)}
+    cited_docs: list[str] = []
+    seen: set[str] = set()
+    for chunk in rag_context or []:
+        name = chunk.get("metadata", {}).get("filename")
+        if name and name not in seen:
+            seen.add(name)
+            cited_docs.append(name)
+
+    message_out = MessageOut.model_validate(assistant_msg)
+    message_out.sources = SourceCitation(
+        csvs=[ctx["source_id"] for ctx in data_contexts],
+        documents=cited_docs,
+    )
+    return {"conversation_id": conv.id, "message": message_out}

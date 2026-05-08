@@ -4,6 +4,7 @@ from schemas import AnalyticsRequest, AnalyticsResponse
 from services.ai import get_ai_response
 from services.data_proxy import get_data_context, list_sources
 from services.rag.pipeline import retrieve_context
+from services.source_router import route_sources
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])
 
@@ -16,10 +17,16 @@ def get_sources() -> list[dict]:
 
 @router.post("/query", response_model=AnalyticsResponse)
 async def analytics_query(body: AnalyticsRequest) -> AnalyticsResponse:
-    data_context = None
-    if body.source_id:
+    data_contexts: list[dict] = []
+    if body.source_id == "auto":
+        for sid in await route_sources(body.question):
+            try:
+                data_contexts.append(get_data_context(sid))
+            except FileNotFoundError:
+                continue
+    elif body.source_id:
         try:
-            data_context = get_data_context(body.source_id)
+            data_contexts.append(get_data_context(body.source_id))
         except FileNotFoundError as e:
             raise HTTPException(status_code=404, detail=str(e))
 
@@ -28,7 +35,8 @@ async def analytics_query(body: AnalyticsRequest) -> AnalyticsResponse:
 
     answer = await get_ai_response(
         [{"role": "user", "content": body.question}],
-        data_context=data_context,
+        data_contexts=data_contexts or None,
         rag_context=rag_context or None,
     )
-    return AnalyticsResponse(answer=answer, source_id=body.source_id)
+    selected = ",".join(c["source_id"] for c in data_contexts) or body.source_id
+    return AnalyticsResponse(answer=answer, source_id=selected)

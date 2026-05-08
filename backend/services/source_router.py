@@ -1,0 +1,52 @@
+"""LLM-based router that picks which CSV data sources a question needs."""
+import json
+
+import pandas as pd
+
+from config import settings
+from services.data_proxy import DATA_DIR, list_sources
+from services.openai_client import client
+
+_ROUTER_SYSTEM = (
+    "You are a data routing assistant. Given a user's question and a list of "
+    "available data sources with their columns, return ONLY the source ids that "
+    "are needed to answer the question. Pick zero, one, or multiple sources. "
+    'Reply with JSON only: {"sources": ["id1", "id2"]}.'
+)
+
+
+def _schema_summary() -> str:
+    """Compact one-line-per-source schema list for the routing prompt."""
+    lines = []
+    for s in list_sources():
+        cols = pd.read_csv(DATA_DIR / f"{s['id']}.csv", nrows=0).columns.tolist()
+        lines.append(f"- {s['id']}: {', '.join(cols)}")
+    return "\n".join(lines)
+
+
+async def route_sources(question: str) -> list[str]:
+    """Ask the LLM which CSVs are relevant. Returns a (possibly empty) list of ids."""
+    valid_ids = {s["id"] for s in list_sources()}
+    if not valid_ids:
+        return []
+
+    user_content = (
+        f"Available data sources:\n{_schema_summary()}\n\n"
+        f"Question: {question}"
+    )
+    response = await client.chat.completions.create(
+        model=settings.llm_model,
+        messages=[
+            {"role": "system", "content": _ROUTER_SYSTEM},
+            {"role": "user", "content": user_content},
+        ],
+        response_format={"type": "json_object"},
+    )
+    try:
+        parsed = json.loads(response.choices[0].message.content or "")
+    except json.JSONDecodeError:
+        return []
+    picked = parsed.get("sources") if isinstance(parsed, dict) else None
+    if not isinstance(picked, list):
+        return []
+    return [s for s in picked if isinstance(s, str) and s in valid_ids]

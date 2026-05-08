@@ -24,7 +24,11 @@ def upsert_chunks(
     _collection().upsert(ids=ids, embeddings=embeddings, documents=chunks, metadatas=metadata)
 
 
-def query_chunks(query_embedding: list[float], n_results: int = 5) -> list[dict]:
+def query_chunks(
+    query_embedding: list[float],
+    n_results: int = 5,
+    min_score: float = 0.35,
+) -> list[dict]:
     col = _collection()
     count = col.count()
     if count == 0:
@@ -34,7 +38,7 @@ def query_chunks(query_embedding: list[float], n_results: int = 5) -> list[dict]
         n_results=min(n_results, count),
         include=["documents", "metadatas", "distances"],
     )
-    return [
+    chunks = [
         {"text": text, "metadata": meta, "score": round(1 - dist, 4)}
         for text, meta, dist in zip(
             results["documents"][0],
@@ -42,6 +46,7 @@ def query_chunks(query_embedding: list[float], n_results: int = 5) -> list[dict]
             results["distances"][0],
         )
     ]
+    return [c for c in chunks if c["score"] >= min_score]
 
 
 def delete_document(doc_id: str) -> None:
