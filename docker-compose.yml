@@ -1,0 +1,26 @@
+services:
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./backend/.env.docker
+    volumes:
+      - sqlite_data:/app/data
+    networks:
+      - internal
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - internal
+
+volumes:
+  sqlite_data:
+
+networks:
+  internal:

@@ -7,7 +7,7 @@ from alembic import context
 
 from config import settings
 from database import Base
-import models  # noqa: F401 — registers User, Conversation, Message on Base
+import models  # noqa: F401 — registers Conversation, Message on Base
 
 config = context.config
 

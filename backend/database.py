@@ -31,7 +31,7 @@ class Base(DeclarativeBase):
 
 def init_db() -> None:
     """Create all tables. Called once at startup from main.py."""
-    from models import Conversation, Message, User  # noqa: F401 — imports register all three on Base
+    from models import Conversation, Message  # noqa: F401 — imports register both on Base
 
     Base.metadata.create_all(bind=engine)
 
