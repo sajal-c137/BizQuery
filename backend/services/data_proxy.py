@@ -2,6 +2,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from services.policy import classify, redact_context
+
 DATA_DIR = Path(__file__).parent.parent.parent / "database" / "data_sources"
 
 
@@ -13,7 +15,7 @@ def list_sources() -> list[dict]:
     ]
 
 
-def get_data_context(source_id: str) -> dict:
+def get_data_context(source_id: str, admin: bool = False) -> dict:
     """Load a CSV source and return a structured context for the AI layer.
 
     The returned dict contains schema info, per-column statistics, and sample
@@ -53,9 +55,27 @@ def get_data_context(source_id: str) -> dict:
         grouped = df.groupby(cat)[numeric_cols].sum().round(2)
         group_stats[cat] = grouped.to_dict(orient="index")
 
-    return {
+    # Top-3 rows per numeric column, with public categorical labels only.
+    # Lets the LLM answer "which movie had the biggest budget?" without
+    # leaking row-level data through identifier or PII columns.
+    public_label_cols = [
+        c for c in df.columns
+        if not pd.api.types.is_numeric_dtype(df[c])
+        and classify(source_id, c) == "public"
+    ]
+    top_examples = {}
+    for col in numeric_cols:
+        if classify(source_id, col) in ("pii", "identifier"):
+            continue
+        if df[col].nunique() <= 1:
+            continue
+        rows = df.nlargest(3, col)[public_label_cols + [col]].to_dict(orient="records")
+        top_examples[col] = rows
+
+    return redact_context(source_id, {
         "source_id": source_id,
         "row_count": len(df),
         "columns": columns,
         "group_stats": group_stats,
-    }
+        "top_examples": top_examples,
+    }, admin=admin)

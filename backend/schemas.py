@@ -34,6 +34,7 @@ class ChatRequest(BaseModel):
     conversation_id: int | None = None
     message: str
     source_id: str | None = None
+    admin: bool = False
 
 
 class ChatResponse(BaseModel):
@@ -56,6 +57,7 @@ class DocumentOut(BaseModel):
 class AnalyticsRequest(BaseModel):
     question: str
     source_id: str | None = None
+    admin: bool = False
 
 
 class AnalyticsResponse(BaseModel):

@@ -63,12 +63,12 @@ async def send_message(body: ChatRequest, db: Session = Depends(get_db)):
     if body.source_id == "auto":
         for sid in await route_sources(body.message):
             try:
-                data_contexts.append(get_data_context(sid))
+                data_contexts.append(get_data_context(sid, admin=body.admin))
             except FileNotFoundError:
                 continue
     elif body.source_id:
         try:
-            data_contexts.append(get_data_context(body.source_id))
+            data_contexts.append(get_data_context(body.source_id, admin=body.admin))
         except FileNotFoundError:
             raise HTTPException(status_code=404, detail=f"Data source '{body.source_id}' not found")
 

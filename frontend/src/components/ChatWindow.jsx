@@ -43,6 +43,7 @@ export default function ChatWindow() {
   const [conversationId, setConversationId] = useState(null)
   const [sources, setSources] = useState([])
   const [sourceId, setSourceId] = useState('auto')
+  const [admin, setAdmin] = useState(false)
   const bottomRef = useRef(null)
 
   useEffect(() => {
@@ -64,7 +65,7 @@ export default function ChatWindow() {
     setLoading(true)
 
     try {
-      const { data } = await sendMessage(text, conversationId, sourceId || null)
+      const { data } = await sendMessage(text, conversationId, sourceId || null, admin)
       setConversationId(data.conversation_id)
       setMessages((prev) => [...prev, data.message])
     } catch (err) {
@@ -93,20 +94,37 @@ export default function ChatWindow() {
           <h1 className="text-lg font-semibold text-gray-800">BizQuery</h1>
           <p className="text-xs text-gray-400">AI-powered business assistant</p>
         </div>
-        {sources.length > 0 && (
-          <select
-            value={sourceId}
-            onChange={(e) => setSourceId(e.target.value)}
-            className="text-sm border border-gray-300 rounded-lg px-3 py-1.5 text-gray-700
-                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+        <div className="flex items-center gap-3">
+          <label
+            title="Show internal/confidential metrics (e.g. budgets, ad spend, regional revenue)"
+            className={`flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border cursor-pointer select-none
+              ${admin
+                ? 'border-amber-300 bg-amber-50 text-amber-800'
+                : 'border-gray-300 bg-white text-gray-600'}`}
           >
-            <option value="auto">Auto-select sources</option>
-            <option value="">No data source</option>
-            {sources.map((s) => (
-              <option key={s.id} value={s.id}>{s.name}</option>
-            ))}
-          </select>
-        )}
+            <input
+              type="checkbox"
+              checked={admin}
+              onChange={(e) => setAdmin(e.target.checked)}
+              className="accent-amber-600"
+            />
+            Admin
+          </label>
+          {sources.length > 0 && (
+            <select
+              value={sourceId}
+              onChange={(e) => setSourceId(e.target.value)}
+              className="text-sm border border-gray-300 rounded-lg px-3 py-1.5 text-gray-700
+                         focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+              <option value="auto">Auto-select sources</option>
+              <option value="">No data source</option>
+              {sources.map((s) => (
+                <option key={s.id} value={s.id}>{s.name}</option>
+              ))}
+            </select>
+          )}
+        </div>
       </div>
 
       {/* Messages */}

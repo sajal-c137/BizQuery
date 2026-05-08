@@ -21,12 +21,12 @@ async def analytics_query(body: AnalyticsRequest) -> AnalyticsResponse:
     if body.source_id == "auto":
         for sid in await route_sources(body.question):
             try:
-                data_contexts.append(get_data_context(sid))
+                data_contexts.append(get_data_context(sid, admin=body.admin))
             except FileNotFoundError:
                 continue
     elif body.source_id:
         try:
-            data_contexts.append(get_data_context(body.source_id))
+            data_contexts.append(get_data_context(body.source_id, admin=body.admin))
         except FileNotFoundError as e:
             raise HTTPException(status_code=404, detail=str(e))
 

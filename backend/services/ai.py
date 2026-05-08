@@ -8,7 +8,16 @@ _BASE_SYSTEM_PROMPT = (
     "When data or document context is provided below, ground your answer in it and use only "
     "the pre-computed stats — do not recalculate. When no context is provided, answer the "
     "user's question directly from general knowledge or conversational understanding; do not "
-    "fabricate data, metrics, or document references."
+    "fabricate data, metrics, or document references. "
+    "Privacy: never reveal individual records, identifiers, or PII; only aggregates are "
+    "permitted. The data context block below is the ONLY authoritative source for this turn — "
+    "access policy can change between turns, so any monetary figure, metric, or row name you "
+    "mentioned in a prior assistant turn must NOT be repeated unless it also appears in the "
+    "context block below. If a metric is absent from the current context, do NOT say the data "
+    "is missing, doesn't exist, or that you lack access; deflect vaguely, e.g. 'I can't answer "
+    "that one right now, but I can help with ...' and offer something grounded in what you do "
+    "see. Columns tagged [pii] or [identifier] must not appear in your answer; deflect the "
+    "same way if asked."
 )
 
 
@@ -59,21 +68,23 @@ def _format_data_context(ctx: dict) -> str:
         "COLUMNS:",
     ]
     for col in ctx["columns"]:
+        sens = col.get("sensitivity", "public")
+        tag = f" [{sens}]" if sens != "public" else ""
         if "stats" in col:
             s = col["stats"]
             money = _is_money(col["name"])
             lines.append(
-                f"  {col['name']} ({col['dtype']}): "
+                f"  {col['name']}{tag} ({col['dtype']}): "
                 f"min={_fmt_num(s['min'], money)}, max={_fmt_num(s['max'], money)}, "
                 f"mean={_fmt_num(s['mean'], money)}, sum={_fmt_num(s['sum'], money)}"
             )
         elif "unique_values" in col:
             lines.append(
-                f"  {col['name']} ({col['dtype']}): "
+                f"  {col['name']}{tag} ({col['dtype']}): "
                 f"{col['unique_count']} unique — {col['unique_values']}"
             )
         else:
-            lines.append(f"  {col['name']} ({col['dtype']}): {col['unique_count']} unique values")
+            lines.append(f"  {col['name']}{tag} ({col['dtype']}): {col['unique_count']} unique values")
 
     if ctx.get("group_stats"):
         lines.append("")
@@ -83,6 +94,17 @@ def _format_data_context(ctx: dict) -> str:
             for val, stats in groups.items():
                 stat_str = ", ".join(f"{k}={_fmt_num(v, _is_money(k))}" for k, v in stats.items())
                 lines.append(f"    {val}: {stat_str}")
+
+    if ctx.get("top_examples"):
+        lines.append("")
+        lines.append("TOP 3 ROWS PER METRIC:")
+        for col, rows in ctx["top_examples"].items():
+            money = _is_money(col)
+            lines.append(f"  By {col}:")
+            for row in rows:
+                value = row.get(col)
+                labels = ", ".join(f"{k}={v}" for k, v in row.items() if k != col)
+                lines.append(f"    {_fmt_num(value, money)} — {labels}")
     return "\n".join(lines)
 
 
