@@ -1,501 +1,501 @@
-viewer_id,age,gender,country,subscription_tier,join_date,preferred_device
-V0001,46,M,India,Free,2021-01-01,Desktop
-V0002,49,M,India,Basic,2021-01-03,Desktop
-V0003,39,F,Canada,Basic,2021-01-06,Mobile
-V0004,60,F,Australia,Basic,2021-01-09,Tablet
-V0005,50,Other,Germany,Basic,2021-01-12,Mobile
-V0006,63,M,US,Free,2021-01-15,TV
-V0007,21,F,Brazil,Premium,2021-01-18,Mobile
-V0008,34,F,US,Basic,2021-01-21,TV
-V0009,45,M,UK,Free,2021-01-24,Desktop
-V0010,22,F,UK,Premium,2021-01-27,TV
-V0011,25,M,India,Basic,2021-01-30,Mobile
-V0012,56,M,UK,Free,2021-02-02,Desktop
-V0013,47,F,Australia,Premium,2021-02-05,Desktop
-V0014,49,M,Canada,Premium,2021-02-08,TV
-V0015,43,F,India,Basic,2021-02-10,Desktop
-V0016,30,F,US,Free,2021-02-13,Desktop
-V0017,45,F,Australia,Premium,2021-02-16,Desktop
-V0018,52,M,Australia,Basic,2021-02-19,Mobile
-V0019,44,F,Germany,Basic,2021-02-22,Desktop
-V0020,37,F,US,Basic,2021-02-25,Mobile
-V0021,19,F,US,Basic,2021-02-28,Tablet
-V0022,35,M,US,Basic,2021-03-03,TV
-V0023,47,M,US,Basic,2021-03-06,Tablet
-V0024,51,F,UK,Basic,2021-03-09,Mobile
-V0025,65,M,Australia,Premium,2021-03-12,TV
-V0026,19,F,India,Basic,2021-03-15,TV
-V0027,42,F,US,Premium,2021-03-18,TV
-V0028,32,F,US,Premium,2021-03-20,Desktop
-V0029,27,F,US,Basic,2021-03-23,Mobile
-V0030,37,Other,US,Basic,2021-03-26,TV
-V0031,32,F,US,Basic,2021-03-29,Desktop
-V0032,25,F,US,Basic,2021-04-01,Mobile
-V0033,69,F,Germany,Premium,2021-04-04,Mobile
-V0034,16,M,France,Basic,2021-04-07,Tablet
-V0035,37,M,UK,Premium,2021-04-10,TV
-V0036,41,F,UK,Free,2021-04-13,Tablet
-V0037,33,M,Brazil,Free,2021-04-16,Desktop
-V0038,65,F,US,Basic,2021-04-19,Mobile
-V0039,29,M,US,Free,2021-04-22,Mobile
-V0040,62,F,Brazil,Free,2021-04-25,Mobile
-V0041,44,F,US,Basic,2021-04-28,Mobile
-V0042,27,F,India,Free,2021-04-30,Mobile
-V0043,51,F,India,Free,2021-05-03,Mobile
-V0044,50,F,US,Premium,2021-05-06,Desktop
-V0045,67,M,US,Free,2021-05-09,Tablet
-V0046,27,F,Germany,Premium,2021-05-12,Desktop
-V0047,22,M,US,Premium,2021-05-15,TV
-V0048,44,Other,US,Premium,2021-05-18,Desktop
-V0049,26,F,Germany,Free,2021-05-21,Mobile
-V0050,48,M,India,Premium,2021-05-24,Mobile
-V0051,21,M,US,Basic,2021-05-27,Mobile
-V0052,62,F,Australia,Basic,2021-05-30,Mobile
-V0053,30,M,UK,Basic,2021-06-02,TV
-V0054,47,M,Brazil,Premium,2021-06-05,Mobile
-V0055,66,F,Germany,Basic,2021-06-07,Mobile
-V0056,26,F,India,Premium,2021-06-10,Mobile
-V0057,38,F,India,Basic,2021-06-13,Tablet
-V0058,41,Other,France,Premium,2021-06-16,TV
-V0059,49,F,US,Premium,2021-06-19,TV
-V0060,61,F,Canada,Free,2021-06-22,Mobile
-V0061,49,M,US,Premium,2021-06-25,TV
-V0062,44,F,US,Free,2021-06-28,TV
-V0063,19,M,US,Free,2021-07-01,Desktop
-V0064,32,Other,France,Free,2021-07-04,Tablet
-V0065,50,F,France,Basic,2021-07-07,Mobile
-V0066,28,F,US,Basic,2021-07-10,Tablet
-V0067,56,M,US,Free,2021-07-13,Tablet
-V0068,54,F,Canada,Free,2021-07-16,Mobile
-V0069,30,F,UK,Premium,2021-07-18,Desktop
-V0070,44,M,US,Premium,2021-07-21,Tablet
-V0071,44,M,Canada,Premium,2021-07-24,Mobile
-V0072,26,F,India,Premium,2021-07-27,Desktop
-V0073,67,M,France,Premium,2021-07-30,Tablet
-V0074,47,F,US,Free,2021-08-02,Desktop
-V0075,17,M,UK,Basic,2021-08-05,Mobile
-V0076,62,M,India,Premium,2021-08-08,Desktop
-V0077,29,F,Germany,Free,2021-08-11,Mobile
-V0078,35,M,India,Premium,2021-08-14,Desktop
-V0079,37,F,India,Free,2021-08-17,Mobile
-V0080,26,M,US,Basic,2021-08-20,Desktop
-V0081,42,M,Brazil,Basic,2021-08-23,Desktop
-V0082,18,F,UK,Basic,2021-08-25,TV
-V0083,32,F,US,Basic,2021-08-28,Desktop
-V0084,59,F,Canada,Premium,2021-08-31,Desktop
-V0085,43,F,US,Free,2021-09-03,TV
-V0086,44,F,US,Free,2021-09-06,Mobile
-V0087,36,M,Brazil,Premium,2021-09-09,Desktop
-V0088,62,M,UK,Premium,2021-09-12,Mobile
-V0089,31,F,Germany,Free,2021-09-15,Tablet
-V0090,52,F,US,Premium,2021-09-18,Mobile
-V0091,35,F,Germany,Free,2021-09-21,Desktop
-V0092,21,M,US,Basic,2021-09-24,TV
-V0093,34,M,UK,Free,2021-09-27,Desktop
-V0094,20,F,France,Premium,2021-09-30,Mobile
-V0095,18,F,Germany,Premium,2021-10-03,Desktop
-V0096,16,F,India,Free,2021-10-05,Desktop
-V0097,53,F,US,Premium,2021-10-08,TV
-V0098,30,F,Brazil,Basic,2021-10-11,Mobile
-V0099,49,M,India,Free,2021-10-14,Desktop
-V0100,50,M,Germany,Free,2021-10-17,Desktop
-V0101,64,M,Germany,Free,2021-10-20,TV
-V0102,40,M,US,Free,2021-10-23,Desktop
-V0103,39,F,US,Basic,2021-10-26,Desktop
-V0104,27,F,Canada,Premium,2021-10-29,Mobile
-V0105,33,F,US,Basic,2021-11-01,Mobile
-V0106,30,M,US,Free,2021-11-04,Mobile
-V0107,59,M,France,Free,2021-11-07,Mobile
-V0108,31,M,India,Free,2021-11-10,Desktop
-V0109,42,M,Germany,Basic,2021-11-12,Desktop
-V0110,23,F,India,Premium,2021-11-15,Mobile
-V0111,61,M,India,Free,2021-11-18,Tablet
-V0112,40,F,US,Premium,2021-11-21,Mobile
-V0113,32,M,US,Premium,2021-11-24,TV
-V0114,44,M,US,Basic,2021-11-27,Desktop
-V0115,68,M,UK,Premium,2021-11-30,Mobile
-V0116,23,F,Germany,Basic,2021-12-03,Mobile
-V0117,30,F,UK,Basic,2021-12-06,Desktop
-V0118,42,M,UK,Basic,2021-12-09,Mobile
-V0119,61,M,UK,Basic,2021-12-12,Tablet
-V0120,65,F,US,Free,2021-12-15,Desktop
-V0121,67,M,UK,Basic,2021-12-18,Tablet
-V0122,22,M,US,Free,2021-12-21,Mobile
-V0123,18,F,US,Basic,2021-12-23,TV
-V0124,44,F,US,Free,2021-12-26,Desktop
-V0125,59,M,UK,Premium,2021-12-29,TV
-V0126,68,F,Germany,Premium,2022-01-01,Mobile
-V0127,39,F,US,Basic,2022-01-04,TV
-V0128,18,M,US,Free,2022-01-07,Desktop
-V0129,35,F,India,Premium,2022-01-10,TV
-V0130,61,F,US,Premium,2022-01-13,Mobile
-V0131,30,M,Australia,Premium,2022-01-16,TV
-V0132,40,M,India,Free,2022-01-19,Mobile
-V0133,45,M,UK,Basic,2022-01-22,TV
-V0134,29,F,India,Free,2022-01-25,TV
-V0135,22,M,US,Free,2022-01-28,TV
-V0136,32,F,India,Premium,2022-01-30,Desktop
-V0137,59,F,UK,Premium,2022-02-02,Desktop
-V0138,35,M,Australia,Basic,2022-02-05,Tablet
-V0139,51,F,US,Premium,2022-02-08,Mobile
-V0140,24,M,India,Basic,2022-02-11,Desktop
-V0141,53,F,India,Basic,2022-02-14,TV
-V0142,63,F,US,Basic,2022-02-17,TV
-V0143,37,M,UK,Premium,2022-02-20,Mobile
-V0144,69,M,Germany,Free,2022-02-23,TV
-V0145,68,M,Brazil,Premium,2022-02-26,TV
-V0146,68,M,US,Premium,2022-03-01,Mobile
-V0147,17,M,Germany,Free,2022-03-04,Tablet
-V0148,39,M,France,Basic,2022-03-07,Mobile
-V0149,23,Other,Brazil,Premium,2022-03-10,Mobile
-V0150,26,M,US,Basic,2022-03-12,Mobile
-V0151,28,M,Germany,Premium,2022-03-15,Mobile
-V0152,32,F,US,Premium,2022-03-18,Tablet
-V0153,23,M,France,Basic,2022-03-21,Mobile
-V0154,36,Other,India,Basic,2022-03-24,Desktop
-V0155,33,F,US,Premium,2022-03-27,Mobile
-V0156,45,F,Canada,Premium,2022-03-30,Desktop
-V0157,33,M,US,Free,2022-04-02,Desktop
-V0158,61,M,France,Free,2022-04-05,Mobile
-V0159,62,M,France,Basic,2022-04-08,Mobile
-V0160,46,F,Canada,Premium,2022-04-11,TV
-V0161,53,M,US,Premium,2022-04-14,Mobile
-V0162,47,M,Canada,Premium,2022-04-17,Desktop
-V0163,26,Other,US,Free,2022-04-19,Mobile
-V0164,60,F,US,Free,2022-04-22,TV
-V0165,40,M,Brazil,Premium,2022-04-25,Mobile
-V0166,48,M,US,Free,2022-04-28,Desktop
-V0167,53,Other,UK,Free,2022-05-01,Mobile
-V0168,56,M,France,Free,2022-05-04,Tablet
-V0169,23,F,US,Premium,2022-05-07,Mobile
-V0170,26,F,US,Premium,2022-05-10,TV
-V0171,37,M,Australia,Free,2022-05-13,Desktop
-V0172,66,F,US,Basic,2022-05-16,Mobile
-V0173,39,M,Germany,Basic,2022-05-19,TV
-V0174,56,M,France,Premium,2022-05-22,Mobile
-V0175,32,F,Australia,Free,2022-05-25,TV
-V0176,27,F,Canada,Basic,2022-05-28,Tablet
-V0177,61,F,US,Basic,2022-05-30,TV
-V0178,47,F,US,Premium,2022-06-02,Mobile
-V0179,30,M,Brazil,Basic,2022-06-05,TV
-V0180,31,M,Brazil,Free,2022-06-08,Desktop
-V0181,69,M,India,Basic,2022-06-11,TV
-V0182,37,M,US,Premium,2022-06-14,Desktop
-V0183,43,M,US,Free,2022-06-17,TV
-V0184,35,M,US,Premium,2022-06-20,Desktop
-V0185,48,M,Canada,Free,2022-06-23,Desktop
-V0186,25,M,UK,Basic,2022-06-26,Mobile
-V0187,55,F,Australia,Basic,2022-06-29,TV
-V0188,47,F,Germany,Premium,2022-07-02,Desktop
-V0189,65,M,US,Basic,2022-07-05,Desktop
-V0190,48,Other,India,Premium,2022-07-07,TV
-V0191,17,F,UK,Premium,2022-07-10,Desktop
-V0192,48,M,India,Basic,2022-07-13,Mobile
-V0193,48,F,Germany,Premium,2022-07-16,Desktop
-V0194,56,F,Brazil,Premium,2022-07-19,Desktop
-V0195,28,F,Brazil,Free,2022-07-22,Desktop
-V0196,45,M,US,Basic,2022-07-25,Mobile
-V0197,48,F,US,Premium,2022-07-28,Mobile
-V0198,28,M,Germany,Free,2022-07-31,Mobile
-V0199,67,F,US,Premium,2022-08-03,TV
-V0200,41,F,US,Premium,2022-08-06,Mobile
-V0201,37,F,US,Free,2022-08-09,Desktop
-V0202,54,F,Canada,Premium,2022-08-12,Tablet
-V0203,17,F,US,Basic,2022-08-15,Mobile
-V0204,53,M,Canada,Basic,2022-08-17,Desktop
-V0205,54,M,France,Free,2022-08-20,TV
-V0206,41,F,US,Free,2022-08-23,Tablet
-V0207,61,M,US,Premium,2022-08-26,TV
-V0208,65,M,US,Premium,2022-08-29,TV
-V0209,30,M,Brazil,Premium,2022-09-01,TV
-V0210,49,M,US,Basic,2022-09-04,Desktop
-V0211,57,Other,UK,Free,2022-09-07,TV
-V0212,59,F,US,Premium,2022-09-10,Mobile
-V0213,64,Other,Germany,Free,2022-09-13,Tablet
-V0214,55,F,UK,Premium,2022-09-16,Desktop
-V0215,26,F,Germany,Premium,2022-09-19,Desktop
-V0216,18,M,Australia,Premium,2022-09-22,Mobile
-V0217,21,F,US,Premium,2022-09-24,TV
-V0218,24,M,Brazil,Free,2022-09-27,Mobile
-V0219,21,F,US,Premium,2022-09-30,TV
-V0220,24,F,Australia,Basic,2022-10-03,TV
-V0221,54,M,Canada,Premium,2022-10-06,Mobile
-V0222,46,Other,Brazil,Free,2022-10-09,TV
-V0223,47,F,US,Premium,2022-10-12,TV
-V0224,56,F,US,Premium,2022-10-15,Desktop
-V0225,65,M,UK,Free,2022-10-18,Mobile
-V0226,27,F,UK,Basic,2022-10-21,Mobile
-V0227,23,F,US,Premium,2022-10-24,Mobile
-V0228,23,M,UK,Basic,2022-10-27,Mobile
-V0229,65,M,US,Free,2022-10-30,Tablet
-V0230,43,F,UK,Free,2022-11-02,Mobile
-V0231,35,M,Brazil,Free,2022-11-04,TV
-V0232,62,F,India,Premium,2022-11-07,Mobile
-V0233,22,Other,US,Basic,2022-11-10,Desktop
-V0234,26,F,UK,Free,2022-11-13,TV
-V0235,35,M,US,Basic,2022-11-16,TV
-V0236,31,F,France,Basic,2022-11-19,Mobile
-V0237,19,M,US,Free,2022-11-22,Desktop
-V0238,21,M,Canada,Basic,2022-11-25,Desktop
-V0239,37,F,France,Basic,2022-11-28,Mobile
-V0240,41,M,Brazil,Basic,2022-12-01,Mobile
-V0241,18,M,Canada,Premium,2022-12-04,Desktop
-V0242,56,F,Brazil,Free,2022-12-07,Desktop
-V0243,57,M,France,Basic,2022-12-10,TV
-V0244,29,M,India,Basic,2022-12-12,Mobile
-V0245,26,F,India,Basic,2022-12-15,Desktop
-V0246,33,F,India,Premium,2022-12-18,Desktop
-V0247,69,F,India,Basic,2022-12-21,TV
-V0248,27,M,India,Premium,2022-12-24,TV
-V0249,38,M,UK,Premium,2022-12-27,Desktop
-V0250,27,M,US,Basic,2022-12-30,TV
-V0251,28,M,US,Premium,2023-01-02,Mobile
-V0252,40,F,US,Basic,2023-01-05,Desktop
-V0253,60,M,US,Free,2023-01-08,Mobile
-V0254,66,M,US,Free,2023-01-11,Desktop
-V0255,34,F,India,Free,2023-01-14,TV
-V0256,61,F,US,Premium,2023-01-17,TV
-V0257,51,F,Brazil,Premium,2023-01-20,Mobile
-V0258,60,M,US,Premium,2023-01-22,Desktop
-V0259,23,M,US,Basic,2023-01-25,Desktop
-V0260,44,M,Germany,Basic,2023-01-28,Mobile
-V0261,68,M,India,Free,2023-01-31,Mobile
-V0262,47,F,US,Premium,2023-02-03,Mobile
-V0263,66,F,Brazil,Basic,2023-02-06,Mobile
-V0264,59,F,Brazil,Premium,2023-02-09,Mobile
-V0265,33,F,US,Free,2023-02-12,Mobile
-V0266,21,M,US,Basic,2023-02-15,Mobile
-V0267,33,F,France,Premium,2023-02-18,TV
-V0268,34,M,India,Basic,2023-02-21,Desktop
-V0269,37,F,India,Basic,2023-02-24,Tablet
-V0270,52,F,Brazil,Premium,2023-02-27,Desktop
-V0271,47,M,US,Free,2023-03-01,TV
-V0272,56,M,UK,Premium,2023-03-04,TV
-V0273,18,Other,US,Basic,2023-03-07,TV
-V0274,43,M,Germany,Premium,2023-03-10,Desktop
-V0275,25,M,India,Premium,2023-03-13,TV
-V0276,66,M,Canada,Basic,2023-03-16,Mobile
-V0277,50,F,US,Free,2023-03-19,Mobile
-V0278,44,F,US,Premium,2023-03-22,Desktop
-V0279,69,F,India,Basic,2023-03-25,Desktop
-V0280,30,M,Germany,Premium,2023-03-28,Mobile
-V0281,48,F,India,Free,2023-03-31,Tablet
-V0282,22,M,US,Basic,2023-04-03,TV
-V0283,27,F,Brazil,Premium,2023-04-06,Desktop
-V0284,64,F,US,Premium,2023-04-09,Tablet
-V0285,45,M,France,Basic,2023-04-11,Desktop
-V0286,36,M,US,Premium,2023-04-14,Tablet
-V0287,46,M,Canada,Basic,2023-04-17,Desktop
-V0288,39,M,US,Free,2023-04-20,Mobile
-V0289,35,M,Australia,Premium,2023-04-23,TV
-V0290,52,F,UK,Premium,2023-04-26,TV
-V0291,19,F,US,Premium,2023-04-29,TV
-V0292,43,M,US,Basic,2023-05-02,Tablet
-V0293,59,M,US,Free,2023-05-05,TV
-V0294,35,M,US,Free,2023-05-08,Desktop
-V0295,39,F,France,Basic,2023-05-11,TV
-V0296,65,M,UK,Basic,2023-05-14,TV
-V0297,64,F,Germany,Premium,2023-05-17,Desktop
-V0298,66,F,India,Basic,2023-05-19,TV
-V0299,47,F,Canada,Premium,2023-05-22,Mobile
-V0300,56,F,US,Premium,2023-05-25,TV
-V0301,51,M,US,Basic,2023-05-28,TV
-V0302,68,Other,Germany,Premium,2023-05-31,TV
-V0303,49,M,France,Premium,2023-06-03,TV
-V0304,51,M,US,Basic,2023-06-06,TV
-V0305,17,F,US,Free,2023-06-09,Desktop
-V0306,30,Other,India,Basic,2023-06-12,TV
-V0307,49,F,France,Basic,2023-06-15,Mobile
-V0308,51,M,US,Premium,2023-06-18,Mobile
-V0309,21,M,UK,Basic,2023-06-21,Mobile
-V0310,54,Other,Australia,Premium,2023-06-24,Desktop
-V0311,57,M,US,Premium,2023-06-27,Desktop
-V0312,66,F,US,Free,2023-06-29,TV
-V0313,66,F,India,Premium,2023-07-02,Desktop
-V0314,69,F,Australia,Basic,2023-07-05,Desktop
-V0315,27,M,US,Basic,2023-07-08,Mobile
-V0316,18,M,UK,Premium,2023-07-11,Desktop
-V0317,60,M,UK,Free,2023-07-14,Desktop
-V0318,33,F,India,Basic,2023-07-17,Mobile
-V0319,55,M,India,Basic,2023-07-20,Mobile
-V0320,36,F,UK,Basic,2023-07-23,Mobile
-V0321,30,M,UK,Premium,2023-07-26,Mobile
-V0322,48,Other,India,Basic,2023-07-29,Desktop
-V0323,50,M,India,Free,2023-08-01,Mobile
-V0324,41,M,India,Basic,2023-08-04,TV
-V0325,23,M,Brazil,Premium,2023-08-06,TV
-V0326,51,F,US,Free,2023-08-09,Desktop
-V0327,63,F,Brazil,Free,2023-08-12,Tablet
-V0328,45,F,Brazil,Free,2023-08-15,Desktop
-V0329,38,M,US,Free,2023-08-18,Desktop
-V0330,57,M,UK,Premium,2023-08-21,Tablet
-V0331,59,F,UK,Premium,2023-08-24,Mobile
-V0332,29,M,US,Basic,2023-08-27,Tablet
-V0333,29,F,UK,Premium,2023-08-30,Mobile
-V0334,17,Other,US,Basic,2023-09-02,Desktop
-V0335,52,Other,US,Premium,2023-09-05,Mobile
-V0336,20,Other,Brazil,Premium,2023-09-08,TV
-V0337,53,F,US,Basic,2023-09-11,Desktop
-V0338,60,M,Brazil,Premium,2023-09-14,TV
-V0339,56,M,India,Premium,2023-09-16,Mobile
-V0340,69,F,Brazil,Basic,2023-09-19,Mobile
-V0341,62,F,India,Free,2023-09-22,Mobile
-V0342,29,M,US,Basic,2023-09-25,Mobile
-V0343,54,M,Canada,Premium,2023-09-28,Tablet
-V0344,40,M,US,Premium,2023-10-01,Mobile
-V0345,35,F,UK,Premium,2023-10-04,TV
-V0346,17,F,Australia,Premium,2023-10-07,TV
-V0347,54,F,US,Basic,2023-10-10,Mobile
-V0348,21,M,UK,Premium,2023-10-13,Desktop
-V0349,32,Other,Canada,Premium,2023-10-16,Mobile
-V0350,40,F,Australia,Basic,2023-10-19,Mobile
-V0351,43,M,Canada,Basic,2023-10-22,Mobile
-V0352,17,M,US,Premium,2023-10-24,Desktop
-V0353,50,M,Canada,Free,2023-10-27,Desktop
-V0354,52,M,US,Premium,2023-10-30,Desktop
-V0355,20,Other,Canada,Free,2023-11-02,Desktop
-V0356,16,F,France,Basic,2023-11-05,Mobile
-V0357,55,F,Canada,Premium,2023-11-08,TV
-V0358,27,M,Brazil,Free,2023-11-11,TV
-V0359,51,M,US,Free,2023-11-14,Mobile
-V0360,60,F,Canada,Basic,2023-11-17,Mobile
-V0361,38,M,Brazil,Premium,2023-11-20,TV
-V0362,62,F,US,Free,2023-11-23,Mobile
-V0363,46,Other,Brazil,Premium,2023-11-26,TV
-V0364,26,F,US,Free,2023-11-29,Mobile
-V0365,25,F,Canada,Premium,2023-12-02,Mobile
-V0366,18,M,Brazil,Premium,2023-12-04,Mobile
-V0367,69,M,Canada,Basic,2023-12-07,Mobile
-V0368,29,M,US,Basic,2023-12-10,Desktop
-V0369,31,F,India,Basic,2023-12-13,Desktop
-V0370,25,M,India,Basic,2023-12-16,TV
-V0371,44,M,Australia,Free,2023-12-19,TV
-V0372,25,F,UK,Free,2023-12-22,Desktop
-V0373,27,M,US,Free,2023-12-25,TV
-V0374,45,M,Germany,Basic,2023-12-28,Mobile
-V0375,56,M,UK,Free,2023-12-31,Desktop
-V0376,16,Other,India,Basic,2024-01-03,TV
-V0377,20,F,India,Premium,2024-01-06,Mobile
-V0378,35,F,Australia,Basic,2024-01-09,Desktop
-V0379,23,M,India,Basic,2024-01-11,Mobile
-V0380,58,Other,India,Basic,2024-01-14,Desktop
-V0381,27,F,US,Premium,2024-01-17,TV
-V0382,16,M,US,Premium,2024-01-20,TV
-V0383,69,F,US,Premium,2024-01-23,TV
-V0384,35,M,US,Premium,2024-01-26,TV
-V0385,43,F,India,Free,2024-01-29,Desktop
-V0386,58,F,Germany,Premium,2024-02-01,Desktop
-V0387,52,M,India,Premium,2024-02-04,Mobile
-V0388,62,Other,Brazil,Free,2024-02-07,Desktop
-V0389,52,F,France,Premium,2024-02-10,Desktop
-V0390,27,F,Brazil,Free,2024-02-13,Tablet
-V0391,52,M,Canada,Premium,2024-02-16,Desktop
-V0392,64,M,India,Free,2024-02-19,Desktop
-V0393,64,M,UK,Basic,2024-02-21,Desktop
-V0394,59,F,US,Premium,2024-02-24,Desktop
-V0395,43,M,UK,Basic,2024-02-27,TV
-V0396,62,F,Australia,Basic,2024-03-01,Mobile
-V0397,30,F,Brazil,Basic,2024-03-04,Desktop
-V0398,21,M,US,Premium,2024-03-07,TV
-V0399,59,F,UK,Free,2024-03-10,Desktop
-V0400,35,M,Brazil,Basic,2024-03-13,Mobile
-V0401,65,Other,US,Premium,2024-03-16,TV
-V0402,29,F,UK,Premium,2024-03-19,TV
-V0403,17,M,Brazil,Basic,2024-03-22,Mobile
-V0404,24,M,UK,Premium,2024-03-25,TV
-V0405,52,M,US,Premium,2024-03-28,TV
-V0406,35,F,India,Premium,2024-03-30,Desktop
-V0407,41,F,Brazil,Basic,2024-04-02,Tablet
-V0408,44,F,India,Free,2024-04-05,TV
-V0409,16,M,US,Free,2024-04-08,TV
-V0410,50,M,UK,Free,2024-04-11,TV
-V0411,21,M,UK,Basic,2024-04-14,Mobile
-V0412,52,F,India,Free,2024-04-17,Mobile
-V0413,68,F,Germany,Basic,2024-04-20,Desktop
-V0414,20,M,US,Basic,2024-04-23,Mobile
-V0415,48,M,Australia,Free,2024-04-26,Desktop
-V0416,64,F,US,Premium,2024-04-29,TV
-V0417,66,F,UK,Basic,2024-05-02,TV
-V0418,29,F,US,Free,2024-05-05,Desktop
-V0419,27,F,UK,Premium,2024-05-08,TV
-V0420,57,M,India,Free,2024-05-10,TV
-V0421,35,M,India,Premium,2024-05-13,Desktop
-V0422,68,F,US,Premium,2024-05-16,Mobile
-V0423,65,F,India,Basic,2024-05-19,Desktop
-V0424,39,M,US,Premium,2024-05-22,TV
-V0425,58,F,Germany,Basic,2024-05-25,Desktop
-V0426,49,F,France,Basic,2024-05-28,TV
-V0427,40,F,US,Free,2024-05-31,Mobile
-V0428,65,F,India,Free,2024-06-03,TV
-V0429,44,M,UK,Premium,2024-06-06,TV
-V0430,54,F,US,Basic,2024-06-09,TV
-V0431,46,F,UK,Basic,2024-06-12,Tablet
-V0432,62,F,Germany,Basic,2024-06-15,TV
-V0433,58,F,India,Basic,2024-06-17,Tablet
-V0434,65,F,US,Free,2024-06-20,Tablet
-V0435,38,M,Brazil,Basic,2024-06-23,TV
-V0436,59,F,India,Premium,2024-06-26,TV
-V0437,53,F,Brazil,Free,2024-06-29,Mobile
-V0438,35,F,India,Free,2024-07-02,Desktop
-V0439,38,F,India,Free,2024-07-05,Desktop
-V0440,60,F,US,Basic,2024-07-08,Mobile
-V0441,67,F,US,Premium,2024-07-11,Mobile
-V0442,31,F,France,Free,2024-07-14,Tablet
-V0443,65,M,US,Free,2024-07-17,TV
-V0444,57,M,France,Basic,2024-07-20,TV
-V0445,23,F,India,Premium,2024-07-23,Desktop
-V0446,65,F,US,Basic,2024-07-26,Mobile
-V0447,36,M,US,Basic,2024-07-28,Mobile
-V0448,16,M,US,Premium,2024-07-31,Mobile
-V0449,23,F,Australia,Basic,2024-08-03,Mobile
-V0450,44,M,UK,Premium,2024-08-06,Mobile
-V0451,47,M,UK,Premium,2024-08-09,Tablet
-V0452,53,M,US,Free,2024-08-12,TV
-V0453,20,M,US,Free,2024-08-15,Mobile
-V0454,62,M,India,Free,2024-08-18,Mobile
-V0455,37,M,US,Basic,2024-08-21,Desktop
-V0456,62,M,Brazil,Premium,2024-08-24,Mobile
-V0457,49,F,UK,Basic,2024-08-27,Tablet
-V0458,16,F,UK,Free,2024-08-30,Desktop
-V0459,41,F,India,Premium,2024-09-02,Desktop
-V0460,58,M,UK,Basic,2024-09-04,Mobile
-V0461,25,M,France,Free,2024-09-07,Mobile
-V0462,45,F,India,Basic,2024-09-10,Desktop
-V0463,65,M,US,Basic,2024-09-13,TV
-V0464,33,F,India,Premium,2024-09-16,TV
-V0465,32,F,US,Free,2024-09-19,Mobile
-V0466,41,F,US,Free,2024-09-22,Desktop
-V0467,23,M,France,Basic,2024-09-25,Desktop
-V0468,62,M,Germany,Free,2024-09-28,TV
-V0469,55,F,France,Basic,2024-10-01,Mobile
-V0470,64,M,India,Basic,2024-10-04,Mobile
-V0471,27,F,India,Basic,2024-10-07,Desktop
-V0472,42,F,US,Premium,2024-10-10,Desktop
-V0473,23,Other,US,Basic,2024-10-13,Desktop
-V0474,40,M,Brazil,Free,2024-10-15,Desktop
-V0475,61,F,UK,Basic,2024-10-18,Desktop
-V0476,19,F,Brazil,Premium,2024-10-21,TV
-V0477,48,M,Canada,Premium,2024-10-24,Desktop
-V0478,16,M,US,Free,2024-10-27,Tablet
-V0479,34,F,India,Premium,2024-10-30,Desktop
-V0480,46,M,Canada,Basic,2024-11-02,Tablet
-V0481,31,M,US,Free,2024-11-05,TV
-V0482,29,M,Brazil,Free,2024-11-08,Mobile
-V0483,68,F,India,Free,2024-11-11,TV
-V0484,63,F,US,Premium,2024-11-14,Mobile
-V0485,20,F,India,Free,2024-11-17,Tablet
-V0486,56,M,France,Free,2024-11-20,Desktop
-V0487,41,M,US,Premium,2024-11-22,Mobile
-V0488,43,F,Brazil,Basic,2024-11-25,Desktop
-V0489,17,F,US,Free,2024-11-28,Tablet
-V0490,65,M,Germany,Free,2024-12-01,Mobile
-V0491,21,F,Germany,Free,2024-12-04,Desktop
-V0492,24,Other,US,Free,2024-12-07,TV
-V0493,48,F,US,Premium,2024-12-10,TV
-V0494,56,F,Germany,Free,2024-12-13,Desktop
-V0495,40,Other,UK,Free,2024-12-16,Mobile
-V0496,63,M,Germany,Premium,2024-12-19,Mobile
-V0497,28,F,US,Premium,2024-12-22,Desktop
-V0498,24,Other,Brazil,Basic,2024-12-25,Desktop
-V0499,68,M,Canada,Basic,2024-12-28,Tablet
-V0500,28,F,Australia,Basic,2024-12-31,Mobile
+viewer_id,age,gender,country,region,subscription_tier,join_date,preferred_device
+V0001,62,F,Brazil,Latin America,Premium,2021-01-01,TV
+V0002,26,M,US,North America,Premium,2021-01-03,TV
+V0003,69,M,Brazil,Latin America,Basic,2021-01-06,Tablet
+V0004,60,M,South Africa,Middle East & Africa,Free,2021-01-09,TV
+V0005,48,M,India,Asia Pacific,Free,2021-01-12,Desktop
+V0006,32,Other,South Africa,Middle East & Africa,Basic,2021-01-15,TV
+V0007,21,M,Mexico,Latin America,Basic,2021-01-18,TV
+V0008,19,F,Australia,Asia Pacific,Premium,2021-01-21,Desktop
+V0009,35,F,India,Asia Pacific,Basic,2021-01-24,TV
+V0010,63,F,UK,Europe,Premium,2021-01-27,Mobile
+V0011,62,M,US,North America,Premium,2021-01-30,TV
+V0012,42,M,India,Asia Pacific,Basic,2021-02-02,TV
+V0013,30,F,Canada,North America,Premium,2021-02-05,TV
+V0014,21,Other,Mexico,Latin America,Premium,2021-02-08,TV
+V0015,62,M,South Africa,Middle East & Africa,Basic,2021-02-10,TV
+V0016,29,M,Brazil,Latin America,Free,2021-02-13,Desktop
+V0017,26,F,US,North America,Basic,2021-02-16,TV
+V0018,54,Other,Canada,North America,Basic,2021-02-19,Mobile
+V0019,24,M,US,North America,Premium,2021-02-22,Mobile
+V0020,41,M,Australia,Asia Pacific,Basic,2021-02-25,Mobile
+V0021,31,F,Brazil,Latin America,Premium,2021-02-28,Desktop
+V0022,20,M,South Africa,Middle East & Africa,Premium,2021-03-03,Desktop
+V0023,67,M,Germany,Europe,Free,2021-03-06,TV
+V0024,25,F,UAE,Middle East & Africa,Premium,2021-03-09,Desktop
+V0025,65,F,UAE,Middle East & Africa,Basic,2021-03-12,Desktop
+V0026,18,M,Canada,North America,Basic,2021-03-15,Mobile
+V0027,28,F,Mexico,Latin America,Premium,2021-03-18,Desktop
+V0028,58,M,UK,Europe,Free,2021-03-20,Desktop
+V0029,64,F,Canada,North America,Basic,2021-03-23,Mobile
+V0030,45,F,Australia,Asia Pacific,Basic,2021-03-26,Mobile
+V0031,69,F,UK,Europe,Basic,2021-03-29,Mobile
+V0032,60,M,India,Asia Pacific,Premium,2021-04-01,Mobile
+V0033,21,F,India,Asia Pacific,Basic,2021-04-04,Desktop
+V0034,32,F,India,Asia Pacific,Free,2021-04-07,Mobile
+V0035,60,F,UK,Europe,Basic,2021-04-10,TV
+V0036,66,F,India,Asia Pacific,Premium,2021-04-13,TV
+V0037,68,M,India,Asia Pacific,Free,2021-04-16,Desktop
+V0038,34,F,India,Asia Pacific,Free,2021-04-19,Tablet
+V0039,57,F,Germany,Europe,Free,2021-04-22,Desktop
+V0040,50,M,US,North America,Free,2021-04-25,Desktop
+V0041,61,F,India,Asia Pacific,Premium,2021-04-28,Tablet
+V0042,41,M,US,North America,Premium,2021-04-30,Mobile
+V0043,66,M,Australia,Asia Pacific,Basic,2021-05-03,Tablet
+V0044,20,M,Brazil,Latin America,Premium,2021-05-06,Mobile
+V0045,44,M,France,Europe,Basic,2021-05-09,Desktop
+V0046,52,M,India,Asia Pacific,Premium,2021-05-12,Mobile
+V0047,35,F,South Africa,Middle East & Africa,Premium,2021-05-15,TV
+V0048,64,M,Mexico,Latin America,Basic,2021-05-18,Desktop
+V0049,36,F,South Africa,Middle East & Africa,Premium,2021-05-21,TV
+V0050,25,F,Brazil,Latin America,Premium,2021-05-24,Mobile
+V0051,20,F,US,North America,Basic,2021-05-27,Mobile
+V0052,51,F,US,North America,Free,2021-05-30,Mobile
+V0053,21,M,France,Europe,Basic,2021-06-02,Mobile
+V0054,41,F,US,North America,Premium,2021-06-05,Tablet
+V0055,19,M,Germany,Europe,Premium,2021-06-07,Mobile
+V0056,54,M,UK,Europe,Premium,2021-06-10,TV
+V0057,54,Other,India,Asia Pacific,Premium,2021-06-13,TV
+V0058,65,M,South Korea,Asia Pacific,Basic,2021-06-16,Mobile
+V0059,50,M,South Korea,Asia Pacific,Premium,2021-06-19,Desktop
+V0060,16,F,France,Europe,Premium,2021-06-22,Mobile
+V0061,39,F,Mexico,Latin America,Basic,2021-06-25,Mobile
+V0062,51,F,Germany,Europe,Basic,2021-06-28,Mobile
+V0063,21,M,UAE,Middle East & Africa,Premium,2021-07-01,Desktop
+V0064,56,F,US,North America,Free,2021-07-04,Desktop
+V0065,69,M,South Africa,Middle East & Africa,Premium,2021-07-07,Desktop
+V0066,61,F,Australia,Asia Pacific,Free,2021-07-10,Desktop
+V0067,59,Other,UK,Europe,Basic,2021-07-13,Mobile
+V0068,46,F,US,North America,Premium,2021-07-16,TV
+V0069,35,F,Germany,Europe,Free,2021-07-18,TV
+V0070,39,M,US,North America,Free,2021-07-21,Mobile
+V0071,40,F,US,North America,Basic,2021-07-24,Mobile
+V0072,51,F,India,Asia Pacific,Premium,2021-07-27,TV
+V0073,36,M,France,Europe,Free,2021-07-30,Mobile
+V0074,45,F,Australia,Asia Pacific,Premium,2021-08-02,TV
+V0075,39,M,South Africa,Middle East & Africa,Free,2021-08-05,Mobile
+V0076,59,F,India,Asia Pacific,Premium,2021-08-08,Mobile
+V0077,57,F,India,Asia Pacific,Premium,2021-08-11,Mobile
+V0078,45,F,US,North America,Basic,2021-08-14,Mobile
+V0079,37,M,South Korea,Asia Pacific,Basic,2021-08-17,Desktop
+V0080,43,F,UK,Europe,Basic,2021-08-20,Desktop
+V0081,22,F,South Africa,Middle East & Africa,Basic,2021-08-23,TV
+V0082,50,F,Mexico,Latin America,Free,2021-08-25,TV
+V0083,43,M,France,Europe,Free,2021-08-28,Desktop
+V0084,29,M,US,North America,Free,2021-08-31,TV
+V0085,25,F,Mexico,Latin America,Basic,2021-09-03,Mobile
+V0086,31,M,Brazil,Latin America,Free,2021-09-06,Desktop
+V0087,31,F,US,North America,Basic,2021-09-09,TV
+V0088,69,F,Canada,North America,Premium,2021-09-12,Mobile
+V0089,46,F,Brazil,Latin America,Basic,2021-09-15,Desktop
+V0090,57,F,US,North America,Basic,2021-09-18,Mobile
+V0091,40,F,South Africa,Middle East & Africa,Basic,2021-09-21,Desktop
+V0092,28,M,Germany,Europe,Premium,2021-09-24,TV
+V0093,21,M,US,North America,Premium,2021-09-27,TV
+V0094,59,M,Brazil,Latin America,Premium,2021-09-30,TV
+V0095,24,M,UK,Europe,Premium,2021-10-03,TV
+V0096,60,F,France,Europe,Free,2021-10-05,Desktop
+V0097,51,F,US,North America,Premium,2021-10-08,Desktop
+V0098,58,F,US,North America,Premium,2021-10-11,Mobile
+V0099,35,F,India,Asia Pacific,Free,2021-10-14,Desktop
+V0100,33,Other,France,Europe,Premium,2021-10-17,Desktop
+V0101,58,F,India,Asia Pacific,Free,2021-10-20,Tablet
+V0102,36,F,Brazil,Latin America,Premium,2021-10-23,Desktop
+V0103,19,F,Australia,Asia Pacific,Free,2021-10-26,Desktop
+V0104,65,M,US,North America,Basic,2021-10-29,Desktop
+V0105,48,M,UK,Europe,Premium,2021-11-01,Desktop
+V0106,42,M,UAE,Middle East & Africa,Basic,2021-11-04,TV
+V0107,22,F,Brazil,Latin America,Basic,2021-11-07,Mobile
+V0108,21,F,India,Asia Pacific,Basic,2021-11-10,Desktop
+V0109,30,M,Canada,North America,Premium,2021-11-12,TV
+V0110,33,F,Canada,North America,Free,2021-11-15,Desktop
+V0111,47,F,South Korea,Asia Pacific,Basic,2021-11-18,Mobile
+V0112,26,M,Mexico,Latin America,Premium,2021-11-21,TV
+V0113,35,M,Australia,Asia Pacific,Premium,2021-11-24,TV
+V0114,39,F,Brazil,Latin America,Basic,2021-11-27,Mobile
+V0115,30,M,Brazil,Latin America,Premium,2021-11-30,TV
+V0116,63,M,US,North America,Premium,2021-12-03,TV
+V0117,22,F,Germany,Europe,Premium,2021-12-06,Desktop
+V0118,36,F,US,North America,Basic,2021-12-09,Tablet
+V0119,57,F,US,North America,Free,2021-12-12,TV
+V0120,41,M,Mexico,Latin America,Free,2021-12-15,TV
+V0121,59,M,Germany,Europe,Free,2021-12-18,TV
+V0122,29,M,India,Asia Pacific,Basic,2021-12-21,Mobile
+V0123,52,F,US,North America,Free,2021-12-23,Mobile
+V0124,36,F,Canada,North America,Basic,2021-12-26,Desktop
+V0125,33,M,US,North America,Basic,2021-12-29,Mobile
+V0126,20,F,US,North America,Free,2022-01-01,Desktop
+V0127,18,M,India,Asia Pacific,Premium,2022-01-04,TV
+V0128,38,M,Canada,North America,Basic,2022-01-07,TV
+V0129,41,M,India,Asia Pacific,Free,2022-01-10,Desktop
+V0130,52,M,US,North America,Premium,2022-01-13,TV
+V0131,39,F,US,North America,Free,2022-01-16,TV
+V0132,64,F,Canada,North America,Premium,2022-01-19,Desktop
+V0133,34,M,India,Asia Pacific,Premium,2022-01-22,Mobile
+V0134,66,F,Australia,Asia Pacific,Basic,2022-01-25,Desktop
+V0135,40,M,Germany,Europe,Premium,2022-01-28,TV
+V0136,36,F,Germany,Europe,Basic,2022-01-30,Desktop
+V0137,27,Other,South Korea,Asia Pacific,Basic,2022-02-02,TV
+V0138,56,M,US,North America,Free,2022-02-05,Mobile
+V0139,48,F,UK,Europe,Free,2022-02-08,TV
+V0140,65,M,Brazil,Latin America,Premium,2022-02-11,TV
+V0141,68,M,India,Asia Pacific,Basic,2022-02-14,TV
+V0142,19,M,UK,Europe,Basic,2022-02-17,Tablet
+V0143,57,F,UAE,Middle East & Africa,Basic,2022-02-20,TV
+V0144,22,F,Brazil,Latin America,Basic,2022-02-23,Tablet
+V0145,37,M,Canada,North America,Free,2022-02-26,Tablet
+V0146,48,F,Australia,Asia Pacific,Basic,2022-03-01,TV
+V0147,32,F,India,Asia Pacific,Premium,2022-03-04,TV
+V0148,39,F,UK,Europe,Free,2022-03-07,Mobile
+V0149,49,F,UK,Europe,Free,2022-03-10,Desktop
+V0150,43,F,UK,Europe,Free,2022-03-12,Desktop
+V0151,58,M,India,Asia Pacific,Basic,2022-03-15,Mobile
+V0152,56,M,Germany,Europe,Premium,2022-03-18,Mobile
+V0153,54,Other,Mexico,Latin America,Free,2022-03-21,Tablet
+V0154,37,M,Australia,Asia Pacific,Free,2022-03-24,TV
+V0155,64,Other,US,North America,Basic,2022-03-27,TV
+V0156,32,F,Australia,Asia Pacific,Premium,2022-03-30,Desktop
+V0157,49,M,Canada,North America,Basic,2022-04-02,Mobile
+V0158,21,M,India,Asia Pacific,Basic,2022-04-05,Mobile
+V0159,61,M,Australia,Asia Pacific,Premium,2022-04-08,Mobile
+V0160,21,Other,US,North America,Basic,2022-04-11,Mobile
+V0161,49,M,Germany,Europe,Premium,2022-04-14,Mobile
+V0162,16,M,US,North America,Premium,2022-04-17,Tablet
+V0163,25,M,US,North America,Free,2022-04-19,TV
+V0164,36,M,UK,Europe,Free,2022-04-22,Mobile
+V0165,20,F,UK,Europe,Free,2022-04-25,Mobile
+V0166,17,M,South Africa,Middle East & Africa,Basic,2022-04-28,Desktop
+V0167,37,F,Germany,Europe,Premium,2022-05-01,Mobile
+V0168,63,M,UK,Europe,Basic,2022-05-04,Tablet
+V0169,17,M,India,Asia Pacific,Free,2022-05-07,Desktop
+V0170,25,F,US,North America,Premium,2022-05-10,Desktop
+V0171,49,M,South Africa,Middle East & Africa,Basic,2022-05-13,Mobile
+V0172,31,Other,India,Asia Pacific,Free,2022-05-16,Mobile
+V0173,63,F,Brazil,Latin America,Basic,2022-05-19,Desktop
+V0174,66,M,US,North America,Basic,2022-05-22,TV
+V0175,54,F,UK,Europe,Premium,2022-05-25,TV
+V0176,37,M,Germany,Europe,Free,2022-05-28,Mobile
+V0177,27,M,Mexico,Latin America,Free,2022-05-30,Desktop
+V0178,39,Other,US,North America,Basic,2022-06-02,Desktop
+V0179,62,F,Canada,North America,Free,2022-06-05,TV
+V0180,55,Other,South Africa,Middle East & Africa,Basic,2022-06-08,Mobile
+V0181,53,F,Germany,Europe,Basic,2022-06-11,Mobile
+V0182,25,F,UK,Europe,Basic,2022-06-14,Desktop
+V0183,50,M,US,North America,Premium,2022-06-17,Desktop
+V0184,66,M,South Africa,Middle East & Africa,Basic,2022-06-20,Desktop
+V0185,64,F,US,North America,Free,2022-06-23,Desktop
+V0186,47,M,South Korea,Asia Pacific,Basic,2022-06-26,Desktop
+V0187,22,F,Brazil,Latin America,Premium,2022-06-29,TV
+V0188,36,F,US,North America,Premium,2022-07-02,Desktop
+V0189,35,M,Australia,Asia Pacific,Free,2022-07-05,Tablet
+V0190,41,F,US,North America,Premium,2022-07-07,Desktop
+V0191,19,F,Canada,North America,Basic,2022-07-10,Tablet
+V0192,61,M,Brazil,Latin America,Free,2022-07-13,TV
+V0193,67,F,Mexico,Latin America,Free,2022-07-16,Mobile
+V0194,37,F,India,Asia Pacific,Free,2022-07-19,TV
+V0195,30,M,France,Europe,Premium,2022-07-22,Mobile
+V0196,55,F,US,North America,Free,2022-07-25,Tablet
+V0197,36,Other,US,North America,Free,2022-07-28,Desktop
+V0198,30,M,US,North America,Premium,2022-07-31,Mobile
+V0199,37,F,US,North America,Basic,2022-08-03,Desktop
+V0200,67,M,UK,Europe,Free,2022-08-06,Tablet
+V0201,43,F,UK,Europe,Free,2022-08-09,Mobile
+V0202,29,F,UK,Europe,Free,2022-08-12,Desktop
+V0203,42,M,US,North America,Free,2022-08-15,TV
+V0204,56,M,France,Europe,Premium,2022-08-17,TV
+V0205,55,F,Mexico,Latin America,Free,2022-08-20,Desktop
+V0206,43,F,Canada,North America,Free,2022-08-23,Mobile
+V0207,41,F,South Africa,Middle East & Africa,Premium,2022-08-26,Mobile
+V0208,64,M,UAE,Middle East & Africa,Premium,2022-08-29,Desktop
+V0209,17,F,US,North America,Basic,2022-09-01,Desktop
+V0210,40,F,Brazil,Latin America,Basic,2022-09-04,Tablet
+V0211,18,F,India,Asia Pacific,Basic,2022-09-07,Mobile
+V0212,23,M,India,Asia Pacific,Basic,2022-09-10,TV
+V0213,59,F,UK,Europe,Basic,2022-09-13,Mobile
+V0214,48,F,France,Europe,Basic,2022-09-16,Mobile
+V0215,57,M,UK,Europe,Premium,2022-09-19,Desktop
+V0216,67,M,India,Asia Pacific,Free,2022-09-22,Desktop
+V0217,50,M,India,Asia Pacific,Premium,2022-09-24,TV
+V0218,21,F,Australia,Asia Pacific,Free,2022-09-27,Tablet
+V0219,54,F,India,Asia Pacific,Premium,2022-09-30,Desktop
+V0220,67,M,South Korea,Asia Pacific,Basic,2022-10-03,Tablet
+V0221,38,F,US,North America,Premium,2022-10-06,TV
+V0222,40,F,US,North America,Free,2022-10-09,Desktop
+V0223,65,M,Brazil,Latin America,Basic,2022-10-12,TV
+V0224,58,Other,UK,Europe,Basic,2022-10-15,Desktop
+V0225,34,Other,US,North America,Premium,2022-10-18,Mobile
+V0226,20,F,US,North America,Basic,2022-10-21,TV
+V0227,66,M,US,North America,Basic,2022-10-24,Mobile
+V0228,26,F,South Africa,Middle East & Africa,Basic,2022-10-27,Desktop
+V0229,27,F,India,Asia Pacific,Basic,2022-10-30,TV
+V0230,25,M,South Africa,Middle East & Africa,Basic,2022-11-02,Mobile
+V0231,23,F,India,Asia Pacific,Free,2022-11-04,Mobile
+V0232,39,F,Germany,Europe,Premium,2022-11-07,Tablet
+V0233,43,F,Canada,North America,Premium,2022-11-10,Desktop
+V0234,56,M,India,Asia Pacific,Premium,2022-11-13,Mobile
+V0235,51,F,US,North America,Free,2022-11-16,TV
+V0236,52,F,UAE,Middle East & Africa,Premium,2022-11-19,Desktop
+V0237,36,M,Mexico,Latin America,Premium,2022-11-22,Desktop
+V0238,23,F,Canada,North America,Premium,2022-11-25,Tablet
+V0239,24,F,South Africa,Middle East & Africa,Basic,2022-11-28,TV
+V0240,62,M,Mexico,Latin America,Basic,2022-12-01,Mobile
+V0241,30,M,Australia,Asia Pacific,Premium,2022-12-04,TV
+V0242,63,F,US,North America,Basic,2022-12-07,TV
+V0243,61,F,Germany,Europe,Free,2022-12-10,Mobile
+V0244,55,F,France,Europe,Basic,2022-12-12,Mobile
+V0245,33,F,US,North America,Premium,2022-12-15,Mobile
+V0246,57,Other,US,North America,Premium,2022-12-18,TV
+V0247,35,M,Brazil,Latin America,Premium,2022-12-21,Desktop
+V0248,21,M,US,North America,Basic,2022-12-24,Desktop
+V0249,27,F,India,Asia Pacific,Free,2022-12-27,Tablet
+V0250,17,M,South Africa,Middle East & Africa,Free,2022-12-30,TV
+V0251,22,M,UAE,Middle East & Africa,Free,2023-01-02,Mobile
+V0252,31,M,Canada,North America,Free,2023-01-05,Mobile
+V0253,18,M,Mexico,Latin America,Basic,2023-01-08,Desktop
+V0254,60,M,US,North America,Free,2023-01-11,Mobile
+V0255,18,Other,US,North America,Basic,2023-01-14,TV
+V0256,42,M,India,Asia Pacific,Premium,2023-01-17,TV
+V0257,65,F,UK,Europe,Basic,2023-01-20,Mobile
+V0258,58,F,UK,Europe,Premium,2023-01-22,Desktop
+V0259,55,Other,India,Asia Pacific,Basic,2023-01-25,TV
+V0260,53,M,US,North America,Free,2023-01-28,Desktop
+V0261,48,F,US,North America,Basic,2023-01-31,Mobile
+V0262,43,F,France,Europe,Free,2023-02-03,Desktop
+V0263,16,F,Brazil,Latin America,Basic,2023-02-06,Mobile
+V0264,23,F,India,Asia Pacific,Premium,2023-02-09,Tablet
+V0265,52,F,Canada,North America,Free,2023-02-12,Mobile
+V0266,47,M,Germany,Europe,Free,2023-02-15,Desktop
+V0267,63,F,US,North America,Basic,2023-02-18,Desktop
+V0268,58,F,US,North America,Premium,2023-02-21,Tablet
+V0269,52,F,Brazil,Latin America,Premium,2023-02-24,Mobile
+V0270,19,Other,Canada,North America,Premium,2023-02-27,Mobile
+V0271,45,M,US,North America,Free,2023-03-01,Mobile
+V0272,21,Other,South Korea,Asia Pacific,Premium,2023-03-04,Mobile
+V0273,61,M,India,Asia Pacific,Premium,2023-03-07,Mobile
+V0274,69,M,India,Asia Pacific,Basic,2023-03-10,Desktop
+V0275,34,M,US,North America,Premium,2023-03-13,Mobile
+V0276,47,M,US,North America,Basic,2023-03-16,Mobile
+V0277,24,F,US,North America,Premium,2023-03-19,TV
+V0278,27,M,US,North America,Premium,2023-03-22,Mobile
+V0279,26,M,Australia,Asia Pacific,Free,2023-03-25,Mobile
+V0280,61,Other,Mexico,Latin America,Basic,2023-03-28,Mobile
+V0281,31,F,South Korea,Asia Pacific,Premium,2023-03-31,Tablet
+V0282,16,F,Brazil,Latin America,Free,2023-04-03,Mobile
+V0283,60,F,UK,Europe,Basic,2023-04-06,TV
+V0284,68,F,Australia,Asia Pacific,Premium,2023-04-09,TV
+V0285,36,M,UK,Europe,Basic,2023-04-11,Mobile
+V0286,45,M,France,Europe,Free,2023-04-14,Tablet
+V0287,28,F,France,Europe,Basic,2023-04-17,Mobile
+V0288,49,M,US,North America,Free,2023-04-20,Mobile
+V0289,19,F,UK,Europe,Basic,2023-04-23,TV
+V0290,43,M,South Africa,Middle East & Africa,Free,2023-04-26,TV
+V0291,53,M,US,North America,Basic,2023-04-29,Desktop
+V0292,46,F,US,North America,Basic,2023-05-02,Mobile
+V0293,42,F,UK,Europe,Premium,2023-05-05,Desktop
+V0294,20,F,Brazil,Latin America,Basic,2023-05-08,TV
+V0295,40,F,India,Asia Pacific,Basic,2023-05-11,Mobile
+V0296,18,M,Australia,Asia Pacific,Premium,2023-05-14,Mobile
+V0297,48,M,US,North America,Free,2023-05-17,Mobile
+V0298,19,F,India,Asia Pacific,Basic,2023-05-19,Mobile
+V0299,40,F,UK,Europe,Free,2023-05-22,TV
+V0300,35,M,Mexico,Latin America,Premium,2023-05-25,Desktop
+V0301,49,F,India,Asia Pacific,Free,2023-05-28,Tablet
+V0302,41,M,US,North America,Basic,2023-05-31,Mobile
+V0303,20,F,US,North America,Premium,2023-06-03,TV
+V0304,50,M,US,North America,Basic,2023-06-06,Mobile
+V0305,43,F,UK,Europe,Free,2023-06-09,Mobile
+V0306,44,F,Canada,North America,Basic,2023-06-12,Mobile
+V0307,24,M,Australia,Asia Pacific,Basic,2023-06-15,Mobile
+V0308,67,F,France,Europe,Premium,2023-06-18,Desktop
+V0309,53,M,Canada,North America,Basic,2023-06-21,Tablet
+V0310,65,M,US,North America,Basic,2023-06-24,TV
+V0311,21,M,US,North America,Basic,2023-06-27,Mobile
+V0312,34,M,Mexico,Latin America,Premium,2023-06-29,Mobile
+V0313,59,M,US,North America,Basic,2023-07-02,Mobile
+V0314,26,F,Australia,Asia Pacific,Basic,2023-07-05,Desktop
+V0315,17,F,Brazil,Latin America,Free,2023-07-08,TV
+V0316,62,F,India,Asia Pacific,Free,2023-07-11,Tablet
+V0317,59,M,Mexico,Latin America,Free,2023-07-14,Mobile
+V0318,59,M,UK,Europe,Free,2023-07-17,Desktop
+V0319,24,M,South Africa,Middle East & Africa,Basic,2023-07-20,Desktop
+V0320,36,M,US,North America,Basic,2023-07-23,TV
+V0321,39,F,US,North America,Free,2023-07-26,Desktop
+V0322,49,M,Australia,Asia Pacific,Premium,2023-07-29,TV
+V0323,37,F,South Africa,Middle East & Africa,Free,2023-08-01,TV
+V0324,18,F,Brazil,Latin America,Premium,2023-08-04,Mobile
+V0325,27,M,US,North America,Basic,2023-08-06,TV
+V0326,43,F,Canada,North America,Basic,2023-08-09,Mobile
+V0327,45,F,South Africa,Middle East & Africa,Free,2023-08-12,TV
+V0328,41,F,Canada,North America,Basic,2023-08-15,Desktop
+V0329,63,F,Brazil,Latin America,Basic,2023-08-18,Desktop
+V0330,36,F,Mexico,Latin America,Premium,2023-08-21,Tablet
+V0331,43,M,France,Europe,Basic,2023-08-24,TV
+V0332,41,M,UK,Europe,Premium,2023-08-27,TV
+V0333,48,M,Germany,Europe,Free,2023-08-30,Desktop
+V0334,36,F,US,North America,Premium,2023-09-02,TV
+V0335,50,M,UAE,Middle East & Africa,Basic,2023-09-05,Desktop
+V0336,67,F,Germany,Europe,Premium,2023-09-08,TV
+V0337,49,F,UAE,Middle East & Africa,Free,2023-09-11,Desktop
+V0338,56,M,US,North America,Premium,2023-09-14,Tablet
+V0339,66,M,South Africa,Middle East & Africa,Basic,2023-09-16,Tablet
+V0340,62,F,Germany,Europe,Premium,2023-09-19,TV
+V0341,33,F,US,North America,Basic,2023-09-22,Mobile
+V0342,26,F,US,North America,Premium,2023-09-25,Mobile
+V0343,38,M,South Korea,Asia Pacific,Free,2023-09-28,TV
+V0344,63,M,Australia,Asia Pacific,Premium,2023-10-01,Mobile
+V0345,37,M,Brazil,Latin America,Premium,2023-10-04,TV
+V0346,32,M,US,North America,Premium,2023-10-07,Desktop
+V0347,20,F,US,North America,Basic,2023-10-10,Desktop
+V0348,59,F,France,Europe,Basic,2023-10-13,Tablet
+V0349,26,F,UK,Europe,Premium,2023-10-16,Desktop
+V0350,45,F,Germany,Europe,Free,2023-10-19,Desktop
+V0351,30,F,South Africa,Middle East & Africa,Basic,2023-10-22,Desktop
+V0352,42,F,South Africa,Middle East & Africa,Premium,2023-10-24,Mobile
+V0353,50,M,South Africa,Middle East & Africa,Premium,2023-10-27,TV
+V0354,48,Other,Brazil,Latin America,Free,2023-10-30,Mobile
+V0355,35,M,UK,Europe,Premium,2023-11-02,Tablet
+V0356,31,Other,UK,Europe,Premium,2023-11-05,TV
+V0357,49,F,India,Asia Pacific,Free,2023-11-08,Mobile
+V0358,17,M,Mexico,Latin America,Premium,2023-11-11,TV
+V0359,50,F,US,North America,Free,2023-11-14,Desktop
+V0360,55,F,Germany,Europe,Basic,2023-11-17,Mobile
+V0361,43,F,US,North America,Free,2023-11-20,Tablet
+V0362,62,F,France,Europe,Free,2023-11-23,Mobile
+V0363,54,Other,UAE,Middle East & Africa,Premium,2023-11-26,Mobile
+V0364,21,M,Brazil,Latin America,Basic,2023-11-29,Desktop
+V0365,24,M,US,North America,Basic,2023-12-02,Desktop
+V0366,35,Other,South Africa,Middle East & Africa,Free,2023-12-04,Desktop
+V0367,16,F,Australia,Asia Pacific,Basic,2023-12-07,TV
+V0368,23,M,US,North America,Basic,2023-12-10,Desktop
+V0369,38,M,Canada,North America,Basic,2023-12-13,Desktop
+V0370,18,F,Canada,North America,Basic,2023-12-16,Mobile
+V0371,19,Other,US,North America,Premium,2023-12-19,Mobile
+V0372,40,F,South Africa,Middle East & Africa,Basic,2023-12-22,Mobile
+V0373,62,F,Germany,Europe,Basic,2023-12-25,Mobile
+V0374,53,M,UAE,Middle East & Africa,Free,2023-12-28,Desktop
+V0375,30,M,UK,Europe,Premium,2023-12-31,Mobile
+V0376,36,F,US,North America,Basic,2024-01-03,Mobile
+V0377,50,M,Germany,Europe,Basic,2024-01-06,Mobile
+V0378,68,M,US,North America,Free,2024-01-09,Tablet
+V0379,68,M,France,Europe,Premium,2024-01-11,Tablet
+V0380,61,F,South Africa,Middle East & Africa,Free,2024-01-14,Desktop
+V0381,67,Other,France,Europe,Premium,2024-01-17,Tablet
+V0382,29,M,India,Asia Pacific,Basic,2024-01-20,TV
+V0383,51,F,US,North America,Free,2024-01-23,Desktop
+V0384,27,F,US,North America,Premium,2024-01-26,Mobile
+V0385,32,Other,US,North America,Basic,2024-01-29,TV
+V0386,54,M,India,Asia Pacific,Premium,2024-02-01,TV
+V0387,24,F,US,North America,Premium,2024-02-04,Desktop
+V0388,50,M,UK,Europe,Premium,2024-02-07,TV
+V0389,28,F,India,Asia Pacific,Free,2024-02-10,Desktop
+V0390,30,F,UK,Europe,Premium,2024-02-13,TV
+V0391,33,M,US,North America,Basic,2024-02-16,Tablet
+V0392,66,F,Canada,North America,Premium,2024-02-19,Mobile
+V0393,48,F,South Africa,Middle East & Africa,Basic,2024-02-21,TV
+V0394,21,M,Australia,Asia Pacific,Premium,2024-02-24,Desktop
+V0395,42,F,France,Europe,Basic,2024-02-27,TV
+V0396,38,M,US,North America,Basic,2024-03-01,TV
+V0397,42,F,South Africa,Middle East & Africa,Free,2024-03-04,Mobile
+V0398,49,M,Australia,Asia Pacific,Premium,2024-03-07,Desktop
+V0399,61,F,Canada,North America,Basic,2024-03-10,Mobile
+V0400,53,M,UAE,Middle East & Africa,Basic,2024-03-13,TV
+V0401,29,F,Canada,North America,Premium,2024-03-16,Desktop
+V0402,51,F,India,Asia Pacific,Basic,2024-03-19,TV
+V0403,68,F,India,Asia Pacific,Free,2024-03-22,Mobile
+V0404,23,F,US,North America,Basic,2024-03-25,Desktop
+V0405,50,F,South Africa,Middle East & Africa,Basic,2024-03-28,Mobile
+V0406,34,M,South Korea,Asia Pacific,Basic,2024-03-30,TV
+V0407,45,M,India,Asia Pacific,Free,2024-04-02,Tablet
+V0408,29,Other,US,North America,Free,2024-04-05,Tablet
+V0409,35,M,US,North America,Free,2024-04-08,TV
+V0410,64,F,UK,Europe,Premium,2024-04-11,TV
+V0411,40,Other,Brazil,Latin America,Free,2024-04-14,Mobile
+V0412,55,M,Canada,North America,Basic,2024-04-17,Mobile
+V0413,39,F,India,Asia Pacific,Premium,2024-04-20,Desktop
+V0414,29,F,South Korea,Asia Pacific,Free,2024-04-23,TV
+V0415,41,F,US,North America,Basic,2024-04-26,Tablet
+V0416,53,M,Australia,Asia Pacific,Premium,2024-04-29,Mobile
+V0417,38,M,US,North America,Premium,2024-05-02,Tablet
+V0418,37,F,South Africa,Middle East & Africa,Premium,2024-05-05,TV
+V0419,63,F,France,Europe,Premium,2024-05-08,Desktop
+V0420,34,F,US,North America,Premium,2024-05-10,Mobile
+V0421,61,F,UK,Europe,Basic,2024-05-13,Mobile
+V0422,66,M,UK,Europe,Premium,2024-05-16,Desktop
+V0423,18,F,Brazil,Latin America,Free,2024-05-19,TV
+V0424,57,M,South Korea,Asia Pacific,Premium,2024-05-22,Mobile
+V0425,34,F,India,Asia Pacific,Basic,2024-05-25,Desktop
+V0426,24,F,US,North America,Basic,2024-05-28,TV
+V0427,43,F,US,North America,Free,2024-05-31,TV
+V0428,35,Other,US,North America,Premium,2024-06-03,Tablet
+V0429,60,M,India,Asia Pacific,Free,2024-06-06,Mobile
+V0430,22,F,UAE,Middle East & Africa,Premium,2024-06-09,Mobile
+V0431,29,M,Germany,Europe,Premium,2024-06-12,TV
+V0432,24,F,US,North America,Free,2024-06-15,Desktop
+V0433,34,M,India,Asia Pacific,Premium,2024-06-17,Mobile
+V0434,62,F,Brazil,Latin America,Premium,2024-06-20,Mobile
+V0435,67,F,South Korea,Asia Pacific,Basic,2024-06-23,Desktop
+V0436,29,M,UAE,Middle East & Africa,Basic,2024-06-26,Mobile
+V0437,53,M,Canada,North America,Free,2024-06-29,Mobile
+V0438,68,F,US,North America,Free,2024-07-02,Mobile
+V0439,51,M,UAE,Middle East & Africa,Basic,2024-07-05,Mobile
+V0440,55,M,Australia,Asia Pacific,Premium,2024-07-08,Desktop
+V0441,32,M,Canada,North America,Free,2024-07-11,Desktop
+V0442,45,M,South Korea,Asia Pacific,Premium,2024-07-14,TV
+V0443,24,F,Brazil,Latin America,Basic,2024-07-17,Mobile
+V0444,48,F,India,Asia Pacific,Basic,2024-07-20,Mobile
+V0445,67,M,Australia,Asia Pacific,Premium,2024-07-23,Desktop
+V0446,40,M,UK,Europe,Premium,2024-07-26,Desktop
+V0447,29,M,India,Asia Pacific,Basic,2024-07-28,Desktop
+V0448,26,M,France,Europe,Basic,2024-07-31,Mobile
+V0449,68,M,Mexico,Latin America,Basic,2024-08-03,Tablet
+V0450,50,M,Mexico,Latin America,Free,2024-08-06,Mobile
+V0451,56,M,Mexico,Latin America,Free,2024-08-09,Desktop
+V0452,29,F,US,North America,Basic,2024-08-12,TV
+V0453,45,M,South Korea,Asia Pacific,Basic,2024-08-15,Desktop
+V0454,56,F,Brazil,Latin America,Premium,2024-08-18,Mobile
+V0455,19,F,Australia,Asia Pacific,Basic,2024-08-21,Desktop
+V0456,19,F,Brazil,Latin America,Basic,2024-08-24,TV
+V0457,43,F,Mexico,Latin America,Basic,2024-08-27,Mobile
+V0458,23,F,Germany,Europe,Premium,2024-08-30,Mobile
+V0459,17,F,France,Europe,Premium,2024-09-02,Mobile
+V0460,56,F,US,North America,Basic,2024-09-04,TV
+V0461,61,F,UK,Europe,Premium,2024-09-07,Mobile
+V0462,37,F,Australia,Asia Pacific,Free,2024-09-10,Tablet
+V0463,56,F,Brazil,Latin America,Basic,2024-09-13,Desktop
+V0464,31,M,US,North America,Basic,2024-09-16,Tablet
+V0465,44,M,US,North America,Basic,2024-09-19,Tablet
+V0466,64,M,Australia,Asia Pacific,Premium,2024-09-22,Desktop
+V0467,63,F,US,North America,Premium,2024-09-25,Mobile
+V0468,45,F,US,North America,Free,2024-09-28,Mobile
+V0469,27,Other,US,North America,Basic,2024-10-01,Mobile
+V0470,50,F,US,North America,Basic,2024-10-04,TV
+V0471,26,F,US,North America,Free,2024-10-07,Mobile
+V0472,61,M,UK,Europe,Free,2024-10-10,Mobile
+V0473,65,F,UK,Europe,Basic,2024-10-13,Desktop
+V0474,36,F,UAE,Middle East & Africa,Free,2024-10-15,Tablet
+V0475,36,Other,France,Europe,Free,2024-10-18,Mobile
+V0476,20,M,South Korea,Asia Pacific,Free,2024-10-21,Mobile
+V0477,63,F,US,North America,Basic,2024-10-24,Mobile
+V0478,35,F,US,North America,Premium,2024-10-27,Tablet
+V0479,52,F,South Korea,Asia Pacific,Basic,2024-10-30,Desktop
+V0480,18,F,US,North America,Premium,2024-11-02,Mobile
+V0481,59,F,France,Europe,Basic,2024-11-05,Mobile
+V0482,48,M,India,Asia Pacific,Premium,2024-11-08,Mobile
+V0483,68,F,India,Asia Pacific,Premium,2024-11-11,Mobile
+V0484,24,F,US,North America,Premium,2024-11-14,Tablet
+V0485,24,F,UK,Europe,Basic,2024-11-17,TV
+V0486,19,F,India,Asia Pacific,Premium,2024-11-20,Desktop
+V0487,50,M,US,North America,Free,2024-11-22,TV
+V0488,32,M,South Korea,Asia Pacific,Basic,2024-11-25,Mobile
+V0489,49,Other,South Korea,Asia Pacific,Basic,2024-11-28,TV
+V0490,39,F,South Africa,Middle East & Africa,Basic,2024-12-01,TV
+V0491,47,F,US,North America,Free,2024-12-04,Mobile
+V0492,16,M,Mexico,Latin America,Premium,2024-12-07,TV
+V0493,23,F,France,Europe,Premium,2024-12-10,Mobile
+V0494,60,F,UK,Europe,Basic,2024-12-13,Mobile
+V0495,38,Other,US,North America,Premium,2024-12-16,Mobile
+V0496,62,M,South Korea,Asia Pacific,Basic,2024-12-19,Desktop
+V0497,55,F,US,North America,Premium,2024-12-22,TV
+V0498,27,F,UK,Europe,Basic,2024-12-25,Tablet
+V0499,69,M,US,North America,Free,2024-12-28,Desktop
+V0500,27,F,Brazil,Latin America,Premium,2024-12-31,TV
