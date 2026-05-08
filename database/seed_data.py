@@ -1,5 +1,8 @@
 """Generate synthetic streaming-platform CSV data in data_sources/.
 
+Magnitudes are tuned for a mid-sized streaming platform (multi-million subs,
+hundreds of millions in revenue, real CPM/CPA ranges).
+
 Relational keys
 ---------------
 movie_id        : movies  <->  watch_activity  <->  reviews
@@ -19,7 +22,7 @@ import pandas as pd
 random.seed(42)
 np.random.seed(42)
 
-OUT = Path(__file__).parent / "data_sources"  # database/data_sources/
+OUT = Path(__file__).parent / "data_sources"
 OUT.mkdir(exist_ok=True)
 
 # ── shared dimensions ────────────────────────────────────────────────────────
@@ -30,7 +33,6 @@ DEVICES = ["Mobile", "Desktop", "TV", "Tablet"]
 RATINGS = ["G", "PG", "PG-13", "R"]
 CHANNELS = ["Social Media", "Email", "TV Ad", "Search", "Display"]
 
-# Country → region mapping (used in viewers and movies)
 COUNTRY_TO_REGION = {
     "US":           "North America",
     "Canada":       "North America",
@@ -40,22 +42,14 @@ COUNTRY_TO_REGION = {
     "India":        "Asia Pacific",
     "Australia":    "Asia Pacific",
     "South Korea":  "Asia Pacific",
+    "Japan":        "Asia Pacific",
     "Brazil":       "Latin America",
     "Mexico":       "Latin America",
     "UAE":          "Middle East & Africa",
     "South Africa": "Middle East & Africa",
 }
-COUNTRIES = list(COUNTRY_TO_REGION.keys())
+COUNTRIES = [c for c in COUNTRY_TO_REGION if c != "Japan"]
 COUNTRY_WEIGHTS = [0.25, 0.07, 0.10, 0.06, 0.05, 0.11, 0.05, 0.06, 0.07, 0.05, 0.04, 0.09]
-
-# Production country per region (movies are produced predominantly in one region)
-REGION_COUNTRIES = {
-    "North America":        ["US", "Canada"],
-    "Europe":               ["UK", "Germany", "France"],
-    "Asia Pacific":         ["India", "South Korea", "Australia"],
-    "Latin America":        ["Brazil", "Mexico"],
-    "Middle East & Africa": ["UAE", "South Africa"],
-}
 
 MONTHS = pd.date_range("2023-01-01", "2024-12-01", freq="MS")
 
@@ -69,10 +63,10 @@ LANGUAGES = ["English", "Spanish", "French", "Hindi", "Korean", "Japanese"]
 
 n_movies = 200
 movie_genres = np.random.choice(GENRES, n_movies)
+movie_languages = np.random.choice(LANGUAGES, n_movies, p=[0.50, 0.12, 0.08, 0.12, 0.10, 0.08])
 
-# Assign production_country: bias toward region that matches language
 prod_countries = []
-for lang in np.random.choice(LANGUAGES, n_movies, p=[0.50, 0.12, 0.08, 0.12, 0.10, 0.08]):
+for lang in movie_languages:
     if lang == "English":
         prod_countries.append(np.random.choice(["US", "UK", "Australia", "Canada"]))
     elif lang == "Spanish":
@@ -83,11 +77,14 @@ for lang in np.random.choice(LANGUAGES, n_movies, p=[0.50, 0.12, 0.08, 0.12, 0.1
         prod_countries.append("India")
     elif lang == "Korean":
         prod_countries.append("South Korea")
-    else:  # Japanese
+    else:
         prod_countries.append(np.random.choice(["Japan", "South Korea"], p=[0.7, 0.3]))
 
-# Japan isn't in our viewer countries but is a valid production country — map it to Asia Pacific
-COUNTRY_TO_REGION["Japan"] = "Asia Pacific"
+# Lognormal so most films cluster around the median; a few are blockbusters / flops.
+budgets = np.clip(np.random.lognormal(mean=np.log(25_000_000), sigma=0.9, size=n_movies),
+                  500_000, 300_000_000).astype(int)
+bo_multipliers = np.random.lognormal(mean=np.log(1.7), sigma=0.9, size=n_movies)
+box_offices = np.clip(budgets * bo_multipliers, 0, 2_000_000_000).astype(int)
 
 movies = pd.DataFrame({
     "movie_id":           [f"M{i:04d}" for i in range(1, n_movies + 1)],
@@ -96,13 +93,12 @@ movies = pd.DataFrame({
     "release_year":       np.random.randint(2015, 2026, n_movies),
     "director":           np.random.choice(DIRECTORS, n_movies),
     "runtime_minutes":    np.random.randint(75, 180, n_movies),
-    "budget_usd":         np.random.randint(1_000_000, 200_000_000, n_movies),
-    "box_office_usd":     np.random.randint(500_000, 500_000_000, n_movies),
+    "budget_usd":         budgets,
+    "box_office_usd":     box_offices,
     "content_rating":     np.random.choice(RATINGS, n_movies, p=[0.05, 0.15, 0.45, 0.35]),
-    "language":           np.random.choice(LANGUAGES, n_movies, p=[0.50, 0.12, 0.08, 0.12, 0.10, 0.08]),
+    "language":           movie_languages,
     "production_country": prod_countries,
 })
-# Derive production_region for direct joining with regional_performance
 movies["production_region"] = movies["production_country"].map(COUNTRY_TO_REGION)
 movies.to_csv(OUT / "movies.csv", index=False)
 
@@ -110,16 +106,17 @@ movies.to_csv(OUT / "movies.csv", index=False)
 n_viewers = 500
 join_dates = pd.date_range("2021-01-01", "2024-12-31", periods=n_viewers)
 viewer_countries = np.random.choice(COUNTRIES, n_viewers, p=COUNTRY_WEIGHTS)
+ages = np.clip(np.random.normal(loc=34, scale=12, size=n_viewers), 13, 80).astype(int)
 
 viewers = pd.DataFrame({
-    "viewer_id":        [f"V{i:04d}" for i in range(1, n_viewers + 1)],
-    "age":              np.random.randint(16, 70, n_viewers),
-    "gender":           np.random.choice(["M", "F", "Other"], n_viewers, p=[0.46, 0.46, 0.08]),
-    "country":          viewer_countries,
-    "region":           [COUNTRY_TO_REGION[c] for c in viewer_countries],  # pre-joined for convenience
-    "subscription_tier": np.random.choice(TIERS, n_viewers, p=[0.30, 0.35, 0.35]),
-    "join_date":        [d.date() for d in join_dates],
-    "preferred_device": np.random.choice(DEVICES, n_viewers, p=[0.40, 0.25, 0.25, 0.10]),
+    "viewer_id":         [f"V{i:04d}" for i in range(1, n_viewers + 1)],
+    "age":               ages,
+    "gender":            np.random.choice(["M", "F", "Other"], n_viewers, p=[0.46, 0.46, 0.08]),
+    "country":           viewer_countries,
+    "region":            [COUNTRY_TO_REGION[c] for c in viewer_countries],
+    "subscription_tier": np.random.choice(TIERS, n_viewers, p=[0.20, 0.45, 0.35]),
+    "join_date":         [d.date() for d in join_dates],
+    "preferred_device":  np.random.choice(DEVICES, n_viewers, p=[0.40, 0.20, 0.30, 0.10]),
 })
 viewers.to_csv(OUT / "viewers.csv", index=False)
 
@@ -130,25 +127,27 @@ viewer_ids = viewers["viewer_id"].values
 activity_movie_ids = np.random.choice(movie_ids, n_activity)
 activity_viewer_ids = np.random.choice(viewer_ids, n_activity)
 runtimes = movies.set_index("movie_id")["runtime_minutes"]
-watch_durations = [
-    int(min(runtimes[mid] * np.random.uniform(0.1, 1.05), runtimes[mid]))
-    for mid in activity_movie_ids
-]
-completed = [
-    1 if d >= runtimes[mid] * 0.9 else 0
-    for d, mid in zip(watch_durations, activity_movie_ids)
-]
+
+# Bimodal: ~55% near-complete, rest partial. Completion rate lands ~50%.
+watch_durations = []
+completed = []
+for mid in activity_movie_ids:
+    rt = int(runtimes[mid])
+    frac = np.random.uniform(0.80, 1.0) if np.random.random() < 0.55 else np.random.uniform(0.05, 0.70)
+    watch_durations.append(int(rt * frac))
+    completed.append(1 if frac >= 0.9 else 0)
+
 watch_dates = pd.date_range("2023-01-01", "2024-12-31", periods=n_activity)
 
 watch_activity = pd.DataFrame({
-    "activity_id":           [f"A{i:05d}" for i in range(1, n_activity + 1)],
-    "viewer_id":             activity_viewer_ids,
-    "movie_id":              activity_movie_ids,
-    "watch_date":            [d.date() for d in watch_dates],
-    "month":                 [d.strftime("%Y-%m-01") for d in watch_dates],  # FK → marketing_spend/regional_performance
+    "activity_id":            [f"A{i:05d}" for i in range(1, n_activity + 1)],
+    "viewer_id":              activity_viewer_ids,
+    "movie_id":               activity_movie_ids,
+    "watch_date":             [d.date() for d in watch_dates],
+    "month":                  [d.strftime("%Y-%m-01") for d in watch_dates],
     "watch_duration_minutes": watch_durations,
-    "completed":             completed,
-    "platform":              np.random.choice(DEVICES, n_activity, p=[0.40, 0.25, 0.25, 0.10]),
+    "completed":              completed,
+    "platform":               np.random.choice(DEVICES, n_activity, p=[0.40, 0.20, 0.30, 0.10]),
 })
 watch_activity.to_csv(OUT / "watch_activity.csv", index=False)
 
@@ -157,38 +156,38 @@ n_reviews = 1000
 rev_viewer_ids = np.random.choice(viewer_ids, n_reviews)
 rev_movie_ids = np.random.choice(movie_ids, n_reviews)
 star_ratings = np.random.choice([1, 2, 3, 4, 5], n_reviews, p=[0.05, 0.10, 0.20, 0.35, 0.30])
-sentiments = [
-    "Positive" if r >= 4 else ("Negative" if r <= 2 else "Neutral")
-    for r in star_ratings
-]
+sentiments = ["Positive" if r >= 4 else ("Negative" if r <= 2 else "Neutral") for r in star_ratings]
 review_dates = pd.date_range("2023-01-01", "2024-12-31", periods=n_reviews)
+# Long-tail helpful votes — most reviews get a handful, occasional ones go viral.
+helpful_votes = np.clip(np.random.lognormal(mean=1.5, sigma=1.4, size=n_reviews), 0, 5000).astype(int)
 
 reviews = pd.DataFrame({
-    "review_id":    [f"R{i:05d}" for i in range(1, n_reviews + 1)],
-    "viewer_id":    rev_viewer_ids,
-    "movie_id":     rev_movie_ids,
-    "star_rating":  star_ratings,
-    "review_date":  [d.date() for d in review_dates],
-    "month":        [d.strftime("%Y-%m-01") for d in review_dates],  # FK → marketing_spend/regional_performance
-    "sentiment":    sentiments,
-    "helpful_votes": np.random.randint(0, 200, n_reviews),
+    "review_id":     [f"R{i:05d}" for i in range(1, n_reviews + 1)],
+    "viewer_id":     rev_viewer_ids,
+    "movie_id":      rev_movie_ids,
+    "star_rating":   star_ratings,
+    "review_date":   [d.date() for d in review_dates],
+    "month":         [d.strftime("%Y-%m-01") for d in review_dates],
+    "sentiment":     sentiments,
+    "helpful_votes": helpful_votes,
 })
 reviews.to_csv(OUT / "reviews.csv", index=False)
 
 # ── marketing_spend ──────────────────────────────────────────────────────────
-# Grain: one row per (month, region, channel, genre_target)
-# Joins: regional_performance on (month, region); movies on genre_target=genre
+# Per (month, region, channel, genre): spend $200K-$5M; CTR 0.5-3%; CVR 1-5%.
+# Yields CPA in the realistic $20-$200 range.
 rows = []
 for month in MONTHS:
     for region in REGIONS:
         for channel in CHANNELS:
             genre_target = np.random.choice(GENRES)
-            spend = round(np.random.uniform(5_000, 120_000), 2)
-            impressions = int(spend * np.random.uniform(50, 200))
-            ctr = np.random.uniform(0.01, 0.08)
+            spend = round(np.random.uniform(200_000, 5_000_000), 2)
+            cpm = np.random.uniform(5, 25)  # $ per 1000 impressions
+            impressions = int(spend / cpm * 1000)
+            ctr = np.random.uniform(0.005, 0.03)
             clicks = int(impressions * ctr)
-            conv_rate = np.random.uniform(0.02, 0.15)
-            conversions = int(clicks * conv_rate)
+            cvr = np.random.uniform(0.01, 0.05)
+            conversions = int(clicks * cvr)
             cpa = round(spend / max(conversions, 1), 2)
             rows.append({
                 "month":        month.date(),
@@ -205,19 +204,38 @@ marketing_spend = pd.DataFrame(rows)
 marketing_spend.to_csv(OUT / "marketing_spend.csv", index=False)
 
 # ── regional_performance ─────────────────────────────────────────────────────
-# Grain: one row per (month, region)
-# Joins: marketing_spend on (month, region); viewers via viewers.region
+# Subscriber base is in the millions; revenue computed from active subs * ARPU.
+REGION_BASE_SUBS = {
+    "North America":        4_500_000,
+    "Europe":               3_200_000,
+    "Asia Pacific":         2_400_000,
+    "Latin America":        1_100_000,
+    "Middle East & Africa":   450_000,
+}
+REGION_ARPU = {
+    "North America":        14.50,
+    "Europe":               10.80,
+    "Asia Pacific":          6.50,
+    "Latin America":         5.20,
+    "Middle East & Africa":  4.40,
+}
+
+active_subs = dict(REGION_BASE_SUBS)
 rows = []
 for month in MONTHS:
     for region in REGIONS:
-        new_subs = np.random.randint(500, 8_000)
-        churned = np.random.randint(100, max(101, int(new_subs * 0.3)))
-        revenue = round(new_subs * np.random.uniform(8, 20), 2)
-        avg_watch = round(np.random.uniform(45, 180), 1)
-        content_hours = round(new_subs * avg_watch / 60, 1)
+        base = active_subs[region]
+        new_subs = int(base * np.random.uniform(0.030, 0.060))
+        churned  = int(base * np.random.uniform(0.020, 0.040))
+        active_subs[region] = base + new_subs - churned
+        avg_active = (base + active_subs[region]) // 2
+        revenue = round(avg_active * REGION_ARPU[region] * np.random.uniform(0.95, 1.05), 2)
+        avg_watch = round(np.random.uniform(70, 120), 1)
+        content_hours = round(avg_active * avg_watch / 60 * np.random.uniform(0.85, 1.15), 1)
         rows.append({
             "month":                 month.date(),
             "region":                region,
+            "active_subscribers":    avg_active,
             "new_subscribers":       new_subs,
             "churned_subscribers":   churned,
             "net_subscriber_change": new_subs - churned,
@@ -233,12 +251,3 @@ print("Generated:")
 for f in sorted(OUT.glob("*.csv")):
     df = pd.read_csv(f)
     print(f"  {f.name}: {len(df)} rows x {len(df.columns)} cols")
-
-print("\nRelational keys:")
-print("  movie_id  : movies <-> watch_activity <-> reviews")
-print("  viewer_id : viewers <-> watch_activity <-> reviews")
-print("  country->region : viewers.region -> regional_performance.region")
-print("  production_country->region : movies.production_region -> regional_performance.region")
-print("  (month, region) : marketing_spend <-> regional_performance")
-print("  genre : movies.genre <-> marketing_spend.genre_target")
-print("  month : watch_activity.month <-> marketing_spend.month <-> regional_performance.month")
