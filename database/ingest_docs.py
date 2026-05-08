@@ -33,9 +33,13 @@ async def main():
 
     for file_path in files:
         existing = db.query(Document).filter(Document.filename == file_path.name).first()
-        if existing:
+        if existing and existing.status == "ingested":
             print(f"  SKIP  {file_path.name}  (already ingested as {existing.doc_id})")
             continue
+
+        if existing:
+            db.delete(existing)
+            db.commit()
 
         doc_id = str(uuid.uuid4())
         suffix = file_path.suffix.lower().lstrip(".")
