@@ -34,6 +34,18 @@ class ChatResponse(BaseModel):
     message: MessageOut
 
 
+class DocumentOut(BaseModel):
+    id: int
+    doc_id: str
+    filename: str
+    file_type: str
+    chunk_count: int
+    status: str
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
 class AnalyticsRequest(BaseModel):
     question: str
     source_id: str | None = None

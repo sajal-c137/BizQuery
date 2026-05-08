@@ -42,9 +42,20 @@ def get_data_context(source_id: str) -> dict:
                 col_info["unique_values"] = sorted(df[col].dropna().astype(str).unique().tolist())
         columns.append(col_info)
 
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
+    categorical_cols = [
+        c for c in df.columns
+        if not pd.api.types.is_numeric_dtype(df[c]) and df[c].nunique() <= 20
+    ]
+
+    group_stats = {}
+    for cat in categorical_cols:
+        grouped = df.groupby(cat)[numeric_cols].sum().round(2)
+        group_stats[cat] = grouped.to_dict(orient="index")
+
     return {
         "source_id": source_id,
         "row_count": len(df),
         "columns": columns,
-        "sample_rows": df.head(5).to_dict(orient="records"),
+        "group_stats": group_stats,
     }

@@ -6,6 +6,8 @@ services:
     env_file: ./backend/.env.docker
     volumes:
       - sqlite_data:/app/data
+      - chroma_data:/app/chroma_db
+      - upload_data:/app/uploads
     networks:
       - internal
 
@@ -21,6 +23,8 @@ services:
 
 volumes:
   sqlite_data:
+  chroma_data:
+  upload_data:
 
 networks:
   internal:
