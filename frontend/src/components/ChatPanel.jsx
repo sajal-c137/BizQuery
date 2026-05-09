@@ -2,13 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import { sendMessage } from '../services/api'
 import { stripExt } from '../utils/format'
 
+// single message bubble — user / assistant + optional source chips
 function Message({ role, content, sources }) {
   const isUser = role === 'user'
   const csvs = sources?.csvs ?? []
   const docs = sources?.documents ?? []
+  // only show sources for assistant replies that actually used some
   const hasSources = !isUser && (csvs.length > 0 || docs.length > 0)
+
   return (
     <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'} mb-3`}>
+      {/* the bubble itself */}
       <div
         className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm leading-relaxed
           ${isUser
@@ -17,16 +21,24 @@ function Message({ role, content, sources }) {
       >
         {content}
       </div>
+
+      {/* citation chips */}
       {hasSources && (
         <div className="mt-1 max-w-[85%] flex flex-wrap gap-1.5 text-[11px] text-gray-500">
           <span className="font-medium text-gray-400">Sources:</span>
           {csvs.map((id) => (
-            <span key={`csv-${id}`} className="px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-100">
+            <span
+              key={`csv-${id}`}
+              className="px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-100"
+            >
               {id}
             </span>
           ))}
           {docs.map((name) => (
-            <span key={`doc-${name}`} className="px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-100">
+            <span
+              key={`doc-${name}`}
+              className="px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-100"
+            >
               {stripExt(name)}
             </span>
           ))}
@@ -40,29 +52,43 @@ export default function ChatPanel({ selectedCsvs, admin }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  // backend conversation id — assigned by the first reply
   const [conversationId, setConversationId] = useState(null)
   const bottomRef = useRef(null)
 
+  // auto-scroll to the latest message whenever the list grows
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
   async function handleSend() {
     const text = input.trim()
+    // guard against empties + double-clicks
     if (!text || loading) return
 
+    // optimistic user message — appears immediately
     setMessages((prev) => [...prev, { role: 'user', content: text }])
     setInput('')
     setLoading(true)
 
     try {
       const { data } = await sendMessage(text, conversationId, selectedCsvs, admin)
+      // remember the conversation id so follow-ups stay in the same thread
       setConversationId(data.conversation_id)
       setMessages((prev) => [...prev, data.message])
-    } catch {
+    } catch (err) {
+      // log + surface a friendly inline message
+      // eslint-disable-next-line no-console
+      console.error('[chat] sendMessage failed', err)
+      const detail = err?.response?.data?.detail
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: 'Something went wrong. Please try again.' },
+        {
+          role: 'assistant',
+          content: detail
+            ? `Couldn't reach the assistant — ${detail}`
+            : 'Something went wrong. Please try again.',
+        },
       ])
     } finally {
       setLoading(false)
@@ -70,12 +96,14 @@ export default function ChatPanel({ selectedCsvs, admin }) {
   }
 
   function handleKeyDown(e) {
+    // Enter sends, Shift+Enter inserts newline
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSend()
     }
   }
 
+  // sub-header hint that explains what the chat is grounded in
   const sourceHint =
     selectedCsvs.length === 0
       ? 'No dataset selected — answers will use general knowledge or documents.'
@@ -83,6 +111,7 @@ export default function ChatPanel({ selectedCsvs, admin }) {
 
   return (
     <section className="flex flex-col h-full bg-white border-l border-gray-200">
+      {/* header */}
       <header className="px-5 py-3 border-b border-gray-200">
         <h2 className="text-sm font-semibold text-gray-800">Chat</h2>
         <p className="text-[11px] text-gray-400 mt-0.5 truncate" title={sourceHint}>
@@ -90,8 +119,10 @@ export default function ChatPanel({ selectedCsvs, admin }) {
         </p>
       </header>
 
+      {/* message list */}
       <div className="flex-1 overflow-y-auto px-5 py-4">
         {messages.length === 0 && (
+          // empty state
           <div className="flex flex-col items-center justify-center h-full text-center text-gray-400">
             <p className="text-2xl mb-2">👋</p>
             <p className="text-sm">Ask a question about your data or documents.</p>
@@ -100,6 +131,8 @@ export default function ChatPanel({ selectedCsvs, admin }) {
         {messages.map((m, i) => (
           <Message key={i} role={m.role} content={m.content} sources={m.sources} />
         ))}
+
+        {/* "thinking" indicator while waiting for the LLM */}
         {loading && (
           <div className="flex justify-start mb-3">
             <div className="bg-gray-100 text-gray-400 px-4 py-2 rounded-2xl rounded-bl-sm text-sm">
@@ -110,6 +143,7 @@ export default function ChatPanel({ selectedCsvs, admin }) {
         <div ref={bottomRef} />
       </div>
 
+      {/* input row */}
       <div className="px-5 py-3 border-t border-gray-200">
         <div className="flex items-end gap-2">
           <textarea

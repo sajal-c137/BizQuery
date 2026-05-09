@@ -3,6 +3,7 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
+# which sources fed an answer — shown as chips under each reply
 class SourceCitation(BaseModel):
     csvs: list[str] = []
     documents: list[str] = []
@@ -33,7 +34,9 @@ class ConversationDetail(ConversationOut):
 class ChatRequest(BaseModel):
     conversation_id: int | None = None
     message: str
+    # single-source picks (legacy)
     source_id: str | None = None
+    # multi-source picks (preferred)
     source_ids: list[str] | None = None
     admin: bool = False
 

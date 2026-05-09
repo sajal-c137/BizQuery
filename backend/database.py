@@ -1,26 +1,35 @@
 from sqlalchemy import create_engine, event, text
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from config import settings
+from logger import get_logger
 
-# SQLite needs check_same_thread=False; other DBs don't support that arg
+log = get_logger("db")
+
+# SQLite quirk: needs check_same_thread=False for FastAPI's threadpool
 _is_sqlite = settings.database_url.startswith("sqlite")
 
+# build the engine — small pool for sqlite, normal pool otherwise
 engine = create_engine(
     settings.database_url,
     connect_args={"check_same_thread": False} if _is_sqlite else {},
-    # Keep a small pool; fine-tune for Postgres in production
-    pool_pre_ping=True,   # drops stale connections before use
-    pool_size=5 if not _is_sqlite else 1,
-    max_overflow=10 if not _is_sqlite else 0,
+    pool_pre_ping=True,                       # drop stale conns
+    pool_size=1 if _is_sqlite else 5,
+    max_overflow=0 if _is_sqlite else 10,
 )
 
-# Enable WAL mode for SQLite — allows concurrent reads alongside writes
+# enable WAL for sqlite — concurrent reads while writing
 if _is_sqlite:
     @event.listens_for(engine, "connect")
-    def _set_wal(dbapi_conn, _):
-        dbapi_conn.execute("PRAGMA journal_mode=WAL")
-        dbapi_conn.execute("PRAGMA foreign_keys=ON")
+    def _sqlite_pragmas(dbapi_conn, _):
+        try:
+            dbapi_conn.execute("PRAGMA journal_mode=WAL")
+            dbapi_conn.execute("PRAGMA foreign_keys=ON")
+        except Exception as e:
+            # not fatal — just log
+            log.warning("sqlite pragma setup failed: %s", e)
+
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -30,24 +39,37 @@ class Base(DeclarativeBase):
 
 
 def init_db() -> None:
-    """Create all tables. Called once at startup from main.py."""
-    from models import Conversation, Document, Message  # noqa: F401 — imports register all on Base
+    # called once at startup
+    # imports register all models on Base
+    from models import Conversation, Document, Message  # noqa: F401
 
-    Base.metadata.create_all(bind=engine)
+    try:
+        Base.metadata.create_all(bind=engine)
+        log.info("schema ready (tables created if missing)")
+    except SQLAlchemyError:
+        log.exception("failed to create schema")
+        raise
 
-    # Idempotent column add for existing SQLite DBs (avoids needing a migration
-    # for the simple sensitivity flag). Postgres should use Alembic.
+    # poor-man's migration for sqlite — adds the sensitivity column on
+    # older DBs without forcing a full alembic run. Postgres should use alembic.
     if _is_sqlite:
-        with engine.begin() as conn:
-            cols = {row[1] for row in conn.execute(text("PRAGMA table_info(documents)"))}
-            if "sensitivity" not in cols:
-                conn.execute(text(
-                    "ALTER TABLE documents ADD COLUMN sensitivity TEXT NOT NULL DEFAULT 'public'"
-                ))
+        try:
+            with engine.begin() as conn:
+                cols = {row[1] for row in conn.execute(text("PRAGMA table_info(documents)"))}
+                if "sensitivity" not in cols:
+                    log.info("backfilling 'sensitivity' column on documents table")
+                    conn.execute(text(
+                        "ALTER TABLE documents "
+                        "ADD COLUMN sensitivity TEXT NOT NULL DEFAULT 'public'"
+                    ))
+        except SQLAlchemyError:
+            log.exception("sensitivity backfill failed")
+            # don't crash startup over this — the app still works for new DBs
+            pass
 
 
 def get_db():
-    """FastAPI dependency — yields a DB session and closes it after the request."""
+    # FastAPI dependency — yields a session, always closes
     db = SessionLocal()
     try:
         yield db
