@@ -5,13 +5,14 @@ hundreds of millions in revenue, real CPM/CPA ranges).
 
 Relational keys
 ---------------
-movie_id        : movies  <->  watch_activity  <->  reviews
+movie_id        : movies  <->  watch_activity  <->  reviews  <->  title_campaigns
 viewer_id       : viewers <->  watch_activity  <->  reviews
+country->city   : viewers.country -> viewers.city (hierarchical)
 country->region : viewers.country  ->  regional_performance.region
                   movies.production_country -> regional_performance.region
 region+month    : marketing_spend <-> regional_performance  (direct join)
 genre           : movies.genre    <-> marketing_spend.genre_target
-month           : watch_activity (by month) <-> marketing_spend <-> regional_performance
+month           : watch_activity (by month) <-> marketing_spend <-> regional_performance <-> title_campaigns
 """
 import random
 from pathlib import Path
@@ -51,7 +52,25 @@ COUNTRY_TO_REGION = {
 COUNTRIES = [c for c in COUNTRY_TO_REGION if c != "Japan"]
 COUNTRY_WEIGHTS = [0.25, 0.07, 0.10, 0.06, 0.05, 0.11, 0.05, 0.06, 0.07, 0.05, 0.04, 0.09]
 
-MONTHS = pd.date_range("2023-01-01", "2024-12-01", freq="MS")
+# Hierarchical: each country has a small set of cities with realistic skew
+# (capital + a couple secondaries). Lets us answer "which city" questions
+# while keeping country-level joins intact.
+COUNTRY_TO_CITIES = {
+    "US":           [("New York", 35), ("Los Angeles", 25), ("Chicago", 15), ("Houston", 13), ("Seattle", 12)],
+    "Canada":       [("Toronto", 40), ("Vancouver", 25), ("Montreal", 20), ("Calgary", 15)],
+    "UK":           [("London", 50), ("Manchester", 20), ("Birmingham", 15), ("Edinburgh", 15)],
+    "Germany":      [("Berlin", 35), ("Munich", 25), ("Hamburg", 20), ("Frankfurt", 20)],
+    "France":       [("Paris", 50), ("Lyon", 20), ("Marseille", 15), ("Toulouse", 15)],
+    "India":        [("Mumbai", 35), ("Delhi", 30), ("Bangalore", 20), ("Chennai", 15)],
+    "Australia":    [("Sydney", 40), ("Melbourne", 30), ("Brisbane", 20), ("Perth", 10)],
+    "South Korea":  [("Seoul", 55), ("Busan", 20), ("Incheon", 15), ("Daegu", 10)],
+    "Brazil":       [("Sao Paulo", 40), ("Rio de Janeiro", 30), ("Brasilia", 15), ("Salvador", 15)],
+    "Mexico":       [("Mexico City", 45), ("Guadalajara", 25), ("Monterrey", 20), ("Puebla", 10)],
+    "UAE":          [("Dubai", 60), ("Abu Dhabi", 30), ("Sharjah", 10)],
+    "South Africa": [("Johannesburg", 45), ("Cape Town", 35), ("Durban", 20)],
+}
+
+MONTHS = pd.date_range("2023-01-01", "2025-12-01", freq="MS")
 
 # ── movies ───────────────────────────────────────────────────────────────────
 DIRECTORS = [
@@ -100,6 +119,19 @@ movies = pd.DataFrame({
     "production_country": prod_countries,
 })
 movies["production_region"] = movies["production_country"].map(COUNTRY_TO_REGION)
+
+# Quality signals correlated with box-office-to-budget ratio so the data
+# tells a coherent story (good films -> high score -> more awards).
+ratio = np.clip(movies["box_office_usd"] / movies["budget_usd"], 0.1, 20.0)
+norm = (ratio - ratio.min()) / (ratio.max() - ratio.min())
+movies["critic_score"] = np.clip(35 + norm * 55 + np.random.uniform(-6, 6, n_movies), 10, 98).round(1)
+movies["imdb_rating"]  = np.clip(5.0 + norm * 4.0 + np.random.uniform(-0.6, 0.6, n_movies), 2.0, 9.5).round(1)
+movies["awards_won"]   = [
+    np.random.randint(2, 7) if (n > 0.85 and np.random.random() < 0.6)
+    else np.random.randint(1, 4) if (n > 0.6 and np.random.random() < 0.3)
+    else 0
+    for n in norm
+]
 movies.to_csv(OUT / "movies.csv", index=False)
 
 # ── viewers ──────────────────────────────────────────────────────────────────
@@ -108,11 +140,18 @@ join_dates = pd.date_range("2021-01-01", "2024-12-31", periods=n_viewers)
 viewer_countries = np.random.choice(COUNTRIES, n_viewers, p=COUNTRY_WEIGHTS)
 ages = np.clip(np.random.normal(loc=34, scale=12, size=n_viewers), 13, 80).astype(int)
 
+def _pick_city(country: str) -> str:
+    cities = COUNTRY_TO_CITIES[country]
+    names, weights = zip(*cities)
+    p = np.array(weights, dtype=float) / sum(weights)
+    return str(np.random.choice(names, p=p))
+
 viewers = pd.DataFrame({
     "viewer_id":         [f"V{i:04d}" for i in range(1, n_viewers + 1)],
     "age":               ages,
     "gender":            np.random.choice(["M", "F", "Other"], n_viewers, p=[0.46, 0.46, 0.08]),
     "country":           viewer_countries,
+    "city":              [_pick_city(c) for c in viewer_countries],
     "region":            [COUNTRY_TO_REGION[c] for c in viewer_countries],
     "subscription_tier": np.random.choice(TIERS, n_viewers, p=[0.20, 0.45, 0.35]),
     "join_date":         [d.date() for d in join_dates],
@@ -121,7 +160,7 @@ viewers = pd.DataFrame({
 viewers.to_csv(OUT / "viewers.csv", index=False)
 
 # ── watch_activity ───────────────────────────────────────────────────────────
-n_activity = 2000
+n_activity = 3000
 movie_ids = movies["movie_id"].values
 viewer_ids = viewers["viewer_id"].values
 activity_movie_ids = np.random.choice(movie_ids, n_activity)
@@ -137,7 +176,7 @@ for mid in activity_movie_ids:
     watch_durations.append(int(rt * frac))
     completed.append(1 if frac >= 0.9 else 0)
 
-watch_dates = pd.date_range("2023-01-01", "2024-12-31", periods=n_activity)
+watch_dates = pd.date_range("2023-01-01", "2025-12-31", periods=n_activity)
 
 watch_activity = pd.DataFrame({
     "activity_id":            [f"A{i:05d}" for i in range(1, n_activity + 1)],
@@ -152,12 +191,12 @@ watch_activity = pd.DataFrame({
 watch_activity.to_csv(OUT / "watch_activity.csv", index=False)
 
 # ── reviews ──────────────────────────────────────────────────────────────────
-n_reviews = 1000
+n_reviews = 1500
 rev_viewer_ids = np.random.choice(viewer_ids, n_reviews)
 rev_movie_ids = np.random.choice(movie_ids, n_reviews)
 star_ratings = np.random.choice([1, 2, 3, 4, 5], n_reviews, p=[0.05, 0.10, 0.20, 0.35, 0.30])
 sentiments = ["Positive" if r >= 4 else ("Negative" if r <= 2 else "Neutral") for r in star_ratings]
-review_dates = pd.date_range("2023-01-01", "2024-12-31", periods=n_reviews)
+review_dates = pd.date_range("2023-01-01", "2025-12-31", periods=n_reviews)
 # Long-tail helpful votes — most reviews get a handful, occasional ones go viral.
 helpful_votes = np.clip(np.random.lognormal(mean=1.5, sigma=1.4, size=n_reviews), 0, 5000).astype(int)
 
@@ -245,6 +284,65 @@ for month in MONTHS:
         })
 regional_performance = pd.DataFrame(rows)
 regional_performance.to_csv(OUT / "regional_performance.csv", index=False)
+
+# ── title_campaigns ──────────────────────────────────────────────────────────
+# Per-title monthly campaign push + social buzz. Joins to movies on movie_id.
+# Recent releases (2024+) always get a campaign window; older catalog gets a
+# 30% sample. Some recent titles also get a 2025 re-engagement boost so the
+# "why is X trending recently?" question has a real signal to surface.
+campaign_rows = []
+for _, m in movies.iterrows():
+    is_recent = int(m["release_year"]) >= 2024
+    if not is_recent and np.random.random() > 0.30:
+        continue
+
+    if is_recent:
+        start = pd.Timestamp(year=int(m["release_year"]), month=int(np.random.randint(1, 8)), day=1)
+        length = int(np.random.randint(4, 9))
+    else:
+        start = pd.Timestamp(
+            year=int(m["release_year"]) + int(np.random.randint(0, 3)),
+            month=int(np.random.randint(1, 13)),
+            day=1,
+        )
+        length = int(np.random.randint(2, 5))
+
+    base_spend = max(50_000, float(m["budget_usd"]) * np.random.uniform(0.05, 0.15))
+    primary = np.random.choice(CHANNELS)
+
+    for i in range(length):
+        month = (start + pd.DateOffset(months=i)).normalize()
+        if month > MONTHS[-1]:
+            break
+        decay = max(0.4, 1.0 - i * 0.10)
+        spend = base_spend * decay * np.random.uniform(0.8, 1.2)
+        mentions = int(spend / np.random.uniform(40, 80))
+        trending = round(min(100.0, (mentions / 1000) + decay * 50 * np.random.uniform(0.7, 1.1)), 1)
+        campaign_rows.append({
+            "movie_id":           m["movie_id"],
+            "month":              month.date(),
+            "campaign_spend_usd": round(spend, 2),
+            "social_mentions":    mentions,
+            "trending_score":     trending,
+            "primary_channel":    primary,
+        })
+
+    # 2025 re-engagement boost for ~40% of recent titles -> drives "trending now".
+    if is_recent and np.random.random() < 0.4:
+        boost = pd.Timestamp(year=2025, month=int(np.random.randint(3, 12)), day=1)
+        spend = base_spend * np.random.uniform(1.2, 2.0)
+        mentions = int(spend / np.random.uniform(30, 60))
+        campaign_rows.append({
+            "movie_id":           m["movie_id"],
+            "month":              boost.date(),
+            "campaign_spend_usd": round(spend, 2),
+            "social_mentions":    mentions,
+            "trending_score":     round(min(100.0, 70 + np.random.uniform(0, 25)), 1),
+            "primary_channel":    np.random.choice(CHANNELS),
+        })
+
+title_campaigns = pd.DataFrame(campaign_rows).sort_values(["movie_id", "month"]).reset_index(drop=True)
+title_campaigns.to_csv(OUT / "title_campaigns.csv", index=False)
 
 # ── summary ──────────────────────────────────────────────────────────────────
 print("Generated:")

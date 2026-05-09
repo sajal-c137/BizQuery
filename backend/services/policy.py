@@ -48,6 +48,10 @@ COLUMN_POLICY: dict[str, dict[str, Sensitivity]] = {
     "regional_performance": {
         "revenue_usd": "internal",  # regional revenue breakdown is confidential
     },
+    "title_campaigns": {
+        "movie_id":           "identifier",
+        "campaign_spend_usd": "internal",  # per-title spend is competitive intel
+    },
 }
 
 

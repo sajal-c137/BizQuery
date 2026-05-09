@@ -1,201 +1,201 @@
-movie_id,title,genre,release_year,director,runtime_minutes,budget_usd,box_office_usd,content_rating,language,production_country,production_region
-M0001,Title 1,Horror,2021,Ava DuVernay,170,3400052,2638727,PG,English,US,North America
-M0002,Title 2,Thriller,2025,James Cameron,172,87311792,121030102,PG-13,French,France,Europe
-M0003,Title 3,Sci-Fi,2022,Ava DuVernay,137,134593258,114309272,R,English,Canada,North America
-M0004,Title 4,Horror,2020,Patty Jenkins,102,114215972,326123628,G,Spanish,Mexico,Latin America
-M0005,Title 5,Drama,2023,Bong Joon-ho,134,14370178,71266269,R,Korean,South Korea,Asia Pacific
-M0006,Title 6,Documentary,2019,Steven Spielberg,153,35282791,73334130,PG,English,Australia,Asia Pacific
-M0007,Title 7,Sci-Fi,2017,Patty Jenkins,168,38931463,70822046,PG-13,English,Australia,Asia Pacific
-M0008,Title 8,Sci-Fi,2017,Ava DuVernay,111,6322839,4890471,R,Hindi,India,Asia Pacific
-M0009,Title 9,Horror,2015,Bong Joon-ho,167,29409539,26566507,R,English,Australia,Asia Pacific
-M0010,Title 10,Comedy,2022,Ava DuVernay,96,65549999,38073075,R,English,Canada,North America
-M0011,Title 11,Drama,2016,Jordan Peele,142,49744814,11923618,R,English,Canada,North America
-M0012,Title 12,Horror,2017,Christopher Nolan,94,9196549,10995938,PG-13,English,Canada,North America
-M0013,Title 13,Drama,2022,Denis Villeneuve,170,11502014,14952158,R,Japanese,South Korea,Asia Pacific
-M0014,Title 14,Drama,2022,Sofia Coppola,174,50927874,611917037,PG,Hindi,India,Asia Pacific
-M0015,Title 15,Documentary,2025,Ava DuVernay,142,44187547,306618243,R,French,France,Europe
-M0016,Title 16,Sci-Fi,2018,Sofia Coppola,165,3287518,9215043,PG-13,Korean,South Korea,Asia Pacific
-M0017,Title 17,Thriller,2018,Greta Gerwig,138,2739956,30404773,R,Hindi,India,Asia Pacific
-M0018,Title 18,Documentary,2019,Ava DuVernay,91,23335993,138717338,PG-13,English,Canada,North America
-M0019,Title 19,Documentary,2020,Christopher Nolan,86,14705010,4104177,PG-13,Korean,South Korea,Asia Pacific
-M0020,Title 20,Drama,2019,Sofia Coppola,96,19113687,84922874,PG-13,Spanish,Brazil,Latin America
-M0021,Title 21,Romance,2021,Patty Jenkins,91,17265569,55681690,R,Hindi,India,Asia Pacific
-M0022,Title 22,Sci-Fi,2016,Ava DuVernay,84,60612249,79414827,PG,Korean,South Korea,Asia Pacific
-M0023,Title 23,Comedy,2021,James Cameron,139,27442340,13053196,PG,English,Australia,Asia Pacific
-M0024,Title 24,Documentary,2024,Denis Villeneuve,96,31808967,92410213,PG-13,English,US,North America
-M0025,Title 25,Thriller,2021,Christopher Nolan,164,7469247,1954642,PG,English,Canada,North America
-M0026,Title 26,Romance,2015,Sofia Coppola,156,1210689,2018774,R,English,Australia,Asia Pacific
-M0027,Title 27,Romance,2021,Christopher Nolan,124,68721590,67041397,PG-13,Hindi,India,Asia Pacific
-M0028,Title 28,Comedy,2019,Bong Joon-ho,88,172045761,94201010,R,Korean,South Korea,Asia Pacific
-M0029,Title 29,Documentary,2017,Denis Villeneuve,138,18366821,91021431,PG-13,English,Australia,Asia Pacific
-M0030,Title 30,Thriller,2017,Patty Jenkins,121,31288759,51249689,PG,Spanish,Mexico,Latin America
-M0031,Title 31,Sci-Fi,2018,Ava DuVernay,103,33479801,66562426,R,English,Australia,Asia Pacific
-M0032,Title 32,Action,2016,Ava DuVernay,150,112915499,434568135,R,English,UK,Europe
-M0033,Title 33,Thriller,2016,Ava DuVernay,110,55643300,93848185,PG-13,English,US,North America
-M0034,Title 34,Comedy,2015,Denis Villeneuve,173,39069168,99706606,PG-13,English,UK,Europe
-M0035,Title 35,Romance,2019,James Cameron,126,26282170,93110361,R,Japanese,South Korea,Asia Pacific
-M0036,Title 36,Sci-Fi,2018,Greta Gerwig,150,26392647,74723455,PG-13,English,Australia,Asia Pacific
-M0037,Title 37,Thriller,2025,Steven Spielberg,81,6843918,15049891,R,Spanish,Mexico,Latin America
-M0038,Title 38,Action,2024,Jordan Peele,103,17703051,149779887,R,Hindi,India,Asia Pacific
-M0039,Title 39,Action,2016,Sofia Coppola,85,55504138,288547398,R,English,Canada,North America
-M0040,Title 40,Drama,2017,James Cameron,107,20257861,31880174,PG,Japanese,Japan,Asia Pacific
-M0041,Title 41,Drama,2021,Patty Jenkins,80,26018070,19505488,R,Japanese,Japan,Asia Pacific
-M0042,Title 42,Horror,2021,Sofia Coppola,153,8674269,26199768,PG,English,US,North America
-M0043,Title 43,Comedy,2018,Ava DuVernay,106,37331296,77071598,G,English,Australia,Asia Pacific
-M0044,Title 44,Documentary,2019,Christopher Nolan,125,6707959,53091618,PG-13,English,UK,Europe
-M0045,Title 45,Thriller,2019,Patty Jenkins,149,32452268,134174647,PG-13,English,Canada,North America
-M0046,Title 46,Thriller,2020,Sofia Coppola,132,21123229,71434827,R,English,UK,Europe
-M0047,Title 47,Documentary,2023,Ava DuVernay,161,5206558,8954924,R,Spanish,Mexico,Latin America
-M0048,Title 48,Horror,2016,Sofia Coppola,100,65457821,50597661,R,Spanish,Mexico,Latin America
-M0049,Title 49,Romance,2019,Christopher Nolan,172,21572019,30687599,PG-13,English,US,North America
-M0050,Title 50,Romance,2017,Ava DuVernay,120,133429876,348399427,PG-13,English,US,North America
-M0051,Title 51,Horror,2018,Greta Gerwig,172,94566446,33896402,PG-13,Korean,South Korea,Asia Pacific
-M0052,Title 52,Romance,2024,James Cameron,103,11328874,58881414,R,English,US,North America
-M0053,Title 53,Drama,2020,Bong Joon-ho,78,12259827,133927106,G,English,Canada,North America
-M0054,Title 54,Thriller,2022,Jordan Peele,155,8706733,2570960,R,English,US,North America
-M0055,Title 55,Horror,2015,Denis Villeneuve,173,5995796,2890683,PG-13,Japanese,South Korea,Asia Pacific
-M0056,Title 56,Thriller,2024,Jordan Peele,87,17097228,35738938,PG-13,English,Australia,Asia Pacific
-M0057,Title 57,Documentary,2022,Patty Jenkins,179,91674871,92254746,R,French,France,Europe
-M0058,Title 58,Action,2025,Jordan Peele,113,4461384,9591747,PG-13,Hindi,India,Asia Pacific
-M0059,Title 59,Drama,2021,Ava DuVernay,89,53818961,85776704,R,English,US,North America
-M0060,Title 60,Sci-Fi,2015,Greta Gerwig,103,49917983,33770002,R,Hindi,India,Asia Pacific
-M0061,Title 61,Drama,2016,Bong Joon-ho,103,41186038,223250235,PG-13,English,UK,Europe
-M0062,Title 62,Horror,2017,James Cameron,149,48362844,124888960,PG-13,French,France,Europe
-M0063,Title 63,Sci-Fi,2015,James Cameron,106,9254188,9506128,PG-13,French,France,Europe
-M0064,Title 64,Action,2023,Christopher Nolan,76,49614864,326830379,R,Spanish,Brazil,Latin America
-M0065,Title 65,Horror,2022,Denis Villeneuve,121,15249450,16405330,PG-13,English,Australia,Asia Pacific
-M0066,Title 66,Comedy,2016,Sofia Coppola,152,2733551,1519791,PG-13,Korean,South Korea,Asia Pacific
-M0067,Title 67,Thriller,2023,Greta Gerwig,158,26325748,52790769,PG-13,English,Canada,North America
-M0068,Title 68,Action,2021,Sofia Coppola,96,11695204,27320817,R,English,UK,Europe
-M0069,Title 69,Thriller,2023,Bong Joon-ho,149,84928590,233029310,PG,English,Canada,North America
-M0070,Title 70,Romance,2020,Jordan Peele,101,19320446,61467475,R,Spanish,Mexico,Latin America
-M0071,Title 71,Comedy,2020,James Cameron,141,26047528,70461282,R,French,France,Europe
-M0072,Title 72,Comedy,2025,Bong Joon-ho,155,35485971,92546383,PG,English,UK,Europe
-M0073,Title 73,Action,2018,Jordan Peele,130,19652710,19934762,PG-13,Spanish,Mexico,Latin America
-M0074,Title 74,Comedy,2024,James Cameron,166,22769429,20975963,R,English,UK,Europe
-M0075,Title 75,Sci-Fi,2024,Jordan Peele,167,53415044,177123832,PG,French,France,Europe
-M0076,Title 76,Comedy,2016,Denis Villeneuve,95,9575296,20265614,R,English,Canada,North America
-M0077,Title 77,Thriller,2021,Greta Gerwig,121,13293081,47280270,PG-13,French,France,Europe
-M0078,Title 78,Thriller,2019,Patty Jenkins,154,10469600,3828812,PG-13,English,US,North America
-M0079,Title 79,Horror,2025,Bong Joon-ho,175,91099747,98679333,R,Japanese,Japan,Asia Pacific
-M0080,Title 80,Thriller,2020,Bong Joon-ho,133,13294439,125749406,PG-13,English,UK,Europe
-M0081,Title 81,Horror,2016,Steven Spielberg,158,21975339,61425739,PG-13,English,UK,Europe
-M0082,Title 82,Thriller,2019,Ava DuVernay,80,14560779,32296381,PG-13,English,UK,Europe
-M0083,Title 83,Sci-Fi,2024,Denis Villeneuve,93,18944538,60902598,PG-13,Japanese,South Korea,Asia Pacific
-M0084,Title 84,Documentary,2018,Denis Villeneuve,131,12873736,159720113,PG,Korean,South Korea,Asia Pacific
-M0085,Title 85,Horror,2023,Sofia Coppola,143,37914275,389241716,PG-13,English,Canada,North America
-M0086,Title 86,Drama,2020,Jordan Peele,77,9797337,4019550,R,French,France,Europe
-M0087,Title 87,Romance,2016,Ava DuVernay,75,7401408,4232731,PG-13,Hindi,India,Asia Pacific
-M0088,Title 88,Action,2015,Greta Gerwig,132,15124220,6018608,R,Spanish,Mexico,Latin America
-M0089,Title 89,Thriller,2019,Greta Gerwig,112,12188149,10577141,PG-13,Spanish,Brazil,Latin America
-M0090,Title 90,Comedy,2023,Denis Villeneuve,89,7499343,13394859,R,English,US,North America
-M0091,Title 91,Documentary,2020,Greta Gerwig,108,18687228,39499269,PG,English,Australia,Asia Pacific
-M0092,Title 92,Thriller,2024,Steven Spielberg,135,5611231,2406004,R,Korean,South Korea,Asia Pacific
-M0093,Title 93,Comedy,2021,Bong Joon-ho,109,118373950,37481980,PG-13,Korean,South Korea,Asia Pacific
-M0094,Title 94,Romance,2019,Christopher Nolan,138,6524306,5572537,PG-13,French,France,Europe
-M0095,Title 95,Romance,2024,Patty Jenkins,99,13974109,54184161,PG,English,Canada,North America
-M0096,Title 96,Romance,2020,Sofia Coppola,98,17386192,78856614,PG,English,US,North America
-M0097,Title 97,Comedy,2019,Jordan Peele,86,113873968,898712260,PG-13,Hindi,India,Asia Pacific
-M0098,Title 98,Thriller,2025,Patty Jenkins,92,5267690,8698259,PG-13,Korean,South Korea,Asia Pacific
-M0099,Title 99,Romance,2023,Jordan Peele,89,28409423,101767141,R,Korean,South Korea,Asia Pacific
-M0100,Title 100,Sci-Fi,2020,James Cameron,154,63581239,268231968,PG-13,Hindi,India,Asia Pacific
-M0101,Title 101,Horror,2025,Patty Jenkins,101,18917871,20564414,PG-13,French,France,Europe
-M0102,Title 102,Comedy,2022,Christopher Nolan,146,8723674,21025355,PG-13,English,UK,Europe
-M0103,Title 103,Comedy,2016,Denis Villeneuve,134,22684669,69766376,R,English,UK,Europe
-M0104,Title 104,Thriller,2023,Steven Spielberg,120,98816733,74117624,PG,Korean,South Korea,Asia Pacific
-M0105,Title 105,Comedy,2019,Bong Joon-ho,163,14363188,107037939,PG,Spanish,Brazil,Latin America
-M0106,Title 106,Comedy,2021,Bong Joon-ho,91,91052926,149476342,G,English,UK,Europe
-M0107,Title 107,Romance,2024,Steven Spielberg,167,31553232,58011193,R,English,UK,Europe
-M0108,Title 108,Thriller,2015,Ava DuVernay,127,75803056,54935491,R,French,France,Europe
-M0109,Title 109,Romance,2024,James Cameron,82,30437962,25657482,PG-13,English,UK,Europe
-M0110,Title 110,Horror,2019,Jordan Peele,153,16166443,3806472,R,English,US,North America
-M0111,Title 111,Documentary,2024,Christopher Nolan,101,109273051,195218285,R,Spanish,Brazil,Latin America
-M0112,Title 112,Horror,2016,Greta Gerwig,120,30617986,496377215,PG-13,French,France,Europe
-M0113,Title 113,Documentary,2020,Patty Jenkins,124,29039657,19737751,R,French,France,Europe
-M0114,Title 114,Romance,2025,James Cameron,145,51711277,1280340539,PG-13,English,Canada,North America
-M0115,Title 115,Horror,2015,Patty Jenkins,77,57432650,348649578,PG,Hindi,India,Asia Pacific
-M0116,Title 116,Thriller,2017,Christopher Nolan,167,51958568,57676221,PG-13,English,Australia,Asia Pacific
-M0117,Title 117,Action,2019,Sofia Coppola,138,7412932,12915040,PG,English,UK,Europe
-M0118,Title 118,Romance,2018,Sofia Coppola,118,14088570,21208494,PG-13,Hindi,India,Asia Pacific
-M0119,Title 119,Documentary,2017,James Cameron,127,13846046,109308649,R,French,France,Europe
-M0120,Title 120,Sci-Fi,2024,Denis Villeneuve,98,12400088,33570442,G,Korean,South Korea,Asia Pacific
-M0121,Title 121,Documentary,2019,Christopher Nolan,134,11404208,56170252,PG,French,France,Europe
-M0122,Title 122,Sci-Fi,2025,Christopher Nolan,77,13666591,32070517,PG-13,Spanish,Brazil,Latin America
-M0123,Title 123,Comedy,2022,Steven Spielberg,94,33825998,51991625,R,English,UK,Europe
-M0124,Title 124,Horror,2025,Denis Villeneuve,120,39011020,88965926,PG-13,English,Canada,North America
-M0125,Title 125,Sci-Fi,2018,Jordan Peele,89,24963217,29423152,PG-13,English,US,North America
-M0126,Title 126,Documentary,2015,Jordan Peele,99,17038009,7838843,G,English,Canada,North America
-M0127,Title 127,Comedy,2025,Greta Gerwig,168,78790525,278589874,PG,Japanese,Japan,Asia Pacific
-M0128,Title 128,Action,2021,Bong Joon-ho,152,23022370,10135525,R,English,Canada,North America
-M0129,Title 129,Thriller,2022,Sofia Coppola,145,58104382,77549665,R,Korean,South Korea,Asia Pacific
-M0130,Title 130,Thriller,2017,Jordan Peele,91,14976500,17136877,G,French,France,Europe
-M0131,Title 131,Thriller,2020,Denis Villeneuve,158,36278212,110042222,R,Hindi,India,Asia Pacific
-M0132,Title 132,Sci-Fi,2016,Christopher Nolan,174,83659540,581503996,PG-13,Spanish,Brazil,Latin America
-M0133,Title 133,Action,2021,Jordan Peele,83,2389219,12013948,R,Spanish,Brazil,Latin America
-M0134,Title 134,Sci-Fi,2022,Christopher Nolan,112,13864048,43168444,PG-13,English,UK,Europe
-M0135,Title 135,Horror,2020,Jordan Peele,122,42659235,41140274,PG-13,English,US,North America
-M0136,Title 136,Sci-Fi,2020,Sofia Coppola,134,74470970,107330772,PG-13,Hindi,India,Asia Pacific
-M0137,Title 137,Action,2019,Patty Jenkins,137,30014422,37938252,R,English,Canada,North America
-M0138,Title 138,Action,2022,Jordan Peele,160,26140642,29103726,PG,English,Canada,North America
-M0139,Title 139,Horror,2015,Denis Villeneuve,76,106526783,126067652,G,French,France,Europe
-M0140,Title 140,Action,2024,Jordan Peele,162,78686364,90910353,PG-13,English,Canada,North America
-M0141,Title 141,Documentary,2018,Bong Joon-ho,146,11440412,12701202,R,Japanese,South Korea,Asia Pacific
-M0142,Title 142,Action,2018,Sofia Coppola,85,27761376,111159784,PG-13,Japanese,Japan,Asia Pacific
-M0143,Title 143,Thriller,2017,Denis Villeneuve,138,34571440,22748130,R,Korean,South Korea,Asia Pacific
-M0144,Title 144,Documentary,2017,Steven Spielberg,151,117403328,103515029,R,English,UK,Europe
-M0145,Title 145,Documentary,2018,Denis Villeneuve,155,54507553,22284725,PG,English,Australia,Asia Pacific
-M0146,Title 146,Horror,2025,Bong Joon-ho,146,22774860,138409968,R,Japanese,Japan,Asia Pacific
-M0147,Title 147,Drama,2015,Patty Jenkins,95,30476098,25297821,PG-13,English,US,North America
-M0148,Title 148,Drama,2025,Sofia Coppola,92,4587708,14135742,R,Japanese,South Korea,Asia Pacific
-M0149,Title 149,Action,2025,Steven Spielberg,168,59778224,155875353,PG,Japanese,South Korea,Asia Pacific
-M0150,Title 150,Documentary,2016,Bong Joon-ho,138,44702764,249041199,R,Korean,South Korea,Asia Pacific
-M0151,Title 151,Drama,2023,Bong Joon-ho,156,74426838,104734630,R,English,Canada,North America
-M0152,Title 152,Drama,2024,James Cameron,169,21960194,15912005,R,English,Australia,Asia Pacific
-M0153,Title 153,Action,2016,Sofia Coppola,112,28053482,11758378,R,Korean,South Korea,Asia Pacific
-M0154,Title 154,Drama,2019,Denis Villeneuve,106,16210696,2248194,PG-13,English,US,North America
-M0155,Title 155,Sci-Fi,2023,Christopher Nolan,85,8896219,17487258,PG-13,English,US,North America
-M0156,Title 156,Comedy,2023,Patty Jenkins,119,14539153,49669883,R,Spanish,Brazil,Latin America
-M0157,Title 157,Horror,2022,Christopher Nolan,163,4862270,12637302,PG-13,Japanese,Japan,Asia Pacific
-M0158,Title 158,Comedy,2015,Denis Villeneuve,107,56941292,24431203,G,French,France,Europe
-M0159,Title 159,Action,2015,Denis Villeneuve,176,3530648,15287770,R,Spanish,Mexico,Latin America
-M0160,Title 160,Thriller,2023,Sofia Coppola,115,155680230,141180317,R,English,Canada,North America
-M0161,Title 161,Horror,2025,Denis Villeneuve,82,5109806,3840400,R,Spanish,Mexico,Latin America
-M0162,Title 162,Action,2022,James Cameron,85,96425976,85698460,PG-13,Japanese,Japan,Asia Pacific
-M0163,Title 163,Documentary,2024,Steven Spielberg,160,11041127,20142326,R,English,Australia,Asia Pacific
-M0164,Title 164,Thriller,2023,Denis Villeneuve,125,41421728,18507987,PG-13,Spanish,Brazil,Latin America
-M0165,Title 165,Comedy,2021,Christopher Nolan,162,12700911,20883714,R,Korean,South Korea,Asia Pacific
-M0166,Title 166,Action,2017,Denis Villeneuve,115,112758590,282133632,PG,Hindi,India,Asia Pacific
-M0167,Title 167,Documentary,2017,James Cameron,91,26002904,119752604,R,French,France,Europe
-M0168,Title 168,Horror,2016,Jordan Peele,150,65705959,130866649,R,Hindi,India,Asia Pacific
-M0169,Title 169,Horror,2019,Jordan Peele,120,26770995,13630114,G,English,Australia,Asia Pacific
-M0170,Title 170,Romance,2017,Bong Joon-ho,106,34347862,66764348,R,English,US,North America
-M0171,Title 171,Documentary,2020,Patty Jenkins,153,43526581,28496110,PG-13,Hindi,India,Asia Pacific
-M0172,Title 172,Sci-Fi,2016,Greta Gerwig,154,15533892,9655250,R,Hindi,India,Asia Pacific
-M0173,Title 173,Drama,2017,Steven Spielberg,128,7898033,3938534,R,Korean,South Korea,Asia Pacific
-M0174,Title 174,Thriller,2019,Ava DuVernay,160,7747985,2358280,PG-13,Korean,South Korea,Asia Pacific
-M0175,Title 175,Documentary,2025,Bong Joon-ho,166,26170534,26704057,R,Spanish,Brazil,Latin America
-M0176,Title 176,Romance,2025,Patty Jenkins,94,16104516,75620533,R,Spanish,Mexico,Latin America
-M0177,Title 177,Drama,2015,Jordan Peele,107,3624095,46949308,PG-13,Hindi,India,Asia Pacific
-M0178,Title 178,Drama,2015,Christopher Nolan,148,39667132,40242535,PG-13,French,France,Europe
-M0179,Title 179,Action,2024,Ava DuVernay,114,8349779,37726331,R,Hindi,India,Asia Pacific
-M0180,Title 180,Drama,2023,Patty Jenkins,106,8798518,10486486,R,Hindi,India,Asia Pacific
-M0181,Title 181,Sci-Fi,2021,Patty Jenkins,171,24080741,9266247,R,Korean,South Korea,Asia Pacific
-M0182,Title 182,Horror,2015,Bong Joon-ho,76,11120294,35525402,R,English,UK,Europe
-M0183,Title 183,Romance,2022,Ava DuVernay,171,27914067,58620923,PG-13,English,UK,Europe
-M0184,Title 184,Drama,2017,Sofia Coppola,107,147671561,1289276546,R,English,UK,Europe
-M0185,Title 185,Action,2022,Greta Gerwig,179,17773772,7592352,PG,Spanish,Brazil,Latin America
-M0186,Title 186,Sci-Fi,2019,Sofia Coppola,151,9633576,202818640,PG-13,English,US,North America
-M0187,Title 187,Comedy,2015,Ava DuVernay,104,29436402,209642964,G,English,Australia,Asia Pacific
-M0188,Title 188,Horror,2021,Sofia Coppola,107,12443111,20814797,PG-13,Spanish,Mexico,Latin America
-M0189,Title 189,Horror,2019,James Cameron,151,25540161,33185279,PG-13,English,US,North America
-M0190,Title 190,Romance,2020,Jordan Peele,100,33213227,29646603,PG-13,Spanish,Mexico,Latin America
-M0191,Title 191,Horror,2020,James Cameron,96,24220480,45448789,R,English,Australia,Asia Pacific
-M0192,Title 192,Drama,2022,Denis Villeneuve,177,26305522,37896720,PG-13,English,US,North America
-M0193,Title 193,Action,2023,Sofia Coppola,140,29718126,80222280,PG-13,Korean,South Korea,Asia Pacific
-M0194,Title 194,Horror,2016,Denis Villeneuve,112,105243559,137273533,PG-13,English,Canada,North America
-M0195,Title 195,Horror,2023,Christopher Nolan,177,19910524,120945981,PG-13,English,Canada,North America
-M0196,Title 196,Comedy,2025,Steven Spielberg,164,28038169,53342662,PG-13,Spanish,Mexico,Latin America
-M0197,Title 197,Comedy,2024,Christopher Nolan,120,54545759,73591747,PG,Hindi,India,Asia Pacific
-M0198,Title 198,Thriller,2023,Ava DuVernay,89,38198986,163252020,PG-13,English,US,North America
-M0199,Title 199,Sci-Fi,2024,Patty Jenkins,172,18110421,7148085,R,French,France,Europe
-M0200,Title 200,Drama,2024,Jordan Peele,118,56292027,130069728,PG-13,English,US,North America
+movie_id,title,genre,release_year,director,runtime_minutes,budget_usd,box_office_usd,content_rating,language,production_country,production_region,critic_score,imdb_rating,awards_won
+M0001,Title 1,Horror,2021,Ava DuVernay,170,3400052,2638727,PG,English,US,North America,36.3,4.7,0
+M0002,Title 2,Thriller,2025,James Cameron,172,87311792,121030102,PG-13,French,France,Europe,37.0,5.8,0
+M0003,Title 3,Sci-Fi,2022,Ava DuVernay,137,134593258,114309272,R,English,Canada,North America,41.3,5.2,0
+M0004,Title 4,Horror,2020,Patty Jenkins,102,114215972,326123628,G,Spanish,Mexico,Latin America,42.8,6.1,0
+M0005,Title 5,Drama,2023,Bong Joon-ho,134,14370178,71266269,R,Korean,South Korea,Asia Pacific,48.1,5.9,0
+M0006,Title 6,Documentary,2019,Steven Spielberg,153,35282791,73334130,PG,English,Australia,Asia Pacific,34.7,5.2,0
+M0007,Title 7,Sci-Fi,2017,Patty Jenkins,168,38931463,70822046,PG-13,English,Australia,Asia Pacific,37.7,5.3,0
+M0008,Title 8,Sci-Fi,2017,Ava DuVernay,111,6322839,4890471,R,Hindi,India,Asia Pacific,35.3,5.1,0
+M0009,Title 9,Horror,2015,Bong Joon-ho,167,29409539,26566507,R,English,Australia,Asia Pacific,35.9,4.7,0
+M0010,Title 10,Comedy,2022,Ava DuVernay,96,65549999,38073075,R,English,Canada,North America,37.2,5.3,0
+M0011,Title 11,Drama,2016,Jordan Peele,142,49744814,11923618,R,English,Canada,North America,35.7,4.7,0
+M0012,Title 12,Horror,2017,Christopher Nolan,94,9196549,10995938,PG-13,English,Canada,North America,39.2,5.4,0
+M0013,Title 13,Drama,2022,Denis Villeneuve,170,11502014,14952158,R,Japanese,South Korea,Asia Pacific,41.4,5.4,0
+M0014,Title 14,Drama,2022,Sofia Coppola,174,50927874,611917037,PG,Hindi,India,Asia Pacific,71.6,7.0,0
+M0015,Title 15,Documentary,2025,Ava DuVernay,142,44187547,306618243,R,French,France,Europe,56.4,5.8,0
+M0016,Title 16,Sci-Fi,2018,Sofia Coppola,165,3287518,9215043,PG-13,Korean,South Korea,Asia Pacific,47.8,5.9,0
+M0017,Title 17,Thriller,2018,Greta Gerwig,138,2739956,30404773,R,Hindi,India,Asia Pacific,59.6,7.2,0
+M0018,Title 18,Documentary,2019,Ava DuVernay,91,23335993,138717338,PG-13,English,Canada,North America,47.4,5.6,0
+M0019,Title 19,Documentary,2020,Christopher Nolan,86,14705010,4104177,PG-13,Korean,South Korea,Asia Pacific,29.5,5.6,0
+M0020,Title 20,Drama,2019,Sofia Coppola,96,19113687,84922874,PG-13,Spanish,Brazil,Latin America,48.7,5.3,0
+M0021,Title 21,Romance,2021,Patty Jenkins,91,17265569,55681690,R,Hindi,India,Asia Pacific,48.3,5.9,0
+M0022,Title 22,Sci-Fi,2016,Ava DuVernay,84,60612249,79414827,PG,Korean,South Korea,Asia Pacific,35.2,5.8,0
+M0023,Title 23,Comedy,2021,James Cameron,139,27442340,13053196,PG,English,Australia,Asia Pacific,41.1,4.8,0
+M0024,Title 24,Documentary,2024,Denis Villeneuve,96,31808967,92410213,PG-13,English,US,North America,37.4,5.1,0
+M0025,Title 25,Thriller,2021,Christopher Nolan,164,7469247,1954642,PG,English,Canada,North America,40.6,4.6,0
+M0026,Title 26,Romance,2015,Sofia Coppola,156,1210689,2018774,R,English,Australia,Asia Pacific,37.5,5.1,0
+M0027,Title 27,Romance,2021,Christopher Nolan,124,68721590,67041397,PG-13,Hindi,India,Asia Pacific,32.5,4.7,0
+M0028,Title 28,Comedy,2019,Bong Joon-ho,88,172045761,94201010,R,Korean,South Korea,Asia Pacific,36.0,5.3,0
+M0029,Title 29,Documentary,2017,Denis Villeneuve,138,18366821,91021431,PG-13,English,Australia,Asia Pacific,45.4,5.4,0
+M0030,Title 30,Thriller,2017,Patty Jenkins,121,31288759,51249689,PG,Spanish,Mexico,Latin America,36.6,5.3,0
+M0031,Title 31,Sci-Fi,2018,Ava DuVernay,103,33479801,66562426,R,English,Australia,Asia Pacific,37.8,6.0,0
+M0032,Title 32,Action,2016,Ava DuVernay,150,112915499,434568135,R,English,UK,Europe,48.9,6.1,0
+M0033,Title 33,Thriller,2016,Ava DuVernay,110,55643300,93848185,PG-13,English,US,North America,39.8,5.5,0
+M0034,Title 34,Comedy,2015,Denis Villeneuve,173,39069168,99706606,PG-13,English,UK,Europe,39.4,5.3,0
+M0035,Title 35,Romance,2019,James Cameron,126,26282170,93110361,R,Japanese,South Korea,Asia Pacific,45.8,5.8,0
+M0036,Title 36,Sci-Fi,2018,Greta Gerwig,150,26392647,74723455,PG-13,English,Australia,Asia Pacific,45.0,5.6,0
+M0037,Title 37,Thriller,2025,Steven Spielberg,81,6843918,15049891,R,Spanish,Mexico,Latin America,38.0,5.3,0
+M0038,Title 38,Action,2024,Jordan Peele,103,17703051,149779887,R,Hindi,India,Asia Pacific,57.0,6.2,0
+M0039,Title 39,Action,2016,Sofia Coppola,85,55504138,288547398,R,English,Canada,North America,44.5,6.5,0
+M0040,Title 40,Drama,2017,James Cameron,107,20257861,31880174,PG,Japanese,Japan,Asia Pacific,35.1,5.2,0
+M0041,Title 41,Drama,2021,Patty Jenkins,80,26018070,19505488,R,Japanese,Japan,Asia Pacific,38.9,4.8,0
+M0042,Title 42,Horror,2021,Sofia Coppola,153,8674269,26199768,PG,English,US,North America,39.2,5.4,0
+M0043,Title 43,Comedy,2018,Ava DuVernay,106,37331296,77071598,G,English,Australia,Asia Pacific,40.6,5.3,0
+M0044,Title 44,Documentary,2019,Christopher Nolan,125,6707959,53091618,PG-13,English,UK,Europe,59.0,7.0,0
+M0045,Title 45,Thriller,2019,Patty Jenkins,149,32452268,134174647,PG-13,English,Canada,North America,41.3,6.1,0
+M0046,Title 46,Thriller,2020,Sofia Coppola,132,21123229,71434827,R,English,UK,Europe,44.8,6.0,0
+M0047,Title 47,Documentary,2023,Ava DuVernay,161,5206558,8954924,R,Spanish,Mexico,Latin America,36.5,4.7,0
+M0048,Title 48,Horror,2016,Sofia Coppola,100,65457821,50597661,R,Spanish,Mexico,Latin America,42.3,5.0,0
+M0049,Title 49,Romance,2019,Christopher Nolan,172,21572019,30687599,PG-13,English,US,North America,38.4,5.2,0
+M0050,Title 50,Romance,2017,Ava DuVernay,120,133429876,348399427,PG-13,English,US,North America,45.5,4.9,0
+M0051,Title 51,Horror,2018,Greta Gerwig,172,94566446,33896402,PG-13,Korean,South Korea,Asia Pacific,36.2,4.8,0
+M0052,Title 52,Romance,2024,James Cameron,103,11328874,58881414,R,English,US,North America,43.5,6.3,0
+M0053,Title 53,Drama,2020,Bong Joon-ho,78,12259827,133927106,G,English,Canada,North America,66.5,6.7,0
+M0054,Title 54,Thriller,2022,Jordan Peele,155,8706733,2570960,R,English,US,North America,40.9,5.1,0
+M0055,Title 55,Horror,2015,Denis Villeneuve,173,5995796,2890683,PG-13,Japanese,South Korea,Asia Pacific,37.2,4.7,0
+M0056,Title 56,Thriller,2024,Jordan Peele,87,17097228,35738938,PG-13,English,Australia,Asia Pacific,44.2,4.8,0
+M0057,Title 57,Documentary,2022,Patty Jenkins,179,91674871,92254746,R,French,France,Europe,42.0,4.9,0
+M0058,Title 58,Action,2025,Jordan Peele,113,4461384,9591747,PG-13,Hindi,India,Asia Pacific,37.3,6.0,0
+M0059,Title 59,Drama,2021,Ava DuVernay,89,53818961,85776704,R,English,US,North America,35.6,5.7,0
+M0060,Title 60,Sci-Fi,2015,Greta Gerwig,103,49917983,33770002,R,Hindi,India,Asia Pacific,37.8,5.7,0
+M0061,Title 61,Drama,2016,Bong Joon-ho,103,41186038,223250235,PG-13,English,UK,Europe,48.6,6.0,0
+M0062,Title 62,Horror,2017,James Cameron,149,48362844,124888960,PG-13,French,France,Europe,45.8,5.0,0
+M0063,Title 63,Sci-Fi,2015,James Cameron,106,9254188,9506128,PG-13,French,France,Europe,42.3,5.2,0
+M0064,Title 64,Action,2023,Christopher Nolan,76,49614864,326830379,R,Spanish,Brazil,Latin America,51.1,6.2,0
+M0065,Title 65,Horror,2022,Denis Villeneuve,121,15249450,16405330,PG-13,English,Australia,Asia Pacific,34.4,5.6,0
+M0066,Title 66,Comedy,2016,Sofia Coppola,152,2733551,1519791,PG-13,Korean,South Korea,Asia Pacific,39.5,4.6,0
+M0067,Title 67,Thriller,2023,Greta Gerwig,158,26325748,52790769,PG-13,English,Canada,North America,37.5,5.4,0
+M0068,Title 68,Action,2021,Sofia Coppola,96,11695204,27320817,R,English,UK,Europe,45.0,5.0,0
+M0069,Title 69,Thriller,2023,Bong Joon-ho,149,84928590,233029310,PG,English,Canada,North America,41.3,5.3,0
+M0070,Title 70,Romance,2020,Jordan Peele,101,19320446,61467475,R,Spanish,Mexico,Latin America,45.4,5.9,0
+M0071,Title 71,Comedy,2020,James Cameron,141,26047528,70461282,R,French,France,Europe,37.3,5.5,0
+M0072,Title 72,Comedy,2025,Bong Joon-ho,155,35485971,92546383,PG,English,UK,Europe,43.3,5.3,0
+M0073,Title 73,Action,2018,Jordan Peele,130,19652710,19934762,PG-13,Spanish,Mexico,Latin America,36.8,5.0,0
+M0074,Title 74,Comedy,2024,James Cameron,166,22769429,20975963,R,English,UK,Europe,38.2,5.1,0
+M0075,Title 75,Sci-Fi,2024,Jordan Peele,167,53415044,177123832,PG,French,France,Europe,39.8,6.0,0
+M0076,Title 76,Comedy,2016,Denis Villeneuve,95,9575296,20265614,R,English,Canada,North America,43.3,5.9,0
+M0077,Title 77,Thriller,2021,Greta Gerwig,121,13293081,47280270,PG-13,French,France,Europe,48.8,6.2,0
+M0078,Title 78,Thriller,2019,Patty Jenkins,154,10469600,3828812,PG-13,English,US,North America,32.2,5.4,0
+M0079,Title 79,Horror,2025,Bong Joon-ho,175,91099747,98679333,R,Japanese,Japan,Asia Pacific,32.8,5.0,0
+M0080,Title 80,Thriller,2020,Bong Joon-ho,133,13294439,125749406,PG-13,English,UK,Europe,55.1,7.1,0
+M0081,Title 81,Horror,2016,Steven Spielberg,158,21975339,61425739,PG-13,English,UK,Europe,44.1,5.5,0
+M0082,Title 82,Thriller,2019,Ava DuVernay,80,14560779,32296381,PG-13,English,UK,Europe,42.0,5.1,0
+M0083,Title 83,Sci-Fi,2024,Denis Villeneuve,93,18944538,60902598,PG-13,Japanese,South Korea,Asia Pacific,44.1,6.0,0
+M0084,Title 84,Documentary,2018,Denis Villeneuve,131,12873736,159720113,PG,Korean,South Korea,Asia Pacific,65.8,6.9,1
+M0085,Title 85,Horror,2023,Sofia Coppola,143,37914275,389241716,PG-13,English,Canada,North America,61.7,7.5,0
+M0086,Title 86,Drama,2020,Jordan Peele,77,9797337,4019550,R,French,France,Europe,36.9,5.0,0
+M0087,Title 87,Romance,2016,Ava DuVernay,75,7401408,4232731,PG-13,Hindi,India,Asia Pacific,36.2,5.3,0
+M0088,Title 88,Action,2015,Greta Gerwig,132,15124220,6018608,R,Spanish,Mexico,Latin America,41.6,5.2,0
+M0089,Title 89,Thriller,2019,Greta Gerwig,112,12188149,10577141,PG-13,Spanish,Brazil,Latin America,32.7,5.6,0
+M0090,Title 90,Comedy,2023,Denis Villeneuve,89,7499343,13394859,R,English,US,North America,41.9,5.5,0
+M0091,Title 91,Documentary,2020,Greta Gerwig,108,18687228,39499269,PG,English,Australia,Asia Pacific,39.3,5.5,0
+M0092,Title 92,Thriller,2024,Steven Spielberg,135,5611231,2406004,R,Korean,South Korea,Asia Pacific,34.9,4.5,0
+M0093,Title 93,Comedy,2021,Bong Joon-ho,109,118373950,37481980,PG-13,Korean,South Korea,Asia Pacific,38.1,5.1,0
+M0094,Title 94,Romance,2019,Christopher Nolan,138,6524306,5572537,PG-13,French,France,Europe,39.3,4.7,0
+M0095,Title 95,Romance,2024,Patty Jenkins,99,13974109,54184161,PG,English,Canada,North America,51.2,6.0,0
+M0096,Title 96,Romance,2020,Sofia Coppola,98,17386192,78856614,PG,English,US,North America,42.7,5.9,0
+M0097,Title 97,Comedy,2019,Jordan Peele,86,113873968,898712260,PG-13,Hindi,India,Asia Pacific,51.7,6.8,0
+M0098,Title 98,Thriller,2025,Patty Jenkins,92,5267690,8698259,PG-13,Korean,South Korea,Asia Pacific,41.9,4.8,0
+M0099,Title 99,Romance,2023,Jordan Peele,89,28409423,101767141,R,Korean,South Korea,Asia Pacific,45.5,5.2,0
+M0100,Title 100,Sci-Fi,2020,James Cameron,154,63581239,268231968,PG-13,Hindi,India,Asia Pacific,43.6,6.1,0
+M0101,Title 101,Horror,2025,Patty Jenkins,101,18917871,20564414,PG-13,French,France,Europe,32.6,4.7,0
+M0102,Title 102,Comedy,2022,Christopher Nolan,146,8723674,21025355,PG-13,English,UK,Europe,36.3,4.9,0
+M0103,Title 103,Comedy,2016,Denis Villeneuve,134,22684669,69766376,R,English,UK,Europe,47.9,5.0,0
+M0104,Title 104,Thriller,2023,Steven Spielberg,120,98816733,74117624,PG,Korean,South Korea,Asia Pacific,33.0,5.7,0
+M0105,Title 105,Comedy,2019,Bong Joon-ho,163,14363188,107037939,PG,Spanish,Brazil,Latin America,53.1,6.8,0
+M0106,Title 106,Comedy,2021,Bong Joon-ho,91,91052926,149476342,G,English,UK,Europe,35.9,5.1,0
+M0107,Title 107,Romance,2024,Steven Spielberg,167,31553232,58011193,R,English,UK,Europe,38.0,5.1,0
+M0108,Title 108,Thriller,2015,Ava DuVernay,127,75803056,54935491,R,French,France,Europe,31.5,4.9,0
+M0109,Title 109,Romance,2024,James Cameron,82,30437962,25657482,PG-13,English,UK,Europe,37.2,5.5,0
+M0110,Title 110,Horror,2019,Jordan Peele,153,16166443,3806472,R,English,US,North America,30.1,5.2,0
+M0111,Title 111,Documentary,2024,Christopher Nolan,101,109273051,195218285,R,Spanish,Brazil,Latin America,43.2,5.0,0
+M0112,Title 112,Horror,2016,Greta Gerwig,120,30617986,496377215,PG-13,French,France,Europe,76.3,7.8,0
+M0113,Title 113,Documentary,2020,Patty Jenkins,124,29039657,19737751,R,French,France,Europe,37.0,4.6,0
+M0114,Title 114,Romance,2025,James Cameron,145,51711277,1280340539,PG-13,English,Canada,North America,94.6,9.2,5
+M0115,Title 115,Horror,2015,Patty Jenkins,77,57432650,348649578,PG,Hindi,India,Asia Pacific,53.2,6.5,0
+M0116,Title 116,Thriller,2017,Christopher Nolan,167,51958568,57676221,PG-13,English,Australia,Asia Pacific,38.1,4.9,0
+M0117,Title 117,Action,2019,Sofia Coppola,138,7412932,12915040,PG,English,UK,Europe,37.3,4.7,0
+M0118,Title 118,Romance,2018,Sofia Coppola,118,14088570,21208494,PG-13,Hindi,India,Asia Pacific,36.8,4.8,0
+M0119,Title 119,Documentary,2017,James Cameron,127,13846046,109308649,R,French,France,Europe,58.5,7.1,0
+M0120,Title 120,Sci-Fi,2024,Denis Villeneuve,98,12400088,33570442,G,Korean,South Korea,Asia Pacific,48.0,5.3,0
+M0121,Title 121,Documentary,2019,Christopher Nolan,134,11404208,56170252,PG,French,France,Europe,50.2,6.3,0
+M0122,Title 122,Sci-Fi,2025,Christopher Nolan,77,13666591,32070517,PG-13,Spanish,Brazil,Latin America,41.8,5.6,0
+M0123,Title 123,Comedy,2022,Steven Spielberg,94,33825998,51991625,R,English,UK,Europe,41.6,5.1,0
+M0124,Title 124,Horror,2025,Denis Villeneuve,120,39011020,88965926,PG-13,English,Canada,North America,40.5,5.1,0
+M0125,Title 125,Sci-Fi,2018,Jordan Peele,89,24963217,29423152,PG-13,English,US,North America,32.6,4.8,0
+M0126,Title 126,Documentary,2015,Jordan Peele,99,17038009,7838843,G,English,Canada,North America,36.6,5.2,0
+M0127,Title 127,Comedy,2025,Greta Gerwig,168,78790525,278589874,PG,Japanese,Japan,Asia Pacific,49.9,6.0,0
+M0128,Title 128,Action,2021,Bong Joon-ho,152,23022370,10135525,R,English,Canada,North America,31.9,5.2,0
+M0129,Title 129,Thriller,2022,Sofia Coppola,145,58104382,77549665,R,Korean,South Korea,Asia Pacific,40.6,5.3,0
+M0130,Title 130,Thriller,2017,Jordan Peele,91,14976500,17136877,G,French,France,Europe,34.2,4.7,0
+M0131,Title 131,Thriller,2020,Denis Villeneuve,158,36278212,110042222,R,Hindi,India,Asia Pacific,43.4,6.1,0
+M0132,Title 132,Sci-Fi,2016,Christopher Nolan,174,83659540,581503996,PG-13,Spanish,Brazil,Latin America,49.0,6.7,0
+M0133,Title 133,Action,2021,Jordan Peele,83,2389219,12013948,R,Spanish,Brazil,Latin America,47.9,5.7,0
+M0134,Title 134,Sci-Fi,2022,Christopher Nolan,112,13864048,43168444,PG-13,English,UK,Europe,46.3,6.2,0
+M0135,Title 135,Horror,2020,Jordan Peele,122,42659235,41140274,PG-13,English,US,North America,35.5,5.3,0
+M0136,Title 136,Sci-Fi,2020,Sofia Coppola,134,74470970,107330772,PG-13,Hindi,India,Asia Pacific,40.6,5.4,0
+M0137,Title 137,Action,2019,Patty Jenkins,137,30014422,37938252,R,English,Canada,North America,41.7,5.5,0
+M0138,Title 138,Action,2022,Jordan Peele,160,26140642,29103726,PG,English,Canada,North America,42.8,5.6,0
+M0139,Title 139,Horror,2015,Denis Villeneuve,76,106526783,126067652,G,French,France,Europe,34.7,5.4,0
+M0140,Title 140,Action,2024,Jordan Peele,162,78686364,90910353,PG-13,English,Canada,North America,36.6,4.8,0
+M0141,Title 141,Documentary,2018,Bong Joon-ho,146,11440412,12701202,R,Japanese,South Korea,Asia Pacific,33.5,5.0,0
+M0142,Title 142,Action,2018,Sofia Coppola,85,27761376,111159784,PG-13,Japanese,Japan,Asia Pacific,51.6,6.3,0
+M0143,Title 143,Thriller,2017,Denis Villeneuve,138,34571440,22748130,R,Korean,South Korea,Asia Pacific,41.6,4.8,0
+M0144,Title 144,Documentary,2017,Steven Spielberg,151,117403328,103515029,R,English,UK,Europe,37.5,5.0,0
+M0145,Title 145,Documentary,2018,Denis Villeneuve,155,54507553,22284725,PG,English,Australia,Asia Pacific,39.9,5.0,0
+M0146,Title 146,Horror,2025,Bong Joon-ho,146,22774860,138409968,R,Japanese,Japan,Asia Pacific,51.7,6.1,0
+M0147,Title 147,Drama,2015,Patty Jenkins,95,30476098,25297821,PG-13,English,US,North America,38.4,5.3,0
+M0148,Title 148,Drama,2025,Sofia Coppola,92,4587708,14135742,R,Japanese,South Korea,Asia Pacific,38.2,6.1,0
+M0149,Title 149,Action,2025,Steven Spielberg,168,59778224,155875353,PG,Japanese,South Korea,Asia Pacific,44.9,5.2,0
+M0150,Title 150,Documentary,2016,Bong Joon-ho,138,44702764,249041199,R,Korean,South Korea,Asia Pacific,45.6,5.6,0
+M0151,Title 151,Drama,2023,Bong Joon-ho,156,74426838,104734630,R,English,Canada,North America,42.4,4.9,0
+M0152,Title 152,Drama,2024,James Cameron,169,21960194,15912005,R,English,Australia,Asia Pacific,40.0,5.6,0
+M0153,Title 153,Action,2016,Sofia Coppola,112,28053482,11758378,R,Korean,South Korea,Asia Pacific,38.3,5.2,0
+M0154,Title 154,Drama,2019,Denis Villeneuve,106,16210696,2248194,PG-13,English,US,North America,29.4,4.7,0
+M0155,Title 155,Sci-Fi,2023,Christopher Nolan,85,8896219,17487258,PG-13,English,US,North America,37.7,5.7,0
+M0156,Title 156,Comedy,2023,Patty Jenkins,119,14539153,49669883,R,Spanish,Brazil,Latin America,41.2,6.1,0
+M0157,Title 157,Horror,2022,Christopher Nolan,163,4862270,12637302,PG-13,Japanese,Japan,Asia Pacific,40.1,5.9,0
+M0158,Title 158,Comedy,2015,Denis Villeneuve,107,56941292,24431203,G,French,France,Europe,30.9,5.6,0
+M0159,Title 159,Action,2015,Denis Villeneuve,176,3530648,15287770,R,Spanish,Mexico,Latin America,51.9,5.5,0
+M0160,Title 160,Thriller,2023,Sofia Coppola,115,155680230,141180317,R,English,Canada,North America,37.8,5.5,0
+M0161,Title 161,Horror,2025,Denis Villeneuve,82,5109806,3840400,R,Spanish,Mexico,Latin America,34.4,5.1,0
+M0162,Title 162,Action,2022,James Cameron,85,96425976,85698460,PG-13,Japanese,Japan,Asia Pacific,35.8,5.6,0
+M0163,Title 163,Documentary,2024,Steven Spielberg,160,11041127,20142326,R,English,Australia,Asia Pacific,39.0,5.6,0
+M0164,Title 164,Thriller,2023,Denis Villeneuve,125,41421728,18507987,PG-13,Spanish,Brazil,Latin America,37.1,5.4,0
+M0165,Title 165,Comedy,2021,Christopher Nolan,162,12700911,20883714,R,Korean,South Korea,Asia Pacific,39.4,5.5,0
+M0166,Title 166,Action,2017,Denis Villeneuve,115,112758590,282133632,PG,Hindi,India,Asia Pacific,46.6,5.1,0
+M0167,Title 167,Documentary,2017,James Cameron,91,26002904,119752604,R,French,France,Europe,47.3,6.0,0
+M0168,Title 168,Horror,2016,Jordan Peele,150,65705959,130866649,R,Hindi,India,Asia Pacific,46.0,6.0,0
+M0169,Title 169,Horror,2019,Jordan Peele,120,26770995,13630114,G,English,Australia,Asia Pacific,40.2,5.6,0
+M0170,Title 170,Romance,2017,Bong Joon-ho,106,34347862,66764348,R,English,US,North America,36.5,4.8,0
+M0171,Title 171,Documentary,2020,Patty Jenkins,153,43526581,28496110,PG-13,Hindi,India,Asia Pacific,41.6,4.7,0
+M0172,Title 172,Sci-Fi,2016,Greta Gerwig,154,15533892,9655250,R,Hindi,India,Asia Pacific,31.7,4.7,0
+M0173,Title 173,Drama,2017,Steven Spielberg,128,7898033,3938534,R,Korean,South Korea,Asia Pacific,39.8,5.3,0
+M0174,Title 174,Thriller,2019,Ava DuVernay,160,7747985,2358280,PG-13,Korean,South Korea,Asia Pacific,34.0,5.4,0
+M0175,Title 175,Documentary,2025,Bong Joon-ho,166,26170534,26704057,R,Spanish,Brazil,Latin America,42.0,4.8,0
+M0176,Title 176,Romance,2025,Patty Jenkins,94,16104516,75620533,R,Spanish,Mexico,Latin America,52.0,5.9,0
+M0177,Title 177,Drama,2015,Jordan Peele,107,3624095,46949308,PG-13,Hindi,India,Asia Pacific,74.2,8.0,2
+M0178,Title 178,Drama,2015,Christopher Nolan,148,39667132,40242535,PG-13,French,France,Europe,40.9,5.5,0
+M0179,Title 179,Action,2024,Ava DuVernay,114,8349779,37726331,R,Hindi,India,Asia Pacific,44.8,5.9,0
+M0180,Title 180,Drama,2023,Patty Jenkins,106,8798518,10486486,R,Hindi,India,Asia Pacific,32.9,5.3,0
+M0181,Title 181,Sci-Fi,2021,Patty Jenkins,171,24080741,9266247,R,Korean,South Korea,Asia Pacific,34.5,5.1,0
+M0182,Title 182,Horror,2015,Bong Joon-ho,76,11120294,35525402,R,English,UK,Europe,39.5,5.4,0
+M0183,Title 183,Romance,2022,Ava DuVernay,171,27914067,58620923,PG-13,English,UK,Europe,42.8,5.5,0
+M0184,Title 184,Drama,2017,Sofia Coppola,107,147671561,1289276546,R,English,UK,Europe,56.9,7.0,0
+M0185,Title 185,Action,2022,Greta Gerwig,179,17773772,7592352,PG,Spanish,Brazil,Latin America,41.5,5.5,0
+M0186,Title 186,Sci-Fi,2019,Sofia Coppola,151,9633576,202818640,PG-13,English,US,North America,91.7,9.2,0
+M0187,Title 187,Comedy,2015,Ava DuVernay,104,29436402,209642964,G,English,Australia,Asia Pacific,58.2,6.7,0
+M0188,Title 188,Horror,2021,Sofia Coppola,107,12443111,20814797,PG-13,Spanish,Mexico,Latin America,34.8,4.9,0
+M0189,Title 189,Horror,2019,James Cameron,151,25540161,33185279,PG-13,English,US,North America,42.6,5.2,0
+M0190,Title 190,Romance,2020,Jordan Peele,100,33213227,29646603,PG-13,Spanish,Mexico,Latin America,42.2,4.6,0
+M0191,Title 191,Horror,2020,James Cameron,96,24220480,45448789,R,English,Australia,Asia Pacific,39.7,5.0,0
+M0192,Title 192,Drama,2022,Denis Villeneuve,177,26305522,37896720,PG-13,English,US,North America,39.9,5.5,0
+M0193,Title 193,Action,2023,Sofia Coppola,140,29718126,80222280,PG-13,Korean,South Korea,Asia Pacific,45.3,6.1,0
+M0194,Title 194,Horror,2016,Denis Villeneuve,112,105243559,137273533,PG-13,English,Canada,North America,34.3,4.8,0
+M0195,Title 195,Horror,2023,Christopher Nolan,177,19910524,120945981,PG-13,English,Canada,North America,51.5,6.1,0
+M0196,Title 196,Comedy,2025,Steven Spielberg,164,28038169,53342662,PG-13,Spanish,Mexico,Latin America,38.7,5.7,0
+M0197,Title 197,Comedy,2024,Christopher Nolan,120,54545759,73591747,PG,Hindi,India,Asia Pacific,34.1,4.9,0
+M0198,Title 198,Thriller,2023,Ava DuVernay,89,38198986,163252020,PG-13,English,US,North America,44.9,5.9,0
+M0199,Title 199,Sci-Fi,2024,Patty Jenkins,172,18110421,7148085,R,French,France,Europe,30.5,5.3,0
+M0200,Title 200,Drama,2024,Jordan Peele,118,56292027,130069728,PG-13,English,US,North America,35.3,5.6,0
