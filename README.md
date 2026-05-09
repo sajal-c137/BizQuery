@@ -16,6 +16,95 @@ An AI-powered business analytics workspace that answers questions over your stru
 
 **Why these picks.** The product is a single-user demo, so the stack is biased towards *zero infrastructure to run, easy to swap later*: SQLite avoids a database container; ChromaDB is persistent and embedded so there's no separate vector service; ONNX MiniLM runs on CPU with no API key or per-request cost (so embeddings stay on the box and free); FastAPI is async end-to-end, which keeps long LLM calls from blocking unrelated requests; Groq is the default LLM because the free tier is generous, but `LLM_BASE_URL`/`LLM_MODEL` make any OpenAI-compatible provider a drop-in. nginx fronts the frontend and reverse-proxies `/api/*` to the backend, so the whole app ships on one port. Logging is centralised in [backend/logger.py](backend/logger.py) (stdout for `docker logs` plus an in-memory ring buffer that powers the Logs page), and field-level access policy is enforced **server-side** in [services/policy.py](backend/services/policy.py) — not just hidden in the UI.
 
+## Architecture
+
+### System overview
+
+```mermaid
+flowchart LR
+    User((User<br/>browser))
+
+    subgraph FE[Frontend container]
+        NG[nginx :80<br/>static + /api proxy]
+        UI[React SPA<br/>Workspace / Docs / Logs]
+    end
+
+    subgraph BE[Backend container — FastAPI]
+        R[Routers<br/>chat · analytics · documents · /logs]
+        subgraph SVC[Services]
+            AI[ai.py<br/>LLM wrapper]
+            CTX[context.py<br/>source resolver]
+            CH[charts.py]
+            DP[data_proxy.py<br/>CSV loader]
+            SR[source_router.py<br/>auto picker]
+            POL[policy.py<br/>field-level ACL]
+        end
+        subgraph RP[RAG pipeline]
+            ING[ingestion]
+            CHK[chunker]
+            EMB[embedder<br/>ONNX MiniLM]
+            VS[vector_store]
+        end
+        L[logger.py<br/>stdout + ring buffer]
+    end
+
+    subgraph V[Docker volumes]
+        DB[(SQLite<br/>conversations<br/>messages<br/>documents)]
+        CDB[(ChromaDB<br/>embeddings)]
+        UP[(uploads/)]
+    end
+
+    SEED[CSVs + PDFs<br/>database/data_sources/]
+    LLM((Groq /<br/>OpenAI-compatible))
+
+    User -->|HTTPS| NG
+    UI -->|axios /api/*| NG
+    NG --> R
+    R --> SVC
+    R --> RP
+    R <--> DB
+    AI --> LLM
+    DP --> SEED
+    ING --> SEED
+    ING --> CHK --> EMB --> VS
+    VS <--> CDB
+    R --> UP
+    POL -.gate.-> CTX
+    POL -.gate.-> CH
+    POL -.gate.-> VS
+    L -.tail.-> R
+```
+
+### Chat request flow
+
+How a single `/chat/message` turn pulls from multiple sources before answering:
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant FE as Frontend
+    participant API as Backend<br/>/chat/message
+    participant POL as policy
+    participant DP as data_proxy<br/>(CSV)
+    participant RAG as RAG retrieve<br/>(Chroma)
+    participant LLM as Groq LLM
+    participant DB as SQLite
+
+    U->>FE: ask question
+    FE->>API: POST {message, source_ids, admin}
+    API->>POL: filter sources by sensitivity
+    par parallel context build
+        API->>DP: schema + stats + sample
+    and
+        API->>RAG: top-k chunks (filtered)
+    end
+    API->>LLM: prompt with grounded context
+    LLM-->>API: answer
+    API->>DB: persist user + assistant messages
+    API-->>FE: {message, sources}
+    FE-->>U: render bubble + citation chips
+```
+
 ## Features
 
 - **Three-panel workspace** — sources / visualizations / chat, all driven by the same selection state.
