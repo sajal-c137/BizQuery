@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import chromadb
+from chromadb.config import Settings as ChromaSettings
 
 from config import settings
 
@@ -10,7 +11,10 @@ _COLLECTION = "documents"
 def _collection():
     path = Path(settings.chroma_dir)
     path.mkdir(parents=True, exist_ok=True)
-    c = chromadb.PersistentClient(path=str(path))
+    c = chromadb.PersistentClient(
+        path=str(path),
+        settings=ChromaSettings(anonymized_telemetry=False),
+    )
     return c.get_or_create_collection(name=_COLLECTION, metadata={"hnsw:space": "cosine"})
 
 
