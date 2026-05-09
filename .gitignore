@@ -53,6 +53,9 @@ secrets/
 # ChromaDB persistent store (regenerable from ingest_docs.py)
 database/chroma_db/
 
+# User-uploaded documents (runtime artifacts)
+backend/uploads/
+
 # Alembic (keep versions/, ignore generated files)
 alembic/versions/*.pyc
 

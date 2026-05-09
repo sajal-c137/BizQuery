@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from schemas import AnalyticsRequest, AnalyticsResponse
 from services.ai import get_ai_response
+from services.charts import get_chart_bundle
 from services.data_proxy import get_data_context, list_sources
 from services.rag.pipeline import retrieve_context
 from services.source_router import route_sources
@@ -13,6 +14,15 @@ router = APIRouter(prefix="/analytics", tags=["analytics"])
 def get_sources() -> list[dict]:
     """List all available CSV data sources."""
     return list_sources()
+
+
+@router.get("/charts/{source_id}")
+def get_charts(source_id: str, admin: bool = False) -> dict:
+    """Return chart-friendly summaries for the visualization panel."""
+    try:
+        return get_chart_bundle(source_id, admin=admin)
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.post("/query", response_model=AnalyticsResponse)

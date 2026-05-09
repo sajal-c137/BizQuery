@@ -60,7 +60,13 @@ async def send_message(body: ChatRequest, db: Session = Depends(get_db)):
     history.append({"role": "user", "content": body.message})
 
     data_contexts: list[dict] = []
-    if body.source_id == "auto":
+    if body.source_ids:
+        for sid in body.source_ids:
+            try:
+                data_contexts.append(get_data_context(sid, admin=body.admin))
+            except FileNotFoundError:
+                continue
+    elif body.source_id == "auto":
         for sid in await route_sources(body.message):
             try:
                 data_contexts.append(get_data_context(sid, admin=body.admin))

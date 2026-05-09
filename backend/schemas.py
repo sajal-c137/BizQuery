@@ -34,6 +34,7 @@ class ChatRequest(BaseModel):
     conversation_id: int | None = None
     message: str
     source_id: str | None = None
+    source_ids: list[str] | None = None
     admin: bool = False
 
 
