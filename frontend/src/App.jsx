@@ -3,6 +3,14 @@ import SourcePanel from './components/SourcePanel'
 import VisualizationPanel from './components/VisualizationPanel'
 import ChatPanel from './components/ChatPanel'
 import DocsPage from './components/DocsPage'
+import LogsPage from './components/LogsPage'
+
+// top-bar view switcher options
+const VIEWS = [
+  { id: 'workspace', label: 'Workspace' },
+  { id: 'docs', label: 'Docs' },
+  { id: 'logs', label: 'Logs' },
+]
 
 export default function App() {
   // checked CSV ids (used by chat as data sources)
@@ -13,7 +21,7 @@ export default function App() {
   const [focused, setFocused] = useState(null)
   // admin toggle reveals 'internal' columns and confidential docs
   const [admin, setAdmin] = useState(false)
-  // 'workspace' | 'docs'
+  // 'workspace' | 'docs' | 'logs'
   const [view, setView] = useState('workspace')
 
   // toggle helpers — flip an id in/out of the selected list
@@ -37,19 +45,33 @@ export default function App() {
             AI-powered business analytics workspace
           </p>
         </div>
-        <button
-          onClick={() => setView(view === 'docs' ? 'workspace' : 'docs')}
-          className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 text-gray-700
-                     hover:bg-gray-50 hover:border-gray-300 transition-colors"
-        >
-          {view === 'docs' ? 'Workspace' : 'Docs'}
-        </button>
+        {/* segmented control: workspace / docs / logs */}
+        <nav className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-lg p-0.5">
+          {VIEWS.map((v) => (
+            <button
+              key={v.id}
+              onClick={() => setView(v.id)}
+              className={`text-sm px-3 py-1 rounded-md transition-colors ${
+                view === v.id
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              {v.label}
+            </button>
+          ))}
+        </nav>
       </header>
 
       {view === 'docs' ? (
         // standalone docs view — no sidebars
         <main className="flex-1 min-h-0 overflow-hidden">
           <DocsPage onBack={() => setView('workspace')} />
+        </main>
+      ) : view === 'logs' ? (
+        // standalone logs view — no sidebars
+        <main className="flex-1 min-h-0 overflow-hidden">
+          <LogsPage onBack={() => setView('workspace')} />
         </main>
       ) : (
         // workspace: sources | viz | chat

@@ -66,4 +66,9 @@ export const uploadDocument = (file, sensitivity = 'public') => {
 export const deleteDocument = (docId) =>
   api.delete(`/documents/${docId}`)
 
+// ---- logs ----
+
+export const getLogs = (limit = 500) =>
+  api.get('/logs', { params: { limit } })
+
 export default api

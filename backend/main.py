@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 
 from config import settings
 from database import SessionLocal, init_db
-from logger import get_logger
+from logger import get_buffered_logs, get_logger
 from routers import analytics, chat, documents
 
 log = get_logger("main")
@@ -123,3 +123,9 @@ app.include_router(documents.router)
 def health():
     # cheap probe — used by docker healthchecks / load balancers
     return {"status": "ok"}
+
+
+@app.get("/logs")
+def logs(limit: int = 500):
+    # in-memory ring buffer; powers the Logs page in the UI
+    return {"lines": get_buffered_logs(limit)}
