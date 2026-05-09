@@ -21,9 +21,10 @@ export const getCharts = (sourceId, admin = false) =>
 export const getDocuments = () =>
   api.get('/documents/')
 
-export const uploadDocument = (file) => {
+export const uploadDocument = (file, sensitivity = 'public') => {
   const form = new FormData()
   form.append('file', file)
+  form.append('sensitivity', sensitivity)
   return api.post('/documents/ingest', form, {
     headers: { 'Content-Type': 'multipart/form-data' },
   })

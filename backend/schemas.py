@@ -50,6 +50,7 @@ class DocumentOut(BaseModel):
     file_type: str
     chunk_count: int
     status: str
+    sensitivity: str = "public"
     created_at: datetime
 
     model_config = {"from_attributes": True}

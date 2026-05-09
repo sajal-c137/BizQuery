@@ -1,7 +1,7 @@
 import uuid
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile, status
 from sqlalchemy.orm import Session
 
 from config import settings
@@ -16,10 +16,16 @@ _SUPPORTED = {".pdf", ".csv", ".txt", ".md", ".png", ".jpg", ".jpeg", ".gif", ".
 
 
 @router.post("/ingest", response_model=DocumentOut, status_code=status.HTTP_201_CREATED)
-async def ingest_document(file: UploadFile = File(...), db: Session = Depends(get_db)):
+async def ingest_document(
+    file: UploadFile = File(...),
+    sensitivity: str = Form("public"),
+    db: Session = Depends(get_db),
+):
     suffix = Path(file.filename).suffix.lower()
     if suffix not in _SUPPORTED:
         raise HTTPException(status_code=400, detail=f"Unsupported file type: {suffix}")
+    if sensitivity not in ("public", "internal"):
+        raise HTTPException(status_code=400, detail="sensitivity must be 'public' or 'internal'")
 
     upload_dir = Path(settings.upload_dir)
     upload_dir.mkdir(parents=True, exist_ok=True)
@@ -28,7 +34,13 @@ async def ingest_document(file: UploadFile = File(...), db: Session = Depends(ge
     dest = upload_dir / f"{doc_id}{suffix}"
     dest.write_bytes(await file.read())
 
-    doc = Document(doc_id=doc_id, filename=file.filename, file_type=suffix.lstrip("."), status="pending")
+    doc = Document(
+        doc_id=doc_id,
+        filename=file.filename,
+        file_type=suffix.lstrip("."),
+        status="pending",
+        sensitivity=sensitivity,
+    )
     db.add(doc)
     db.commit()
 

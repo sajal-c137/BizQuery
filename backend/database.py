@@ -35,6 +35,16 @@ def init_db() -> None:
 
     Base.metadata.create_all(bind=engine)
 
+    # Idempotent column add for existing SQLite DBs (avoids needing a migration
+    # for the simple sensitivity flag). Postgres should use Alembic.
+    if _is_sqlite:
+        with engine.begin() as conn:
+            cols = {row[1] for row in conn.execute(text("PRAGMA table_info(documents)"))}
+            if "sensitivity" not in cols:
+                conn.execute(text(
+                    "ALTER TABLE documents ADD COLUMN sensitivity TEXT NOT NULL DEFAULT 'public'"
+                ))
+
 
 def get_db():
     """FastAPI dependency — yields a DB session and closes it after the request."""

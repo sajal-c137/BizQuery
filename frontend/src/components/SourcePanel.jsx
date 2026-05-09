@@ -39,6 +39,7 @@ export default function SourcePanel({
   const [docs, setDocs] = useState([])
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
+  const [confidentialUpload, setConfidentialUpload] = useState(false)
   const fileInput = useRef(null)
 
   const ingestedDocs = useMemo(() => docs.filter((d) => d.status === 'ingested'), [docs])
@@ -63,7 +64,7 @@ export default function SourcePanel({
     setUploading(true)
     setError('')
     try {
-      await uploadDocument(file)
+      await uploadDocument(file, confidentialUpload ? 'internal' : 'public')
       await refresh()
     } catch (err) {
       setError(err.response?.data?.detail || 'Upload failed')
@@ -179,6 +180,14 @@ export default function SourcePanel({
                       disabled={d.status !== 'ingested'}
                     />
                     <span className="text-sm text-gray-700 truncate flex-1">{stripExt(d.filename)}</span>
+                    {d.sensitivity === 'internal' && (
+                      <span
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-red-50 text-red-700 font-medium"
+                        title="Confidential — visible only in Admin mode"
+                      >
+                        confidential
+                      </span>
+                    )}
                     {d.status !== 'ingested' ? (
                       <span className="text-[10px] px-1.5 py-0.5 rounded bg-red-50 text-red-600">
                         {d.status}
@@ -218,6 +227,19 @@ export default function SourcePanel({
           <span className="text-[10px] text-gray-400">internal metrics</span>
         </label>
 
+        <label className="flex items-center gap-2 text-xs cursor-pointer">
+          <input
+            type="checkbox"
+            checked={confidentialUpload}
+            onChange={(e) => setConfidentialUpload(e.target.checked)}
+            className="accent-red-600"
+          />
+          <span className={`flex-1 ${confidentialUpload ? 'text-red-700 font-medium' : 'text-gray-600'}`}>
+            Mark next upload confidential
+          </span>
+          <span className="text-[10px] text-gray-400">admin only</span>
+        </label>
+
         <input
           ref={fileInput}
           type="file"
@@ -231,7 +253,7 @@ export default function SourcePanel({
           className="w-full text-sm bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50
                      text-white rounded-lg py-1.5 transition-colors"
         >
-          {uploading ? 'Uploading…' : '+ Add document'}
+          {uploading ? 'Uploading…' : `+ Add ${confidentialUpload ? 'confidential ' : ''}document`}
         </button>
         {error && <p className="text-[11px] text-red-500">{error}</p>}
       </div>

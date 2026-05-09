@@ -14,4 +14,5 @@ class Document(Base):
     file_type: Mapped[str]
     chunk_count: Mapped[int] = mapped_column(default=0)
     status: Mapped[str] = mapped_column(default="pending")
+    sensitivity: Mapped[str] = mapped_column(default="public")
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))

@@ -1,10 +1,13 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
 
+from database import get_db
+from models import Document
 from schemas import AnalyticsRequest, AnalyticsResponse
 from services.ai import get_ai_response
 from services.charts import get_chart_bundle
 from services.data_proxy import get_data_context, list_sources
-from services.rag.pipeline import retrieve_context
+from services.rag.pipeline import filter_by_access, retrieve_context
 from services.source_router import route_sources
 
 router = APIRouter(prefix="/analytics", tags=["analytics"])
@@ -26,7 +29,7 @@ def get_charts(source_id: str, admin: bool = False) -> dict:
 
 
 @router.post("/query", response_model=AnalyticsResponse)
-async def analytics_query(body: AnalyticsRequest) -> AnalyticsResponse:
+async def analytics_query(body: AnalyticsRequest, db: Session = Depends(get_db)) -> AnalyticsResponse:
     data_contexts: list[dict] = []
     if body.source_id == "auto":
         for sid in await route_sources(body.question):
@@ -42,6 +45,11 @@ async def analytics_query(body: AnalyticsRequest) -> AnalyticsResponse:
 
     # Retrieve semantically relevant chunks from ingested documents
     rag_context = await retrieve_context(body.question)
+    if rag_context and not body.admin:
+        confidential = {
+            d.doc_id for d in db.query(Document.doc_id).filter(Document.sensitivity == "internal").all()
+        }
+        rag_context = filter_by_access(rag_context, confidential)
 
     answer = await get_ai_response(
         [{"role": "user", "content": body.question}],

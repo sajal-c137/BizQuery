@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models import Conversation, Message
+from models import Conversation, Document, Message
 from schemas import (
     ChatRequest,
     ChatResponse,
@@ -13,7 +13,7 @@ from schemas import (
 )
 from services.ai import get_ai_response
 from services.data_proxy import get_data_context
-from services.rag.pipeline import retrieve_context
+from services.rag.pipeline import filter_by_access, retrieve_context
 from services.source_router import route_sources
 
 router = APIRouter(prefix="/chat", tags=["chat"])
@@ -79,6 +79,11 @@ async def send_message(body: ChatRequest, db: Session = Depends(get_db)):
             raise HTTPException(status_code=404, detail=f"Data source '{body.source_id}' not found")
 
     rag_context = await retrieve_context(body.message)
+    if rag_context and not body.admin:
+        confidential = {
+            d.doc_id for d in db.query(Document.doc_id).filter(Document.sensitivity == "internal").all()
+        }
+        rag_context = filter_by_access(rag_context, confidential)
 
     reply_text = await get_ai_response(
         history,

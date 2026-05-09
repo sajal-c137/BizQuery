@@ -71,8 +71,8 @@ export default function DocsPage({ onBack }) {
           </ul>
         </Section>
 
-        <Section title="Data privacy">
-          <p>Every column is tagged with one of four sensitivity levels:</p>
+        <Section title="Data privacy — datasets">
+          <p>Every CSV column is tagged with one of four sensitivity levels:</p>
           <ul className="list-none pl-0 space-y-1.5">
             <li><Tag tone="green">public</Tag> — visible to everyone.</li>
             <li>
@@ -89,6 +89,25 @@ export default function DocsPage({ onBack }) {
             Only aggregate stats (sums, means, top slices) are sent to the model — raw
             rows never leave the backend. Policy is checked on every turn, so revoking
             access mid-conversation immediately blocks any further mention.
+          </p>
+        </Section>
+
+        <Section title="Data privacy — documents">
+          <p>Uploaded PDFs, TXTs, and MDs get the same two-tier gate as datasets:</p>
+          <ul className="list-none pl-0 space-y-1.5">
+            <li><Tag tone="green">public</Tag> — retrieved like any other document.</li>
+            <li>
+              <Tag tone="red">confidential</Tag> — tick <strong>Mark next upload
+              confidential</strong> before adding the file. Its chunks are excluded
+              from chat retrieval unless <strong>Admin mode</strong> is on, and the
+              sidebar shows a red badge.
+            </li>
+          </ul>
+          <p>
+            On top of that, every chunk passes through a <strong>PII scrub</strong> at
+            ingest time — emails, phone numbers, and SSNs are masked before the text
+            is embedded. PII never reaches the vector store, the LLM, or chat
+            history; even an admin viewing a confidential doc sees the redacted text.
           </p>
         </Section>
 
